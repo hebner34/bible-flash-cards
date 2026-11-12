@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bible Flash Cards</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Flash Cards">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="icon" href="icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style id="css">
+/* Layout idea: one-screen study desk. Filters on top, one large card with a ribbon stripe in the middle, thumb controls at the bottom. */
+:root{
+  --paper:#eef1f4; --surface:#ffffff; --ink:#1b2a41; --muted:#5d6b7e; --line:#cfd6de;
+  --accent:#8a1c35; --on-accent:#ffffff;
+  --c-chapter:#274c77; --c-verse:#8a1c35; --c-person:#4f6b2f;
+  --shadow:0 10px 30px rgba(27,42,65,.12);
+  --f-card:"Spectral", Georgia, "Times New Roman", serif;
+  --f-ui:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#111822; --surface:#1b2532; --ink:#e8edf3; --muted:#9aa8b8; --line:#2f3c4d;
+    --accent:#e08a9b; --on-accent:#1b1014;
+    --c-chapter:#8fb4e0; --c-verse:#e08a9b; --c-person:#a9c784;
+    --shadow:0 10px 30px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#111822; --surface:#1b2532; --ink:#e8edf3; --muted:#9aa8b8; --line:#2f3c4d;
+  --accent:#e08a9b; --on-accent:#1b1014;
+  --c-chapter:#8fb4e0; --c-verse:#e08a9b; --c-person:#a9c784;
+  --shadow:0 10px 30px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-ui);font-size:16px;line-height:1.4}
+button,select,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+#app{height:100%;height:100dvh;max-width:640px;margin:0 auto;padding:14px 16px 16px;display:flex;flex-direction:column;gap:12px}
+
+.top{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.top h1{font-family:var(--f-card);font-weight:600;font-size:1.35rem;margin:0;letter-spacing:.01em}
+.count{color:var(--muted);font-variant-numeric:tabular-nums;font-size:.95rem;white-space:nowrap}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 13px;font-weight:600;font-size:.9rem;cursor:pointer;display:flex;align-items:center;gap:7px}
+.chip .dot{width:9px;height:9px;border-radius:50%;background:var(--muted)}
+.chip[data-cat="chapters"] .dot{background:var(--c-chapter)}
+.chip[data-cat="verses"] .dot{background:var(--c-verse)}
+.chip[data-cat="people"] .dot{background:var(--c-person)}
+.chip small{color:var(--muted);font-weight:500;font-variant-numeric:tabular-nums}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip[aria-pressed="true"] small{color:inherit;opacity:.75}
+
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.row select{flex:1;min-width:140px;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 10px}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 12px;font-weight:600;font-size:.9rem;cursor:pointer}
+.btn[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn:disabled{opacity:.45;cursor:default}
+[hidden]{display:none !important}
+
+.stage{flex:1;min-height:220px;perspective:1400px}
+.card{position:relative;width:100%;height:100%;border:0;padding:0;background:none;cursor:pointer;text-align:left;transform-style:preserve-3d;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.card.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;overflow:hidden}
+.face::before{content:"";height:7px;background:var(--cat);flex:none}
+.back{transform:rotateY(180deg)}
+.eyebrow{padding:14px 20px 0;font-size:.78rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--cat)}
+.front .body{flex:1;display:flex;flex-direction:column;justify-content:center;padding:10px 20px 20px}
+.front .title{font-family:var(--f-card);font-weight:600;font-size:clamp(2rem,9vw,3rem);line-height:1.1;text-wrap:balance;overflow-wrap:anywhere}
+.front .sub{color:var(--muted);margin-top:8px}
+.hint{padding:0 20px 14px;color:var(--muted);font-size:.85rem}
+.back .body{flex:1;overflow-y:auto;padding:10px 20px 20px;font-family:var(--f-card);font-size:1.2rem;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+.empty{height:100%;border:1px dashed var(--line);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;text-align:center;color:var(--muted)}
+
+.nav{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:8px}
+.nav .btn{padding:14px 10px;font-size:1rem}
+.tools{display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between}
+.note{color:var(--muted);font-size:.85rem;min-height:1.2em;margin:0}
+
+.overlay{position:fixed;inset:0;background:rgba(10,16,24,.55);display:flex;align-items:flex-end;justify-content:center;padding:16px;z-index:10}
+.sheet{background:var(--surface);border-radius:16px;padding:18px;width:100%;max-width:560px;max-height:100%;overflow-y:auto;display:flex;flex-direction:column;gap:12px}
+.sheet h2{font-family:var(--f-card);margin:0;font-size:1.25rem}
+.sheet label{display:flex;flex-direction:column;gap:5px;font-weight:600;font-size:.9rem}
+.sheet input,.sheet textarea{border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:10px;font-weight:400}
+.sheet textarea{min-height:120px;font-family:var(--f-card);font-size:1.05rem;resize:vertical}
+.sheet .row{justify-content:flex-end}
+@media (prefers-reduced-motion: reduce){.card{transition:none}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script id="cards">
+window.CARDS={
+chapters:{
+Genesis:[
+"God creates the heavens and the earth in six days, speaking light, sky, land, plants, sun, moon, stars, sea creatures, birds and animals into being. He makes man and woman in His own image and calls it all very good.",
+"God rests on the seventh day and blesses it. The chapter retells the forming of man from dust, the garden of Eden, the one forbidden tree, and the making of woman from Adam's rib as the first marriage.",
+"The serpent deceives Eve, and she and Adam eat the forbidden fruit. Sin, shame and the curse enter the world. God promises a Seed who will bruise the serpent's head, clothes the couple, and sends them out of Eden.",
+"Cain and Abel bring offerings and God accepts Abel's. Cain murders his brother and is sent away as a wanderer. Cain's family builds a city and trades; Seth is born, and people begin to call on the name of the Lord.",
+"The family line from Adam to Noah through Seth, with very long lives that each end in death. Enoch walks with God and is taken without dying. Methuselah lives 969 years.",
+"Wickedness and violence fill the earth and God is grieved. Noah finds grace in the Lord's eyes. God tells him to build an ark and promises a covenant to save his family and the animals.",
+"Noah, his family and the animals enter the ark. Rain falls forty days and nights, the fountains of the deep break open, and the flood covers the mountains. Everything on dry land dies, and the waters prevail 150 days.",
+"God remembers Noah and the waters go down. The ark rests on the mountains of Ararat; Noah sends out a raven and a dove. He leaves the ark and builds an altar, and God promises the seasons will continue.",
+"God blesses Noah, permits eating meat, requires an accounting for human life, and sets the rainbow as the sign of His covenant never to flood the earth again. Noah gets drunk; Ham dishonors him and Canaan is cursed.",
+"The Table of Nations: the descendants of Japheth, Ham and Shem spread out by families, languages and lands. Nimrod is noted as a mighty hunter and kingdom builder.",
+"People build the tower of Babel to make a name for themselves; God confuses their language and scatters them. The line from Shem leads to Abram, whose father Terah leaves Ur and settles in Haran.",
+"God calls Abram to leave his country, promising to make him a great nation and to bless all families of the earth through him. Abram travels to Canaan and builds altars. In Egypt during a famine he passes Sarai off as his sister.",
+"Abram and Lot separate because their herds are too large. Lot chooses the well-watered Jordan plain near Sodom. God renews the promise of the land and of descendants like the dust; Abram settles at Hebron.",
+"Four kings defeat five and carry off Lot. Abram rescues him with 318 trained men. Melchizedek, king of Salem and priest of God Most High, blesses Abram, who gives him a tenth and refuses the king of Sodom's spoils.",
+"God promises Abram an heir from his own body and descendants like the stars. Abram believes, and it is counted to him as righteousness. God makes a covenant, foretelling 400 years of affliction and the gift of the land.",
+"Sarai gives her maid Hagar to Abram to bear a child. Hagar conceives, is treated harshly and flees. The Angel of the Lord meets her at a spring, and she names God the One who sees. Ishmael is born.",
+"When Abram is 99, God renames him Abraham and Sarai Sarah, gives circumcision as the covenant sign, and promises a son named Isaac. Abraham circumcises every male in his household that day.",
+"Three visitors come to Abraham at Mamre. The Lord promises Sarah a son within the year and she laughs. Abraham then pleads for Sodom, and God agrees to spare it if ten righteous are found.",
+"Two angels bring Lot's family out of Sodom before God destroys Sodom and Gomorrah with brimstone and fire. Lot's wife looks back and becomes a pillar of salt. Lot's daughters bear Moab and Ben-Ammi.",
+"In Gerar Abraham again says Sarah is his sister, and King Abimelech takes her. God warns Abimelech in a dream; he returns her with gifts, and Abraham prays for the healing of his household.",
+"Isaac is born as promised. Hagar and Ishmael are sent away, and God hears the boy and provides water in the wilderness. Abraham and Abimelech make a covenant at Beersheba.",
+"God tests Abraham by asking for Isaac as a burnt offering on Moriah. Abraham obeys, the Angel of the Lord stops him, and a ram is provided instead. God confirms His promise with an oath.",
+"Sarah dies at 127 in Hebron. Abraham buys the field and cave of Machpelah from Ephron the Hittite for 400 shekels of silver as a burial place, his first owned piece of the promised land.",
+"Abraham sends his servant to his relatives to find a wife for Isaac. The servant prays at the well, and Rebekah waters his camels as the sign. She agrees to go, and Isaac marries her.",
+"Abraham marries Keturah, dies at 175 and is buried by Isaac and Ishmael. Ishmael's line is listed. Rebekah bears twins, Esau and Jacob, and Esau sells his birthright for a bowl of stew.",
+"During a famine Isaac stays in Gerar and God repeats Abraham's promise to him. He calls Rebekah his sister, prospers greatly, moves from well to well over quarrels, and makes peace with Abimelech at Beersheba.",
+"With Rebekah's help Jacob disguises himself and receives from blind Isaac the blessing meant for Esau. Esau weeps and plans to kill him, so Rebekah arranges for Jacob to flee to her brother Laban.",
+"Isaac sends Jacob to Padan Aram for a wife. At Bethel Jacob dreams of a ladder reaching heaven and God repeats the covenant promise to him. Jacob sets up a pillar and vows to give a tenth.",
+"Jacob meets Rachel at a well and works seven years for her, but Laban gives him Leah. He marries Rachel too and serves seven more years. Leah bears Reuben, Simeon, Levi and Judah.",
+"Rachel and Leah compete for children. Sons are born through Bilhah and Zilpah; Leah bears Issachar, Zebulun and Dinah; Rachel finally bears Joseph. Jacob's flocks multiply under his wage deal with Laban.",
+"God tells Jacob to return home, and he leaves secretly while Rachel takes her father's household idols. Laban pursues but is warned by God in a dream. They make a covenant at Mizpah.",
+"Jacob fears meeting Esau, prays, and sends gifts ahead. Alone at night he wrestles with a Man until daybreak, is renamed Israel, and leaves Peniel limping but blessed.",
+"Esau runs to embrace Jacob and the brothers are reconciled. Jacob settles near Shechem, buys land, and builds an altar to the God of Israel.",
+"Shechem violates Dinah and asks to marry her. Her brothers deceitfully require circumcision, then Simeon and Levi kill the men of the city. Jacob rebukes them for the trouble they have brought.",
+"Jacob returns to Bethel after his household puts away foreign gods. God confirms the name Israel and the promise. Rachel dies giving birth to Benjamin; Reuben sins; Isaac dies at 180.",
+"The family record of Esau, who is Edom: his wives, sons, chiefs, and the kings who ruled in Edom before Israel had a king.",
+"Joseph, favored by Jacob and given a tunic of many colors, dreams that his family will bow to him. His brothers sell him for twenty shekels of silver and deceive Jacob with the bloodied tunic. He is sold to Potiphar in Egypt.",
+"Judah's sons die and he withholds his third son from Tamar. She disguises herself and conceives by Judah, who admits she is more righteous than he. Twins Perez and Zerah are born.",
+"The Lord is with Joseph and he runs Potiphar's house. He refuses the advances of Potiphar's wife, is falsely accused and jailed, and there too the Lord gives him favor and charge of the prison.",
+"In prison Joseph interprets the dreams of Pharaoh's chief butler and chief baker. Three days later the butler is restored and the baker hanged, just as he said, but the butler forgets Joseph.",
+"Pharaoh dreams of cows and heads of grain. Joseph explains seven years of plenty followed by seven of famine and is made ruler over Egypt at thirty. Manasseh and Ephraim are born, and the famine begins.",
+"Ten of Joseph's brothers come to buy grain and bow before him without recognizing him. He accuses them of spying, keeps Simeon, demands Benjamin, and returns their money in their sacks.",
+"With the grain gone, Judah pledges himself for Benjamin's safety and the brothers return to Egypt. Joseph hosts them for a meal, seats them by age, and gives Benjamin five times as much.",
+"Joseph has his silver cup hidden in Benjamin's sack and the brothers are brought back. Judah pleads for his father's sake and offers to stay as a slave in Benjamin's place.",
+"Joseph reveals himself and weeps with his brothers, saying God sent him ahead to preserve life. Pharaoh invites the whole family to Egypt, and Jacob learns that Joseph is alive.",
+"God reassures Jacob at Beersheba and he travels to Egypt with his whole family, seventy persons in all. Joseph meets his father in Goshen.",
+"The family settles in Goshen and Jacob blesses Pharaoh. As the famine deepens Joseph gathers Egypt's money, livestock and land for Pharaoh. Jacob makes Joseph swear to bury him in Canaan.",
+"Jacob takes Joseph's sons Ephraim and Manasseh as his own and blesses them, crossing his hands to set the younger Ephraim ahead of Manasseh.",
+"Jacob speaks a prophetic word over each of his twelve sons. The scepter will not depart from Judah until Shiloh comes. He charges them to bury him at Machpelah and dies.",
+"Joseph buries Jacob in Canaan. He reassures his fearful brothers that what they meant for evil God meant for good. Joseph dies at 110 after making Israel swear to carry his bones out of Egypt."
+],
+John:[
+"The Word was with God, was God, and became flesh and dwelt among us. John the Baptist points to Jesus as the Lamb of God. Andrew, Peter, Philip and Nathanael become the first disciples.",
+"At a wedding in Cana Jesus turns water into wine, His first sign. In Jerusalem at Passover He drives the merchants out of the temple and speaks of raising the temple of His body in three days.",
+"Jesus tells Nicodemus that a person must be born again to see the kingdom of God, and that God gave His only Son so believers would have everlasting life. John the Baptist says Jesus must increase while he decreases.",
+"At Jacob's well Jesus offers a Samaritan woman living water and teaches that true worship is in spirit and truth. Many Samaritans believe. Back in Galilee He heals a nobleman's son from a distance.",
+"Jesus heals a man who had been ill thirty-eight years at the pool of Bethesda on the Sabbath. Facing opposition, He explains His authority from the Father and the witnesses that testify of Him.",
+"Jesus feeds five thousand with five barley loaves and two fish and walks on the sea. He teaches that He is the bread of life. Many disciples turn back, but Peter says He has the words of eternal life.",
+"Jesus teaches in the temple at the Feast of Tabernacles and the crowd is divided over Him. He invites the thirsty to come to Him for rivers of living water. Officers sent to arrest Him return empty-handed.",
+"Jesus refuses to condemn a woman caught in adultery, calls Himself the light of the world, and says the truth sets people free. He claims to have existed before Abraham, and they pick up stones.",
+"Jesus heals a man blind from birth with clay and washing in the pool of Siloam. The Pharisees question and expel the man, who then worships Jesus. Jesus speaks about spiritual blindness.",
+"Jesus is the door of the sheep and the good shepherd who lays down His life for them. At the Feast of Dedication He says He and the Father are one, and they try again to stone Him.",
+"Lazarus of Bethany dies. Jesus tells Martha He is the resurrection and the life, weeps at the tomb, and raises Lazarus after four days. The council, led by Caiaphas, plots to put Jesus to death.",
+"Mary anoints Jesus' feet with costly oil. He rides into Jerusalem on a donkey to shouts of Hosanna, speaks of a grain of wheat dying to bear fruit, and a voice answers from heaven. Many still do not believe.",
+"Jesus washes His disciples' feet as an example of service, foretells Judas's betrayal, gives the new commandment to love one another, and predicts Peter's three denials.",
+"Jesus comforts His disciples: He goes to prepare a place and is the way, the truth and the life. He promises the Helper, the Holy Spirit, and leaves them His peace.",
+"Jesus is the true vine and His followers are branches who bear fruit only by abiding in Him. He calls them friends, commands them to love one another, and warns that the world will hate them.",
+"Jesus explains the Holy Spirit's work of convicting the world and guiding into all truth. Their sorrow will turn to joy. In the world they will have tribulation, but He has overcome the world.",
+"Jesus prays to the Father: for His own glory, for the protection and sanctifying of His disciples, and for the unity of all who will believe through their word.",
+"Jesus is betrayed and arrested in the garden; Peter cuts off Malchus's ear. Jesus is questioned by Annas and Caiaphas while Peter denies Him three times. Before Pilate He says His kingdom is not of this world; the crowd chooses Barabbas.",
+"Jesus is scourged, crowned with thorns and handed over. He is crucified at Golgotha, entrusts His mother to the beloved disciple, and declares His work finished. His side is pierced, and Joseph of Arimathea and Nicodemus bury Him.",
+"Mary Magdalene finds the tomb empty and is the first to see the risen Lord. Jesus appears to the disciples and breathes the Holy Spirit on them. Thomas sees and confesses Him as Lord and God.",
+"Jesus appears at the Sea of Tiberias and gives a catch of 153 fish. After breakfast He restores Peter three times, charging him to feed His sheep, and speaks of Peter's future and of the beloved disciple."
+]
+/*MORE_BOOKS*/
+},
+people:[
+{n:"Adam",t:"The first man, formed by God from dust and placed in Eden. God gave him dominion over creation and the first marriage. His disobedience brought sin and death into the world, setting the stage for the promised Redeemer."},
+{n:"Noah",t:"A righteous man who walked with God in a violent age. God used him to build the ark and preserve his family and the animals through the flood, then made the rainbow covenant with him."},
+{n:"Abraham",t:"Called out of Ur to a land God would show him. God made a covenant to give him descendants, the land, and blessing for all nations. He believed God, became father of Isaac, and passed the test on Moriah."},
+{n:"Sarah",t:"Abraham's wife, barren until old age. God gave her Isaac at ninety, making her the mother of the promised line and an example of faith in God's promise."},
+{n:"Isaac",t:"The promised son of Abraham and Sarah, offered on Moriah and spared. God confirmed the covenant to him, and through him and Rebekah came Jacob and Esau."},
+{n:"Jacob (Israel)",t:"Younger twin who gained the birthright and blessing, met God at Bethel and wrestled at Peniel, where he was renamed Israel. His twelve sons became the twelve tribes."},
+{n:"Joseph",t:"Jacob's favored son, sold into slavery by his brothers. God raised him from prison to rule Egypt under Pharaoh, and used him to save many lives, including his own family, through the famine."},
+{n:"Moses",t:"Rescued from the Nile and raised in Pharaoh's house. God called him at the burning bush to lead Israel out of Egypt, part the Red Sea, receive the Law at Sinai, and guide the people forty years in the wilderness."},
+{n:"Aaron",t:"Moses' older brother and spokesman before Pharaoh. God made him Israel's first high priest, and the priesthood continued through his sons."},
+{n:"Joshua",t:"Moses' assistant and one of two faithful spies. God used him to lead Israel across the Jordan, bring down Jericho, conquer Canaan, and divide the land among the tribes."},
+{n:"Deborah",t:"A prophetess and judge of Israel. God used her to summon Barak and deliver Israel from Sisera and the Canaanite army, bringing forty years of rest."},
+{n:"Gideon",t:"A fearful man threshing wheat in hiding whom God called a mighty man of valor. With only 300 men, trumpets and torches, God defeated the Midianites through him."},
+{n:"Samson",t:"A Nazirite judge given great strength by the Spirit of the Lord. God used him to begin delivering Israel from the Philistines, most of all in his death when he pulled down their temple."},
+{n:"Ruth",t:"A Moabite widow who stayed loyal to Naomi and to Naomi's God. She married Boaz, her kinsman redeemer, and became the great-grandmother of King David."},
+{n:"Samuel",t:"Given to Hannah in answer to prayer and raised at the tabernacle. God used him as prophet, priest and the last judge, and he anointed both Saul and David as kings."},
+{n:"Saul",t:"Israel's first king, from the tribe of Benjamin. He won early victories but disobeyed God's commands, and the kingdom was taken from him and given to David."},
+{n:"David",t:"A shepherd from Bethlehem who killed Goliath and became Israel's greatest king. A man after God's own heart, he wrote many psalms, made Jerusalem the capital, and received God's promise of an everlasting throne."},
+{n:"Solomon",t:"David's son, who asked God for wisdom. God gave him wisdom, wealth and peace, and used him to build the temple in Jerusalem. His later idolatry led to the kingdom dividing."},
+{n:"Elijah",t:"A prophet to the northern kingdom in Ahab's day. God used him to shut the heavens, raise a widow's son, call down fire on Mount Carmel against the prophets of Baal, and took him to heaven in a whirlwind."},
+{n:"Elisha",t:"Elijah's successor, who received a double portion of his spirit. Through him God multiplied a widow's oil, raised the Shunammite's son, and healed Naaman of leprosy."},
+{n:"Hezekiah",t:"A king of Judah who trusted the Lord and removed idols. God delivered Jerusalem from the Assyrian army in his reign and added fifteen years to his life when he prayed."},
+{n:"Isaiah",t:"A prophet to Judah who saw the Lord high and lifted up and answered His call. God used him to warn of judgment and to foretell the virgin birth and the suffering Servant."},
+{n:"Jeremiah",t:"Called before birth as a prophet to the nations. He warned Judah for decades of the coming Babylonian captivity, suffered for it, and announced the new covenant written on the heart."},
+{n:"Daniel",t:"Taken to Babylon as a youth, he stayed faithful to God in a pagan court. God gave him wisdom to interpret dreams, protected him in the lions' den, and showed him visions of future kingdoms."},
+{n:"Esther",t:"A Jewish orphan who became queen of Persia. God used her courage in approaching the king to expose Haman's plot and save her people from destruction."},
+{n:"Nehemiah",t:"Cupbearer to the Persian king. God used him to return to Jerusalem and lead the rebuilding of its walls in fifty-two days despite opposition, and to help restore the people's obedience."},
+{n:"Job",t:"A blameless man who lost his wealth, children and health yet did not curse God. Through his suffering God showed that faith can hold without answers, and afterward restored him twice over."},
+{n:"Jonah",t:"A prophet who ran from God's call and was swallowed by a great fish. God used his reluctant preaching to bring Nineveh to repentance and taught him about divine mercy."},
+{n:"Mary, mother of Jesus",t:"A young virgin from Nazareth who found favor with God. She submitted to His word and bore Jesus, the Son of God, and was present at the cross and with the early believers."},
+{n:"John the Baptist",t:"The forerunner promised by the prophets. He preached repentance in the wilderness, baptized Jesus in the Jordan, and pointed people to Him as the Lamb of God."},
+{n:"Peter",t:"A fisherman called to follow Jesus and a leader among the twelve. He confessed Jesus as the Christ, denied Him and was restored, preached at Pentecost where about three thousand believed, and first took the gospel to Gentiles."},
+{n:"John the apostle",t:"A fisherman, son of Zebedee, and the disciple whom Jesus loved. God used him to write a Gospel, three letters and the Revelation received on Patmos."},
+{n:"Stephen",t:"One of seven chosen to serve the Jerusalem church, full of faith and the Holy Spirit. He became the first Christian martyr, and his death scattered believers who carried the gospel outward."},
+{n:"Paul",t:"Once Saul the persecutor, converted by the risen Christ on the Damascus road. God used him as apostle to the Gentiles, planting churches on missionary journeys and writing much of the New Testament."},
+{n:"Barnabas",t:"A generous Levite from Cyprus known as an encourager. He vouched for the newly converted Saul, served the church at Antioch, and went with Paul on the first missionary journey."},
+{n:"Timothy",t:"A young believer from Lystra taught the Scriptures by his mother and grandmother. He became Paul's trusted co-worker, led the church at Ephesus, and received two of Paul's letters."}
+/*MORE_PEOPLE*/
+]
+};
+</script>
+<script id="userdata" type="application/json">{"verses":[]}</script>
+<script id="appjs">
+(function(){
+"use strict";
+var BOOKS=["Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1 Samuel","2 Samuel","1 Kings","2 Kings","1 Chronicles","2 Chronicles","Ezra","Nehemiah","Esther","Job","Psalms","Proverbs","Ecclesiastes","Song of Solomon","Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel","Hosea","Joel","Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk","Zephaniah","Haggai","Zechariah","Malachi","Matthew","Mark","Luke","John","Acts","Romans","1 Corinthians","2 Corinthians","Galatians","Ephesians","Philippians","Colossians","1 Thessalonians","2 Thessalonians","1 Timothy","2 Timothy","Titus","Philemon","Hebrews","James","1 Peter","2 Peter","1 John","2 John","3 John","Jude","Revelation"];
+var LABEL={chapter:"Chapter summary",verse:"Memory verse",person:"Bible character"};
+var CATVAR={chapter:"var(--c-chapter)",verse:"var(--c-verse)",person:"var(--c-person)"};
+var PEND_KEY="bfc-pending", VIEW_KEY="bfc-view";
+
+function lsGet(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+var user={verses:[]};
+try{var u=JSON.parse(document.getElementById("userdata").textContent);if(u&&Array.isArray(u.verses))user=u}catch(e){}
+var savedIds={};user.verses.forEach(function(v){savedIds[v.id]=1});
+var pending=lsGet(PEND_KEY,[]).filter(function(v){return v&&v.id&&!savedIds[v.id]});
+lsSet(PEND_KEY,pending);
+
+var artifact=null, tts=null;
+var view=lsGet(VIEW_KEY,{cat:"all",book:"all",shuffled:true});
+var state={cat:view.cat||"all",book:view.book||"all",shuffled:view.shuffled!==false,deck:[],pos:0,flipped:false,note:""};
+
+function allCards(){
+  var out=[];
+  var ch=window.CARDS.chapters;
+  BOOKS.forEach(function(b){
+    (ch[b]||[]).forEach(function(s,i){out.push({type:"chapter",book:b,front:b+" "+(i+1),sub:"What happens in this chapter?",back:s})});
+  });
+  user.verses.concat(pending).forEach(function(v){
+    out.push({type:"verse",id:v.id,front:v.ref,sub:v.ver||"",back:v.text});
+  });
+  window.CARDS.people.forEach(function(p){out.push({type:"person",front:p.n,sub:"How did God use this person?",back:p.t})});
+  return out;
+}
+var TYPE_OF={chapters:"chapter",verses:"verse",people:"person"};
+function filtered(){
+  return allCards().filter(function(c){
+    if(state.cat!=="all"&&c.type!==TYPE_OF[state.cat])return false;
+    if(state.cat==="chapters"&&state.book!=="all"&&c.book!==state.book)return false;
+    return true;
+  });
+}
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function deal(){
+  var d=filtered();
+  state.deck=state.shuffled?shuffle(d):d;
+  state.pos=0;state.flipped=false;
+  lsSet(VIEW_KEY,{cat:state.cat,book:state.book,shuffled:state.shuffled});
+}
+
+var app=document.getElementById("app");
+app.innerHTML=
+'<div class="top"><h1>Bible Flash Cards</h1><div class="count" id="count"></div></div>'+
+'<div class="chips" id="chips" role="group" aria-label="Card type"></div>'+
+'<div class="row"><select id="book" aria-label="Book"></select>'+
+'<button class="btn" id="shuf" type="button">Shuffle</button>'+
+'<button class="btn" id="order" type="button">In order</button></div>'+
+'<div class="stage" id="stage"></div>'+
+'<div class="nav"><button class="btn" id="prev" type="button">Back</button>'+
+'<button class="btn primary" id="flip" type="button">Flip</button>'+
+'<button class="btn" id="next" type="button">Next</button></div>'+
+'<div class="tools"><button class="btn" id="speak" type="button" hidden>Read aloud</button>'+
+'<button class="btn" id="del" type="button" hidden>Remove this verse</button>'+
+'<button class="btn" id="add" type="button">Add a memory verse</button></div>'+
+'<p class="note" id="note" role="status"></p>'+
+'<div class="overlay" id="overlay" hidden><form class="sheet" id="vform">'+
+'<h2>Add a memory verse</h2>'+
+'<label for="vref">Reference<input id="vref" required placeholder="John 3:16" autocomplete="off"></label>'+
+'<label for="vver">Version<input id="vver" value="NKJV" autocomplete="off"></label>'+
+'<label for="vtext">Verse text<textarea id="vtext" required placeholder="Type or paste the verse here"></textarea></label>'+
+'<div class="row"><button class="btn" id="vcancel" type="button">Cancel</button>'+
+'<button class="btn primary" type="submit">Save verse</button></div></form></div>';
+
+function $(id){return document.getElementById(id)}
+
+function renderChips(){
+  var all=allCards(), n={all:all.length,chapters:0,verses:0,people:0};
+  all.forEach(function(c){if(c.type==="chapter")n.chapters++;else if(c.type==="verse")n.verses++;else n.people++});
+  var defs=[["all","All"],["chapters","Chapters"],["verses","Verses"],["people","Characters"]];
+  $("chips").innerHTML=defs.map(function(d){
+    return '<button class="chip" type="button" data-cat="'+d[0]+'" aria-pressed="'+(state.cat===d[0])+'"><span class="dot"></span>'+d[1]+' <small>'+n[d[0]]+'</small></button>';
+  }).join("");
+  var sel=$("book");
+  var have=BOOKS.filter(function(b){return (window.CARDS.chapters[b]||[]).length});
+  sel.innerHTML='<option value="all">All books</option>'+have.map(function(b){return '<option value="'+esc(b)+'">'+esc(b)+'</option>'}).join("");
+  if(have.indexOf(state.book)<0)state.book="all";
+  sel.value=state.book;
+  sel.hidden=state.cat!=="chapters";
+  $("shuf").setAttribute("aria-pressed",String(state.shuffled));
+  $("order").setAttribute("aria-pressed",String(!state.shuffled));
+}
+
+function renderCard(){
+  var c=state.deck[state.pos], stage=$("stage");
+  var has=!!c;
+  $("prev").disabled=!has||state.pos===0;
+  $("flip").disabled=!has;$("next").disabled=!has;
+  $("count").textContent=has?(state.pos+1)+" of "+state.deck.length:"0 cards";
+  $("next").textContent=has&&state.pos===state.deck.length-1?"Start over":"Next";
+  $("del").hidden=!(has&&c.type==="verse");
+  $("speak").hidden=!has||!canSpeak();
+  $("note").textContent=state.note;
+  if(!has){
+    stage.innerHTML='<div class="empty"><div>'+(state.cat==="verses"?"No memory verses yet. Add the first one and it will show up here.":"No cards here yet.")+'</div></div>';
+    return;
+  }
+  stage.innerHTML='<button class="card'+(state.flipped?" flipped":"")+'" id="card" type="button" style="--cat:'+CATVAR[c.type]+'" aria-label="Flash card. Tap to flip.">'+
+    '<span class="face front"><span class="eyebrow">'+LABEL[c.type]+'</span><span class="body"><span class="title">'+esc(c.front)+'</span>'+(c.sub?'<span class="sub">'+esc(c.sub)+'</span>':'')+'</span><span class="hint">Tap to flip</span></span>'+
+    '<span class="face back"><span class="eyebrow">'+esc(c.front)+'</span><span class="body">'+esc(c.back)+'</span></span></button>';
+}
+function render(){renderChips();renderCard()}
+
+function flip(){if(!state.deck.length)return;state.flipped=!state.flipped;stopSpeak();var el=$("card");if(el)el.classList.toggle("flipped",state.flipped)}
+function go(d){
+  if(!state.deck.length)return;
+  stopSpeak();state.note="";
+  var p=state.pos+d;
+  if(p<0)return;
+  if(p>=state.deck.length){deal();state.note=state.shuffled?"Reshuffled. Back to the first card.":"Back to the first card.";renderCard();return}
+  state.pos=p;state.flipped=false;renderCard();
+}
+
+/* reading aloud */
+function canSpeak(){return !!tts||("speechSynthesis" in window)}
+function stopSpeak(){try{if(tts)tts.stop();else if("speechSynthesis" in window)speechSynthesis.cancel()}catch(e){}}
+function speak(){
+  var c=state.deck[state.pos];if(!c)return;
+  var text=state.flipped?c.back:c.front;
+  if(tts){tts.speak(text).catch(function(){})}
+  else{try{speechSynthesis.cancel();speechSynthesis.speak(new SpeechSynthesisUtterance(text))}catch(e){}}
+}
+
+/* saving the user's verses into the page itself */
+function buildDoc(){
+  var css=$("css").textContent, cards=$("cards").textContent, js=$("appjs").textContent;
+  var data=JSON.stringify(user).replace(/</g,"\\u003c");
+  return '<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<title>Bible Flash Cards</title>\n'+
+    '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">\n'+
+    '<style id="css">'+css+'</style>\n</head>\n<body>\n<div id="app"></div>\n'+
+    '<script id="cards">'+cards+'<\/script>\n'+
+    '<script id="userdata" type="application/json">'+data+'<\/script>\n'+
+    '<script id="appjs">'+js+'<\/script>\n</body>\n</html>\n';
+}
+function persist(okMsg){
+  if(!artifact){lsSet(PEND_KEY,pending);state.note=okMsg+" Saved on this phone.";deal();jumpToCat();return}
+  user.verses=user.verses.concat(pending);pending=[];
+  state.note="Saving…";deal();render();
+  artifact.publish(buildDoc()).then(function(){lsSet(PEND_KEY,[])},function(){
+    var keep=user.verses.filter(function(v){return !savedIds[v.id]});
+    user.verses=user.verses.filter(function(v){return savedIds[v.id]});
+    pending=keep;lsSet(PEND_KEY,pending);
+    state.note=okMsg+" Could not save to the page, so it is kept on this device only.";render();
+  });
+}
+function jumpToCat(){render()}
+
+$("chips").addEventListener("click",function(e){
+  var b=e.target.closest(".chip");if(!b)return;
+  state.cat=b.getAttribute("data-cat");state.note="";deal();render();
+});
+$("book").addEventListener("change",function(){state.book=this.value;state.note="";deal();render()});
+$("shuf").addEventListener("click",function(){state.shuffled=true;state.note="Shuffled.";deal();render()});
+$("order").addEventListener("click",function(){state.shuffled=false;state.note="In order.";deal();render()});
+$("prev").addEventListener("click",function(){go(-1)});
+$("next").addEventListener("click",function(){go(1)});
+$("flip").addEventListener("click",flip);
+$("speak").addEventListener("click",speak);
+$("stage").addEventListener("click",function(e){if(e.target.closest("#card"))flip()});
+
+var tx=null,ty=null;
+$("stage").addEventListener("touchstart",function(e){tx=e.changedTouches[0].clientX;ty=e.changedTouches[0].clientY},{passive:true});
+$("stage").addEventListener("touchend",function(e){
+  if(tx===null)return;
+  var dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty;tx=null;
+  if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5)go(dx<0?1:-1);
+},{passive:true});
+document.addEventListener("keydown",function(e){
+  if(!$("overlay").hidden){if(e.key==="Escape")closeForm();return}
+  if(e.target.closest("select,input,textarea"))return;
+  if(e.key==="ArrowRight")go(1);
+  else if(e.key==="ArrowLeft")go(-1);
+  else if(e.key===" "&&!e.target.closest("button")){e.preventDefault();flip()}
+});
+
+function closeForm(){$("overlay").hidden=true}
+$("add").addEventListener("click",function(){$("overlay").hidden=false;$("vref").focus()});
+$("vcancel").addEventListener("click",closeForm);
+$("overlay").addEventListener("click",function(e){if(e.target===this)closeForm()});
+$("vform").addEventListener("submit",function(e){
+  e.preventDefault();
+  var ref=$("vref").value.trim(), text=$("vtext").value.trim(), ver=$("vver").value.trim();
+  if(!ref||!text)return;
+  pending.push({id:"v"+Date.now().toString(36)+Math.floor(Math.random()*1e4).toString(36),ref:ref,ver:ver,text:text});
+  $("vref").value="";$("vtext").value="";closeForm();
+  state.cat="verses";
+  lsSet(VIEW_KEY,{cat:state.cat,book:state.book,shuffled:state.shuffled});
+  persist("Added "+ref+".");
+});
+var delArmed=null;
+$("del").addEventListener("click",function(){
+  var c=state.deck[state.pos];if(!c||c.type!=="verse")return;
+  if(delArmed!==c.id){delArmed=c.id;state.note="Tap Remove again to delete "+c.front+".";$("note").textContent=state.note;return}
+  delArmed=null;
+  var inPending=pending.some(function(v){return v.id===c.id});
+  if(inPending){pending=pending.filter(function(v){return v.id!==c.id});lsSet(PEND_KEY,pending);state.note="Removed "+c.front+".";deal();render();return}
+  if(!artifact){state.note="This verse can't be removed in this view. Open the page in a browser on your computer to remove it.";$("note").textContent=state.note;return}
+  user.verses=user.verses.filter(function(v){return v.id!==c.id});
+  delete savedIds[c.id];
+  deal();render();persist("Removed "+c.front+".");
+});
+
+deal();render();
+
+if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(function(){})}
+})();
+</script>
+</body>
+</html>
