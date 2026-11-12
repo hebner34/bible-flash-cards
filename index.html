@@ -92,6 +92,19 @@ button,select,input,textarea{font:inherit;color:inherit}
 .sheet input,.sheet textarea{border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:10px;font-weight:400}
 .sheet textarea{min-height:120px;font-family:var(--f-card);font-size:1.05rem;resize:vertical}
 .sheet .row{justify-content:flex-end}
+.dup{margin:0;padding:9px 11px;border-radius:10px;border:1px solid var(--line);background:var(--paper);font-size:.9rem}
+.dup.stop{border-color:var(--accent);color:var(--accent);font-weight:600}
+.sheet.tall{height:100%}
+.sheet input[type=search]{font-family:var(--f-ui)}
+.vlist{flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.vrow{display:flex;gap:10px;align-items:flex-start;padding:10px 2px;border-bottom:1px solid var(--line)}
+.vrow.isdup{background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.vmain{flex:1;min-width:0}
+.vref{font-weight:700}
+.vtxt{color:var(--muted);font-family:var(--f-card);font-size:.95rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tag{font-size:.72rem;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 7px;white-space:nowrap}
+.tag.warn{color:var(--accent);border-color:var(--accent)}
+.btn.sm{padding:6px 10px;font-size:.82rem;flex:none}
 @media (prefers-reduced-motion: reduce){.card{transition:none}}
 </style>
 </head>
@@ -319,6 +332,816 @@ Deuteronomy:[
 "The Song of Moses praises God the Rock, recounts Israel's unfaithfulness, and declares both judgment and mercy. Moses is told to go up Mount Nebo.",
 "Moses blesses each of the tribes before his death and declares that the eternal God is their refuge.",
 "Moses views the promised land from Mount Nebo and dies at 120; God buries him in Moab. Israel mourns thirty days, Joshua takes the lead, and no prophet like Moses has arisen since."
+],
+Joshua:[
+"After Moses' death God commissions Joshua to lead Israel into the land, telling him to be strong and courageous and to meditate on the law day and night. The eastern tribes pledge their support.",
+"Joshua sends two spies to Jericho. Rahab hides them, confesses that the Lord is God, and is promised safety if she hangs a scarlet cord in her window.",
+"The priests carry the ark into the flooded Jordan, the water piles up upstream, and all Israel crosses on dry ground.",
+"Twelve stones are taken from the riverbed and set up at Gilgal as a memorial for future generations of how God dried up the Jordan.",
+"The men born in the wilderness are circumcised at Gilgal and Israel keeps the Passover. The manna stops, and the Commander of the Lord's army appears to Joshua.",
+"Israel marches around Jericho once a day for six days and seven times on the seventh. At the trumpets and the shout the walls fall. Rahab's household is spared.",
+"Achan secretly keeps some of Jericho's devoted things, and Israel is defeated at Ai. His sin is exposed and he is stoned in the Valley of Achor.",
+"Israel takes Ai by ambush. Joshua builds an altar on Mount Ebal and reads all the words of the law, the blessings and the curses.",
+"The Gibeonites pretend to be from a far country and trick Israel into a treaty, since the leaders did not ask counsel of the Lord. They become woodcutters and water carriers.",
+"Five Amorite kings attack Gibeon. Joshua marches all night, God sends hailstones, and the sun stands still. Joshua then conquers the southern cities.",
+"The northern kings led by Jabin of Hazor are defeated at the waters of Merom and Hazor is burned. Joshua takes the whole land, and the land rests from war.",
+"A list of the kings Israel defeated: Sihon and Og east of the Jordan under Moses, and thirty-one kings west of it under Joshua.",
+"Joshua is old and much land remains to be possessed. The inheritance east of the Jordan is described for Reuben, Gad and half of Manasseh; Levi receives no land.",
+"The division of Canaan begins. Caleb, now eighty-five and still strong, asks for the hill country of Hebron that Moses promised him and receives it.",
+"Judah's borders and cities. Caleb gives his daughter Achsah to Othniel for capturing Debir. Judah cannot drive the Jebusites out of Jerusalem.",
+"The territory of Ephraim. They do not drive out the Canaanites of Gezer, who become forced laborers.",
+"The territory of Manasseh, including the daughters of Zelophehad. The tribes of Joseph complain their land is too small and are told to clear the forested hills.",
+"The tabernacle is set up at Shiloh. The land left for seven tribes is surveyed and divided by lot, and Benjamin's portion is described.",
+"The portions of Simeon, Zebulun, Issachar, Asher, Naphtali and Dan. Joshua himself receives the city of Timnath Serah.",
+"Six cities of refuge are appointed, three on each side of the Jordan, for anyone who kills a person unintentionally.",
+"The Levites receive forty-eight cities among the tribes. The chapter ends by saying that not one of God's good promises to Israel failed.",
+"The eastern tribes go home and build a large altar by the Jordan. The others prepare for war until they learn it is a witness, not a rival altar.",
+"Joshua, old and near death, urges Israel's leaders to hold fast to the Lord and not mix with the nations that remain.",
+"At Shechem Joshua reviews God's faithfulness and calls Israel to choose whom they will serve. The people renew the covenant. Joshua dies at 110, and Joseph's bones are buried."
+],
+Judges:[
+"After Joshua's death the tribes continue the conquest, led by Judah. Many tribes fail to drive out the Canaanites and live among them.",
+"The Angel of the Lord rebukes Israel at Bochim. A new generation forgets God, beginning a cycle of sin, oppression, crying out, and deliverance through judges.",
+"God leaves nations to test Israel. Othniel delivers them from Mesopotamia, left-handed Ehud kills Eglon king of Moab, and Shamgar strikes the Philistines.",
+"Deborah the prophetess sends Barak against Sisera and his nine hundred iron chariots. God routs the army, and Jael kills Sisera with a tent peg.",
+"The song of Deborah and Barak celebrates the victory, praising those who volunteered and Jael, and rebuking the tribes that stayed home.",
+"Midian oppresses Israel. The Angel of the Lord calls Gideon while he threshes wheat in hiding. Gideon tears down Baal's altar and asks for a sign with a fleece.",
+"God reduces Gideon's army from thirty-two thousand to three hundred. With trumpets, pitchers and torches they throw the Midianite camp into panic.",
+"Gideon pursues and kills the Midianite kings and refuses to be made king. He makes a gold ephod that becomes a snare, and the land has rest forty years.",
+"Gideon's son Abimelech kills his seventy brothers and is made king at Shechem. Jotham tells a parable of the trees. Abimelech destroys Shechem and dies when a woman drops a millstone on him.",
+"Tola and Jair judge Israel. The people serve many gods and are oppressed by the Ammonites and Philistines until they cry out and put away their idols.",
+"Jephthah, driven out by his brothers, is called back to lead Gilead. He defeats the Ammonites, but his rash vow falls on his only daughter.",
+"Ephraim quarrels with Jephthah, and forty-two thousand are killed at the Jordan fords, identified by how they say Shibboleth. Ibzan, Elon and Abdon judge after him.",
+"The Angel of the Lord tells Manoah's barren wife she will bear a son, a Nazirite from the womb, who will begin to deliver Israel from the Philistines. Samson is born.",
+"Samson wants a Philistine wife from Timnah. He kills a lion, poses a riddle at his wedding feast, and kills thirty men of Ashkelon to pay his wager.",
+"Samson burns Philistine fields with three hundred foxes and torches and kills a thousand men with the jawbone of a donkey. God gives him water at Lehi.",
+"Samson carries off the gates of Gaza. Delilah learns the secret of his hair, and he is captured and blinded. In death he pulls down the temple of Dagon on the Philistines.",
+"Micah sets up a shrine with idols and hires a wandering Levite as his priest. There is no king in Israel and everyone does what is right in his own eyes.",
+"The tribe of Dan, looking for land, takes Micah's idols and priest, conquers the quiet city of Laish, and sets up idol worship there.",
+"A Levite's concubine is abused and killed by men of Gibeah in Benjamin. He cuts her body into twelve pieces and sends them throughout Israel.",
+"Israel goes to war against Benjamin for refusing to hand over the guilty men. After two defeats Israel wins, and only six hundred Benjamite men survive.",
+"Israel grieves over the near loss of a tribe and finds wives for the surviving Benjamites from Jabesh Gilead and Shiloh. There was no king in Israel."
+],
+Ruth:[
+"A famine sends Elimelech's family from Bethlehem to Moab, where he and his two sons die. Naomi returns home, and her daughter-in-law Ruth refuses to leave her. They arrive at the barley harvest.",
+"Ruth gleans in the field of Boaz, a relative of Elimelech. He has heard of her loyalty, shows her kindness, and tells her to stay with his workers.",
+"Naomi sends Ruth to the threshing floor at night. Ruth asks Boaz to act as her kinsman redeemer, and he promises to settle the matter.",
+"At the city gate a closer relative declines, and Boaz redeems the land and marries Ruth. Their son Obed becomes the grandfather of David."
+],
+"1 Samuel":[
+"Hannah, barren and grieved, prays at Shiloh and vows to give her son to the Lord. Samuel is born, and she brings him to Eli to serve at the tabernacle.",
+"Hannah praises God in song. Eli's sons abuse their priesthood while Samuel grows in favor, and a man of God announces judgment on Eli's house.",
+"The Lord calls Samuel by name in the night and tells him of the coming judgment on Eli. Samuel becomes known as a prophet throughout Israel.",
+"The Philistines defeat Israel and capture the ark. Hophni and Phinehas die, Eli falls and dies at the news, and his grandson is named Ichabod.",
+"The Philistines put the ark in Dagon's temple and the idol falls before it. Tumors break out in each city where the ark is sent.",
+"After seven months the Philistines send the ark back on a cart with gold offerings. Men of Beth Shemesh are struck down for looking into it.",
+"The ark stays at Kirjath Jearim twenty years. Israel repents at Mizpah, the Lord thunders against the Philistines, and Samuel sets up the Ebenezer stone and judges Israel.",
+"Samuel's sons are corrupt, and the elders ask for a king like the other nations. God says they have rejected Him as king, and Samuel warns what a king will take.",
+"Saul, a tall young Benjamite, goes looking for his father's lost donkeys and meets Samuel, whom God has told to anoint him ruler.",
+"Samuel anoints Saul. The signs come true, the Spirit comes on him, and he prophesies. At Mizpah he is chosen by lot and found hiding among the baggage.",
+"Nahash the Ammonite threatens Jabesh Gilead. The Spirit comes on Saul, he rallies Israel and wins, and the kingdom is renewed at Gilgal.",
+"Samuel gives his farewell, defends his integrity, reviews Israel's history, and calls the people to fear the Lord. God sends thunder and rain at harvest as a sign.",
+"Facing the Philistines, Saul offers the sacrifice himself when Samuel is late. Samuel tells him his kingdom will not last and that God has sought a man after His own heart.",
+"Jonathan and his armor-bearer attack a Philistine outpost and God sends a panic. Saul's rash oath forbidding food nearly costs Jonathan his life.",
+"Saul is told to destroy Amalek but spares King Agag and the best livestock. Samuel says to obey is better than sacrifice, and the Lord rejects Saul as king.",
+"God sends Samuel to Bethlehem to anoint David, Jesse's youngest son, because the Lord looks at the heart. David plays the harp to calm Saul.",
+"The giant Goliath defies Israel for forty days. David, trusting in the name of the Lord, kills him with a sling and a stone.",
+"Jonathan and David make a covenant of friendship. David's success makes Saul jealous, and he tries to kill him. David marries Saul's daughter Michal.",
+"Saul orders David killed. Jonathan speaks up for him, Michal helps him escape through a window, and David flees to Samuel at Ramah.",
+"David and Jonathan renew their covenant. Saul's rage at the feast confirms the danger, and an arrow signal tells David to flee. They part in tears.",
+"David gets holy bread and Goliath's sword from Ahimelech the priest at Nob, then pretends to be mad before Achish king of Gath.",
+"David gathers four hundred men at the cave of Adullam. Doeg the Edomite reports the priest's help, and Saul has eighty-five priests killed. Abiathar escapes to David.",
+"David rescues Keilah from the Philistines and keeps moving to escape Saul. Jonathan strengthens his hand in God, and Saul nearly traps him before being called away.",
+"In a cave at En Gedi David cuts off a corner of Saul's robe but will not harm the Lord's anointed. Saul weeps and admits David will be king.",
+"Samuel dies. The wealthy fool Nabal insults David, but his wife Abigail brings food and wise words. Nabal dies, and David marries Abigail.",
+"David and Abishai slip into Saul's camp and take his spear and water jug, sparing his life a second time.",
+"David takes refuge with Achish of Gath and is given Ziklag. He raids desert tribes while letting Achish think he is attacking Judah.",
+"The Philistines gather for war and God does not answer Saul. He consults a medium at En Dor, and Samuel tells him he and his sons will die the next day.",
+"The Philistine commanders refuse to let David march with them, and Achish sends him back to Ziklag.",
+"Amalekites burn Ziklag and carry off the families. David strengthens himself in the Lord, pursues, and recovers everything. He rules that all share the spoil alike.",
+"The Philistines defeat Israel on Mount Gilboa. Saul's sons, including Jonathan, are killed and Saul falls on his sword. Men of Jabesh Gilead bury them."
+],
+"2 Samuel":[
+"David learns that Saul and Jonathan are dead and executes the Amalekite who claims to have killed Saul. He sings a lament for them.",
+"David is anointed king of Judah at Hebron. Abner makes Saul's son Ishbosheth king over the rest of Israel. In a battle at Gibeon, Abner kills Joab's brother Asahel.",
+"David grows stronger as Saul's house weakens. Abner comes over to David's side, but Joab murders him in revenge. David mourns Abner publicly.",
+"Two of Ishbosheth's captains murder him in his bed and bring his head to David, who has them executed.",
+"All the tribes anoint David king over Israel. He captures Jerusalem from the Jebusites, makes it his capital, and defeats the Philistines twice.",
+"David brings the ark toward Jerusalem. Uzzah touches it and dies, and the ark waits three months. David then brings it in with dancing, and Michal despises him.",
+"David wants to build a house for God. Through Nathan, God promises instead to build David a house, a kingdom and a throne established forever. David responds in prayer.",
+"David defeats the Philistines, Moab, Zobah, Syria and Edom. The Lord preserves him wherever he goes, and he rules with justice.",
+"For Jonathan's sake David shows kindness to his lame son Mephibosheth, restoring Saul's land to him and giving him a place at the king's table.",
+"The king of Ammon humiliates David's messengers. Joab and then David defeat the Ammonites and the Syrians they hired.",
+"While his army is at war, David commits adultery with Bathsheba. When his cover-up fails he arranges for her husband Uriah to die in battle, then marries her.",
+"Nathan confronts David with a story of a stolen lamb. David confesses and is forgiven, but the child dies. Solomon is born, and Rabbah is captured.",
+"David's son Amnon violates his half-sister Tamar. Two years later her brother Absalom has Amnon killed and flees to Geshur.",
+"Joab uses a wise woman from Tekoa to persuade David to bring Absalom home. After two more years Absalom is allowed to see the king.",
+"Absalom wins the hearts of Israel and declares himself king at Hebron. David flees Jerusalem weeping and sends Hushai back to counter Ahithophel's advice.",
+"Ziba brings supplies and accuses Mephibosheth, and Shimei curses David as he flees. Absalom enters Jerusalem and follows Ahithophel's counsel.",
+"Hushai's advice is chosen over Ahithophel's, giving David time to cross the Jordan. Ahithophel goes home and hangs himself.",
+"David's men defeat Absalom's army in the woods of Ephraim. Absalom is caught by his head in a tree and Joab kills him. David weeps for his son.",
+"Joab rebukes David for his grief. David returns to Jerusalem, pardons Shimei, hears Mephibosheth, and honors Barzillai. Judah and Israel quarrel over the king.",
+"Sheba leads a revolt. Joab murders Amasa, pursues Sheba to Abel, and a wise woman has Sheba's head thrown over the wall.",
+"A three-year famine comes because Saul killed Gibeonites, and seven of his descendants are handed over. David's men kill four Philistine giants.",
+"David's song of praise for deliverance from all his enemies and from Saul. The Lord is his rock, fortress and deliverer.",
+"David's last words, followed by the names and deeds of his mighty men, including the three who broke through to bring him water from Bethlehem's well.",
+"David orders a census and is convicted of sin. He chooses three days of plague, and seventy thousand die. He buys Araunah's threshing floor, builds an altar, and the plague stops."
+],
+"1 Kings":[
+"David is old, and his son Adonijah tries to make himself king. Nathan and Bathsheba go to David, and Solomon is anointed king at Gihon.",
+"David charges Solomon to keep God's law and then dies. Solomon secures his throne by dealing with Adonijah, Abiathar, Joab and Shimei.",
+"At Gibeon God offers Solomon whatever he asks. He asks for an understanding heart and receives wisdom along with riches and honor. He judges between two mothers claiming one baby.",
+"Solomon's officials and the peace and prosperity of his reign. His wisdom surpasses all others; he speaks three thousand proverbs and writes over a thousand songs.",
+"Solomon arranges with Hiram king of Tyre for cedar and cypress and organizes the labor force to build the temple.",
+"Solomon begins the temple 480 years after the Exodus and finishes it in seven years. Its size, cedar paneling, gold overlay and cherubim are described.",
+"Solomon spends thirteen years on his own palace. Huram of Tyre casts the bronze pillars Jachin and Boaz, the great Sea, and the other temple furnishings.",
+"The ark is brought into the temple and the glory of the Lord fills it. Solomon blesses the people, prays a long prayer of dedication, and holds a feast.",
+"God appears to Solomon a second time with a promise and a warning. The chapter records his dealings with Hiram, his building projects, labor force and ships.",
+"The queen of Sheba tests Solomon with hard questions and is overwhelmed by his wisdom and wealth. His gold, throne and horses are described.",
+"Solomon's seven hundred wives and three hundred concubines turn his heart to other gods. God raises up enemies and promises ten tribes to Jeroboam. Solomon dies.",
+"Rehoboam rejects the elders' advice and answers the people harshly. Ten tribes break away under Jeroboam, who sets up golden calves at Bethel and Dan.",
+"A man of God from Judah prophesies against the altar at Bethel. On the way home he is deceived by an old prophet into disobeying God and is killed by a lion.",
+"Ahijah foretells the death of Jeroboam's son and the end of his house. Judah under Rehoboam turns to idolatry, and Shishak of Egypt plunders the temple.",
+"In Judah, Abijam reigns briefly, and Asa does what is right and removes idols. In Israel, Nadab is killed by Baasha, who wipes out Jeroboam's family.",
+"Israel goes through Baasha, Elah, Zimri and Omri, who builds Samaria. Omri's son Ahab marries Jezebel and does more evil than all before him.",
+"Elijah tells Ahab there will be no rain. He is fed by ravens at the Brook Cherith and then by a widow in Zarephath, whose flour and oil do not run out. He raises her son.",
+"On Mount Carmel Elijah challenges 450 prophets of Baal. The Lord answers by fire, the people fall on their faces, and the rain returns.",
+"Elijah flees from Jezebel to Horeb, where God speaks in a still small voice. He is told seven thousand have not bowed to Baal and calls Elisha to follow him.",
+"Ben-Hadad of Syria besieges Samaria. God gives Ahab two victories, but Ahab spares Ben-Hadad and a prophet condemns him for it.",
+"Ahab wants Naboth's vineyard, and Jezebel has Naboth falsely accused and stoned. Elijah pronounces judgment, and Ahab humbles himself.",
+"Four hundred prophets promise Ahab victory, but Micaiah foretells his death. Ahab is killed by a random arrow at Ramoth Gilead. Jehoshaphat reigns well in Judah."
+],
+"2 Kings":[
+"Injured King Ahaziah sends to consult a pagan god. Elijah calls down fire on two companies of soldiers sent to seize him, and the king dies as Elijah said.",
+"Elijah is taken up to heaven in a whirlwind with a chariot of fire. Elisha receives a double portion of his spirit, parts the Jordan, and heals Jericho's water.",
+"The kings of Israel, Judah and Edom march against Moab and run out of water. Elisha promises water and victory, and both come.",
+"Elisha multiplies a widow's oil, promises the Shunammite woman a son and later raises him from death, purifies a poisoned stew, and feeds a hundred men.",
+"Naaman, commander of Syria's army, is healed of leprosy when he dips seven times in the Jordan at Elisha's word. Elisha's servant Gehazi takes a reward by lying and becomes leprous.",
+"Elisha makes an ax head float. His servant's eyes are opened to see horses and chariots of fire, and a blinded Syrian force is led into Samaria. Later Samaria suffers siege and famine.",
+"Elisha foretells plenty by the next day. Four lepers find the Syrian camp abandoned, and the officer who doubted is trampled at the gate.",
+"The Shunammite's land is restored. Elisha weeps as he tells Hazael he will be king of Syria. Jehoram and Ahaziah reign in Judah.",
+"Jehu is anointed king of Israel and kills Joram of Israel and Ahaziah of Judah. Jezebel is thrown from a window and eaten by dogs, as Elijah foretold.",
+"Jehu destroys Ahab's seventy sons and all the worshipers of Baal, but he does not turn from Jeroboam's golden calves.",
+"Athaliah kills the royal heirs and rules Judah. The infant Joash is hidden in the temple for six years until the priest Jehoiada crowns him and Athaliah is executed.",
+"Joash repairs the temple with money collected in a chest. Later he buys off Hazael of Syria with temple treasures and is killed by his servants.",
+"Jehoahaz and Jehoash reign in Israel. The dying Elisha has the king shoot and strike arrows as a sign of victories over Syria. A dead man revives on touching Elisha's bones.",
+"Amaziah of Judah defeats Edom but is beaten by Jehoash of Israel. Jeroboam II restores Israel's borders, as Jonah had prophesied.",
+"Azariah and Jotham reign in Judah. Israel goes through a string of kings and assassinations, and Assyria begins carrying people away.",
+"Ahaz of Judah follows pagan practices, calls on Assyria for help, and installs a copy of an altar from Damascus in the temple.",
+"Under Hoshea, Samaria falls to Assyria after a three-year siege and Israel goes into exile for its idolatry. Foreigners are resettled and mix worship of the Lord with their gods.",
+"Hezekiah trusts the Lord, removes the high places and breaks up the bronze serpent. Sennacherib of Assyria invades Judah, and his spokesman taunts Jerusalem.",
+"Hezekiah spreads the Assyrian letter before the Lord and prays. Isaiah promises deliverance, and the angel of the Lord strikes down 185,000 Assyrians in one night.",
+"Hezekiah is sick to death, prays, and is given fifteen more years, with the shadow moving backward as a sign. He shows his treasures to envoys from Babylon, and Isaiah foretells exile.",
+"Manasseh reigns fifty-five years, rebuilding idol worship, sacrificing his son and shedding innocent blood. God announces judgment on Jerusalem. Amon follows him.",
+"Josiah repairs the temple and the Book of the Law is found. He tears his clothes on hearing it, and Huldah the prophetess confirms the coming judgment.",
+"Josiah renews the covenant, destroys idols and high places throughout the land, and keeps a great Passover. He is killed at Megiddo by Pharaoh Necho.",
+"Nebuchadnezzar of Babylon subdues Judah. Jehoiachin surrenders and is exiled with ten thousand others, and Zedekiah is made king.",
+"Jerusalem falls after a long siege. Zedekiah is blinded, the temple and city are burned, the walls are broken down, and Judah is taken to Babylon. Jehoiachin is later released from prison."
+],
+"1 Chronicles":[
+"Genealogies from Adam through Noah's sons to Abraham, then the lines of Ishmael, Keturah and Esau, and the kings of Edom.",
+"The twelve sons of Israel, then Judah's line through Perez and Hezron down to Jesse and David, with the family of Caleb.",
+"David's sons born in Hebron and Jerusalem, the kings of Judah descended from Solomon, and the royal line after the exile through Zerubbabel.",
+"More clans of Judah, including Jabez, who asked God to bless him and enlarge his territory. The families of Simeon follow.",
+"The tribes east of the Jordan: Reuben, Gad and half of Manasseh. God gave them victory when they cried out in battle, but later they were exiled by Assyria for idolatry.",
+"The line of Levi, including the high priests, the temple musicians Heman, Asaph and Ethan, and the cities given to the Levites.",
+"The families of Issachar, Benjamin, Naphtali, Manasseh, Ephraim down to Joshua, and Asher.",
+"A fuller genealogy of Benjamin leading to King Saul and his son Jonathan.",
+"Those who resettled Jerusalem after the exile: priests, Levites, gatekeepers and singers. Saul's family line is repeated.",
+"Saul and his sons die on Mount Gilboa. He died for his unfaithfulness to the Lord and for consulting a medium, and the kingdom turned to David.",
+"All Israel anoints David king at Hebron. He captures Jerusalem, and his mighty men and their exploits are listed.",
+"The warriors from every tribe who joined David at Ziklag and Hebron, including the men of Issachar who understood the times.",
+"David brings the ark from Kirjath Jearim on a new cart. Uzza touches it and dies, and the ark is left at the house of Obed-Edom for three months.",
+"Hiram of Tyre builds David a house, and his family grows. David inquires of God and defeats the Philistines twice.",
+"David brings the ark to Jerusalem the right way, carried by Levites on poles, with appointed singers and musicians. Michal despises his dancing.",
+"The ark is set in its tent and David gives a psalm of thanksgiving. Levites are appointed to minister before the ark regularly.",
+"David wants to build God a house. Through Nathan, God promises to build David a house and establish his throne forever, and David prays in response.",
+"David's victories over the Philistines, Moab, Zobah, Syria and Edom, and a list of his chief officials.",
+"The Ammonite king shames David's messengers. Joab and Abishai defeat the Ammonites and their Syrian allies.",
+"Joab captures Rabbah, and David's men kill several Philistine giants.",
+"Satan moves David to number Israel. A plague follows, the angel stops at the threshing floor of Ornan, and David buys it and builds an altar that God answers with fire.",
+"David names the threshing floor as the site for the temple, gathers materials, and charges Solomon, a man of rest, to build it.",
+"David makes Solomon king and organizes the Levites by family and assigns their duties in the house of the Lord.",
+"The priests descended from Aaron are divided by lot into twenty-four divisions, and the remaining Levites are listed.",
+"The temple musicians from the families of Asaph, Heman and Jeduthun are organized into twenty-four divisions, 288 trained singers in all.",
+"The divisions of gatekeepers, the keepers of the treasuries, and the officials and judges over Israel.",
+"The twelve army divisions of twenty-four thousand, one serving each month, along with the tribal leaders, the stewards of the king's property, and his counselors.",
+"David gathers the leaders, explains that God chose Solomon to build the temple, gives Solomon the plans, and tells him to be strong and do it.",
+"David and the leaders give willingly for the temple, and David praises God in prayer. Solomon is anointed king, and David dies after reigning forty years."
+],
+"2 Chronicles":[
+"Solomon worships at Gibeon and asks God for wisdom and knowledge to lead the people. God adds riches and honor.",
+"Solomon prepares to build the temple and asks Hiram king of Tyre for a master craftsman and timber.",
+"Solomon begins the temple on Mount Moriah at the threshing floor of Ornan. Its dimensions, the Most Holy Place, the cherubim, the veil and the two pillars are described.",
+"The temple furnishings are made: the bronze altar, the Sea, the lavers, the gold lampstands and the tables.",
+"The ark is brought into the Most Holy Place. As singers and 120 trumpeters praise the Lord together, a cloud of glory fills the house.",
+"Solomon blesses the people and prays his prayer of dedication, asking God to hear and forgive when His people pray toward this place.",
+"Fire comes down from heaven and consumes the sacrifices. God appears to Solomon and promises to hear and heal if His people humble themselves, pray and turn.",
+"Solomon's building projects, his labor force, the order of worship he kept, and his ships sent to Ophir for gold.",
+"The queen of Sheba visits and marvels at Solomon's wisdom. His great wealth is described, and he dies after reigning forty years.",
+"Rehoboam follows the advice of the young men and answers harshly, and the ten northern tribes rebel.",
+"God forbids Rehoboam to fight Israel. He fortifies Judah, and priests and Levites from the north move south to worship the Lord.",
+"Rehoboam forsakes the law, and Shishak of Egypt invades. When the leaders humble themselves God spares them from destruction, but the temple treasures are taken.",
+"Abijah of Judah faces Jeroboam's army, twice the size of his own. Judah cries out to the Lord and wins because they relied on Him.",
+"Asa removes idols and commands Judah to seek the Lord. When Zerah the Ethiopian comes with a vast army, Asa prays and God gives victory.",
+"The prophet Azariah encourages Asa. He leads Judah in renewing the covenant and removes his grandmother Maachah from being queen mother because of her idol.",
+"Asa hires Syria against Israel and does not rely on God. Hanani the seer rebukes him, and Asa jails him. Diseased in his feet, he seeks only physicians.",
+"Jehoshaphat walks in God's ways and sends officials and Levites through Judah to teach the law. The fear of the Lord falls on the surrounding kingdoms.",
+"Jehoshaphat allies himself with Ahab. Micaiah alone foretells defeat, and Ahab is killed at Ramoth Gilead.",
+"Jehu the seer rebukes Jehoshaphat for helping the wicked. Jehoshaphat appoints judges and tells them they judge for the Lord, not for man.",
+"A great army from Moab, Ammon and Mount Seir invades. Jehoshaphat prays, Jahaziel declares the battle is God's, singers go out first, and the enemies destroy each other.",
+"Jehoram kills his brothers and follows the ways of Ahab's house. Edom revolts, a letter from Elijah warns him, and he dies of a painful disease with no one's regret.",
+"Ahaziah reigns one year and is killed by Jehu. His mother Athaliah seizes the throne, but the infant Joash is hidden in the house of God.",
+"The priest Jehoiada crowns Joash at age seven. Athaliah is executed and the temple of Baal is torn down.",
+"Joash repairs the temple while Jehoiada lives. After the priest's death he turns to idols and has Jehoiada's son Zechariah stoned. He is defeated by Syria and killed by his servants.",
+"Amaziah defeats Edom but brings home their gods. He then challenges Israel, is defeated, and is later killed in a conspiracy.",
+"Uzziah prospers as long as he seeks the Lord and builds a strong army. When he becomes proud and burns incense in the temple, he is struck with leprosy.",
+"Jotham does what is right and becomes mighty because he orders his ways before the Lord.",
+"Ahaz worships idols and burns his children in sacrifice. Judah is defeated by Syria and Israel, and the prophet Oded has the captives sent home. Ahaz shuts the temple doors.",
+"In his first month as king, Hezekiah reopens the temple, has the Levites cleanse it, and restores the sacrifices and music.",
+"Hezekiah invites all Israel and Judah to keep the Passover in the second month. Many come, and there is great joy in Jerusalem.",
+"The people destroy idols throughout the land and bring tithes in heaps. Hezekiah organizes the priests and storerooms.",
+"Sennacherib invades. Hezekiah encourages the people, he and Isaiah pray, and an angel destroys the Assyrian army. Hezekiah's illness, pride, and water tunnel are noted.",
+"Manasseh does great evil, is taken in chains to Babylon, humbles himself, and is restored. His son Amon does evil and is assassinated.",
+"Josiah seeks God at sixteen, purges idols at twenty, and repairs the temple. The Book of the Law is found, Huldah prophesies, and the king renews the covenant.",
+"Josiah keeps a Passover unlike any since Samuel. He goes out against Pharaoh Necho and is killed at Megiddo, and Jeremiah laments him.",
+"Judah's last four kings ignore God's messengers. The Chaldeans destroy Jerusalem and the temple and the people are exiled for seventy years, until Cyrus of Persia decrees their return."
+],
+Ezra:[
+"Cyrus king of Persia proclaims that the Lord's house in Jerusalem should be rebuilt. Exiles set out, carrying the temple vessels Nebuchadnezzar had taken.",
+"A list of the families who returned with Zerubbabel and Jeshua: 42,360 people, besides servants and singers.",
+"The returned exiles rebuild the altar and keep the Feast of Tabernacles. When the temple foundation is laid, shouts of joy mix with the weeping of those who saw the first temple.",
+"Adversaries offer to help build and are refused, then work to discourage the people. A letter to King Artaxerxes brings the work to a stop.",
+"The prophets Haggai and Zechariah stir the people to resume building. Governor Tattenai questions them and writes to King Darius.",
+"Darius finds Cyrus's decree and orders the work supported. The temple is finished in his sixth year, dedicated with joy, and the Passover is kept.",
+"Ezra, a priest and scribe skilled in the Law of Moses, travels to Jerusalem with a letter from Artaxerxes. He had set his heart to seek, do and teach God's law.",
+"The families who came with Ezra are listed. At the river Ahava they fast and pray for protection, and the temple treasures arrive safely.",
+"Ezra learns that the people, even priests, have intermarried with the surrounding nations. He tears his garment and prays a confession of the nation's guilt.",
+"The people weep and agree to put away their pagan wives. They assemble in the rain, the cases are examined, and the offenders are listed."
+],
+Nehemiah:[
+"Nehemiah, cupbearer to the Persian king, hears that Jerusalem's wall is broken down and its gates burned. He weeps, fasts and prays, confessing Israel's sins.",
+"King Artaxerxes grants Nehemiah leave and supplies. He inspects the walls by night and urges the people to rise and build, while Sanballat, Tobiah and Geshem mock.",
+"A list of the people who rebuilt each section of the wall and each gate, working side by side.",
+"Enemies mock and then plot to attack. Nehemiah prays and sets a guard, and the builders work with a tool in one hand and a weapon in the other.",
+"The poor cry out against fellow Jews who charge interest and take their children as slaves. Nehemiah rebukes the nobles, has the debts restored, and refuses the governor's food allowance.",
+"Sanballat and others try to lure Nehemiah away and frighten him with false reports. He refuses, and the wall is finished in fifty-two days.",
+"Nehemiah appoints gatekeepers and puts his brother Hanani in charge of the city. He finds the register of the first exiles who returned.",
+"Ezra reads the Law aloud from a wooden platform and the Levites explain it. The people weep, are told the joy of the Lord is their strength, and keep the Feast of Booths.",
+"The people fast and confess. The Levites pray, recounting God's faithfulness from creation and Abraham through the wilderness, and Israel's repeated rebellion.",
+"The leaders seal a written covenant. The people promise not to intermarry, to keep the Sabbath, and to support the house of God.",
+"Lots are cast so that one in ten will live in Jerusalem. The residents of the city and the surrounding towns are listed.",
+"The priests and Levites are listed. The wall is dedicated with two large thanksgiving choirs, and the joy of Jerusalem is heard far away.",
+"Nehemiah returns from Persia and corrects abuses: Tobiah's room in the temple, unpaid Levites, trading on the Sabbath, and marriages to foreign wives."
+],
+Esther:[
+"King Ahasuerus of Persia holds a lavish feast in Shushan. Queen Vashti refuses to appear at his command and is removed as queen.",
+"Esther, a Jewish orphan raised by her cousin Mordecai, is chosen as the new queen and keeps her nationality secret. Mordecai uncovers a plot against the king.",
+"Haman is promoted, and Mordecai will not bow to him. Enraged, Haman casts lots and gets a royal decree to destroy all the Jews on a set day.",
+"Mordecai mourns in sackcloth and tells Esther she may have come to the kingdom for such a time. She calls a three-day fast and resolves to go to the king.",
+"The king receives Esther, and she invites him and Haman to a banquet, then a second. Haman builds a tall gallows for Mordecai.",
+"Unable to sleep, the king has the records read and learns Mordecai was never rewarded. Haman is made to lead Mordecai through the city in honor.",
+"At the second banquet Esther reveals she is a Jew and names Haman as the enemy. He is hanged on the gallows he built for Mordecai.",
+"Mordecai receives Haman's position. A new decree allows the Jews to defend themselves, and there is joy among the Jews in every province.",
+"On the appointed day the Jews overcome their enemies, and Haman's ten sons are hanged. The feast of Purim is established to remember it.",
+"A brief note on the greatness of Mordecai, second to the king, who sought the good of his people."
+],
+Job:[
+"Job is blameless, upright and wealthy. Satan claims he serves God only for gain, and in one day Job loses his herds, servants and ten children. He worships and does not sin.",
+"Satan strikes Job with painful boils. His wife tells him to curse God, but he refuses. Three friends, Eliphaz, Bildad and Zophar, come and sit with him in silence seven days.",
+"Job breaks his silence and curses the day he was born, wishing he had died at birth and longing for the rest of the grave.",
+"Eliphaz speaks first: the innocent do not perish, and those who sow trouble reap it. He tells of a night vision asking whether a mortal can be more righteous than God.",
+"Eliphaz continues: trouble is common to man, so Job should seek God. The one God corrects is blessed, for He wounds and also heals.",
+"Job answers that his grief is heavier than the sand of the sea. His friends are like streams that dry up when needed, and he asks them to show him where he is wrong.",
+"Job describes life as hard service and nights of misery. He turns to God and asks why He watches him so closely and will not pardon him.",
+"Bildad says God does not pervert justice and that Job's children died for their sin. He urges Job to learn from past generations and seek God.",
+"Job agrees God is just, but asks how a man can be righteous before One so mighty. He wishes there were a mediator between them.",
+"Job speaks to God in bitterness, asking why He contends with him and why the hands that made him now destroy him.",
+"Zophar rebukes Job sharply, saying God exacts less than he deserves. No one can search out God's depths, so Job should put away sin.",
+"Job answers with sarcasm that his friends think wisdom will die with them. Even the animals know God's hand, and God overturns counselors and kings.",
+"Job calls his friends worthless physicians and wishes they would be silent. He will trust God even if it costs his life, and he wants to argue his case before Him.",
+"Man's days are few and full of trouble. A cut tree may sprout again, but man lies down and does not rise. Job asks whether a man who dies will live again.",
+"Eliphaz speaks a second time, accusing Job of empty talk that undermines reverence for God, and describes the torment of the wicked.",
+"Job calls his friends miserable comforters. He feels torn by God, yet says his witness is in heaven.",
+"Job says his spirit is broken and the grave is ready for him. He asks where his hope has gone.",
+"Bildad's second speech describes the fate of the wicked: his light goes out, terrors chase him, and his memory perishes.",
+"Job says his friends, family and servants have all turned from him. Yet he declares that his Redeemer lives and that he will see God.",
+"Zophar's second speech insists that the triumph of the wicked is short and that God's wrath will overtake him.",
+"Job replies that the wicked often prosper, grow old, and die in peace. His friends' comfort is empty and their answers false.",
+"Eliphaz's third speech accuses Job of specific sins against the poor and urges him to return to the Almighty and be restored.",
+"Job longs to find God and present his case but cannot perceive Him. Still, God knows the way he takes, and after testing he will come out like gold.",
+"Job asks why God does not set times for judgment, describing how the wicked oppress the poor and work under cover of darkness.",
+"Bildad's short third speech: God is awesome in power, so how can man, who is like a worm, be righteous before Him?",
+"Job answers that God's power stretches out the north over empty space and stills the sea, and these are only the edges of His ways.",
+"Job refuses to give up his integrity as long as he lives and describes the portion God gives to the wicked.",
+"A poem on wisdom. People mine the earth for silver and gold, but wisdom cannot be found or bought. God alone knows its place: the fear of the Lord is wisdom.",
+"Job remembers his former days, when God watched over him, he was honored in the gate, and he rescued the poor and fatherless.",
+"Now younger men mock him, his body wastes away, and he cries to God without an answer.",
+"Job makes a final oath of innocence, denying lust, deceit, injustice to servants, neglect of the poor, trust in gold, and secret sin. His words are ended.",
+"Elihu, a younger man who has waited to speak, is angry at Job for justifying himself and at the friends for having no answer.",
+"Elihu says God does speak, through dreams and through pain, to turn a man from the pit, and speaks of a messenger and a ransom.",
+"Elihu defends God's justice: the Almighty does no wickedness. He says Job speaks without knowledge.",
+"Elihu says human sin or righteousness does not change God. People cry out under oppression but do not seek their Maker, who gives songs in the night.",
+"Elihu says God is mighty and despises no one, and uses affliction to open ears to instruction. He begins to praise God's greatness in the rain and storm.",
+"Elihu describes God's voice in the thunder, snow and whirlwind, and tells Job to stand still and consider the wondrous works of God.",
+"The Lord answers Job out of the whirlwind with questions: where was he when the earth's foundations were laid? Does he command the sea, the dawn, the snow or the stars?",
+"God questions Job about the wild goat, the wild donkey, the wild ox, the ostrich, the war horse, the hawk and the eagle.",
+"Job answers that he is unworthy and has nothing to say. God challenges him again and points to the mighty behemoth.",
+"God describes Leviathan, a fearsome creature no one can tame. If none can stand before it, who can stand before God?",
+"Job confesses he spoke of things too wonderful for him and repents in dust and ashes. God rebukes the three friends, Job prays for them, and God gives him twice what he had."
+],
+Psalms:[
+"Two ways of life. The blessed man avoids the counsel of the ungodly and delights in God's law; he is like a fruitful tree by water. The ungodly are like chaff and will perish.",
+"The nations rage against the Lord and His Anointed, but God laughs and sets His King on Zion. The Son will receive the nations, and rulers are warned to serve the Lord.",
+"David, fleeing from his son Absalom, is surrounded by enemies. He calls the Lord his shield, lies down and sleeps in peace, and declares that salvation belongs to the Lord.",
+"An evening prayer of David. God has relieved him in distress, and he urges others to trust the Lord. He lies down in peace because the Lord alone keeps him safe.",
+"A morning prayer. David asks God to hear him, says God takes no pleasure in wickedness, and asks to be led in righteousness. Those who trust in the Lord rejoice.",
+"A prayer of repentance in sickness and grief. David is worn out with weeping and asks God for mercy, then is confident the Lord has heard him.",
+"David appeals to God as righteous judge against a false accuser. He asks God to test him and to bring the mischief of the wicked back on their own heads.",
+"How excellent is the Lord's name in all the earth. Looking at the heavens, David marvels that God cares for man, crowning him with glory and giving him dominion over creation.",
+"David praises God with his whole heart for judging the nations and defending the oppressed. The Lord is a refuge in times of trouble and does not forget the humble.",
+"Why does the Lord stand far off? The wicked boasts, preys on the poor, and says God will not see. The psalmist asks God to arise, for He is King forever and hears the humble.",
+"Urged to flee like a bird to the mountains, David answers that he trusts in the Lord, who is on His throne, tests the righteous, and loves righteousness.",
+"A plea for help when faithful people seem to vanish and flattering lips abound. In contrast, the words of the Lord are pure, like silver refined seven times.",
+"How long, O Lord? David feels forgotten and asks four times how long his sorrow will last. He ends by trusting in God's mercy and singing of His goodness.",
+"The fool says in his heart there is no God. The Lord looks down and finds none who does good. Yet God is with the righteous, and salvation will come out of Zion.",
+"Who may dwell on God's holy hill? The one who walks uprightly, speaks truth, does no wrong to his neighbor, keeps his word, and takes no bribe.",
+"David takes refuge in God, his portion and inheritance. He rejoices that God will not leave his soul in the grave and that there is fullness of joy in His presence.",
+"A prayer of an innocent man for protection. David asks to be kept as the apple of God's eye and hidden under His wings, and expects to be satisfied when he awakes in God's likeness.",
+"David's song of thanks after God delivered him from all his enemies and from Saul. The Lord is his rock and fortress who came down in power, rescued him, and gave him victory.",
+"The heavens declare the glory of God, and the law of the Lord is perfect, converting the soul. David prays to be kept from hidden and willful sins and for his words to be acceptable.",
+"A prayer for the king before battle. Some trust in chariots and horses, but God's people remember the name of the Lord.",
+"Thanksgiving for the king's victory. God has given him his heart's desire, and the king trusts in the Lord and will not be moved.",
+"A cry of one who feels forsaken by God, mocked, with hands and feet pierced and garments divided by lot. It turns to praise, declaring that all the ends of the earth will turn to the Lord.",
+"The Lord is my shepherd. He provides, leads, restores, and stays near in the darkest valley. Goodness and mercy follow, and the psalmist will dwell in the Lord's house forever.",
+"The earth is the Lord's. Who may stand in His holy place? The one with clean hands and a pure heart. The gates are told to lift up for the King of glory to come in.",
+"A prayer for guidance and forgiveness. David asks God to teach him His way, not to remember the sins of his youth, and to deliver him from his troubles.",
+"David asks God to examine his heart, declaring that he has walked in integrity, avoided the company of evildoers, and loved the house of the Lord.",
+"The Lord is my light and my salvation, so whom shall I fear? David's one desire is to dwell in the house of the Lord, and he urges waiting on the Lord with courage.",
+"David cries to the Lord his rock not to be silent and not to count him with the wicked. He then blesses the Lord, his strength and shield, who has heard him.",
+"A call to give the Lord glory. The voice of the Lord thunders over the waters, breaks cedars and shakes the wilderness. The Lord sits as King forever and blesses His people with peace.",
+"Thanksgiving for healing and rescue from death. God's anger is for a moment and His favor for life; weeping may last a night, but joy comes in the morning.",
+"David puts his trust in the Lord, his rock and fortress, and commits his spirit into God's hand. Though surrounded by fear and slander, he says his times are in God's hand.",
+"The blessing of forgiveness. While David kept silent about his sin he wasted away; when he confessed, God forgave. God is his hiding place and promises to guide him.",
+"A call for the righteous to praise the Lord, who made the heavens by His word. His counsel stands forever, and blessed is the nation whose God is the Lord.",
+"David blesses the Lord at all times after being delivered. He invites others to taste and see that the Lord is good, and says the Lord is near the brokenhearted.",
+"David asks the Lord to fight against those who attack him without cause and repay his kindness with evil, and promises to praise God in the great congregation.",
+"The wicked has no fear of God. In contrast, God's mercy reaches the heavens, people shelter under His wings, and with Him is the fountain of life.",
+"Do not fret over evildoers, who will soon wither. Trust in the Lord, delight in Him, commit your way to Him and wait patiently. The meek will inherit the land.",
+"A prayer of repentance from a man crushed by sin, sickness and abandonment by friends. David confesses his iniquity and asks God not to forsake him.",
+"David resolves to guard his tongue, then asks God to show him how brief life is. Every man is a vapor, and his hope is in the Lord.",
+"David waited patiently and the Lord lifted him out of a pit and put a new song in his mouth. He delights to do God's will, and prays again for help.",
+"Blessed is the one who considers the poor. David, sick and betrayed even by a close friend, asks for mercy and blesses the Lord God of Israel.",
+"As a deer longs for water, the psalmist thirsts for God. In exile and sorrow he remembers leading worship and tells his soul to hope in God.",
+"A prayer for God to plead his cause and send out light and truth to lead him back to God's altar. Again he tells his downcast soul to hope in God.",
+"Israel remembers how God gave their fathers the land, yet now they are defeated and scattered though they have not forgotten Him. They plead with God to arise and help.",
+"A song for a royal wedding. The king is praised for his grace, might and righteous rule, his throne is forever, and the bride is brought to him in splendor.",
+"God is our refuge and strength, a present help in trouble. Though the earth gives way, His city is secure. Be still and know that He is God.",
+"A call for all peoples to clap and shout to God, the great King over all the earth, who reigns over the nations.",
+"Great is the Lord in Mount Zion, the city of the great King. Kings who came against it fled in terror. This God is our God forever.",
+"Wisdom for rich and poor alike. No one can redeem his brother from death or take wealth with him, but God will redeem the psalmist's soul from the grave.",
+"God summons the earth as judge. He does not need sacrifices, since every beast is His; He wants thanksgiving and obedience. He rebukes the wicked who recite His law.",
+"David's prayer of repentance after his sin with Bathsheba. He asks for mercy and cleansing, a clean heart and a right spirit. God desires a broken and contrite heart.",
+"Written when Doeg the Edomite betrayed David. The boaster who loves evil will be uprooted, but David is like a green olive tree, trusting in God's mercy.",
+"The fool says there is no God. God looks down and finds all have turned aside. The psalmist longs for salvation to come out of Zion.",
+"Written when the Ziphites betrayed David to Saul. He asks God to save him by His name and declares that God is his helper.",
+"David is in anguish, wishing for wings like a dove to fly away, because a close friend has betrayed him. He says to cast your burden on the Lord.",
+"Written when the Philistines seized David in Gath. When he is afraid he will trust in God, who keeps count of his wanderings and tears.",
+"Written when David fled from Saul into the cave. He takes refuge in the shadow of God's wings and sings that God's mercy reaches to the heavens.",
+"A rebuke of unjust rulers who speak lies from birth. David asks God to break their power, so that people will say there is a God who judges the earth.",
+"Written when Saul sent men to watch David's house to kill him. Enemies prowl like dogs at night, but God is his defense and he will sing of God's mercy in the morning.",
+"A prayer after a defeat. God has shaken the land, yet He has spoken: the tribes and the nations are His. Through God His people will do valiantly.",
+"From the end of the earth David cries to be led to the rock that is higher than he. God has been his shelter and strong tower.",
+"David's soul waits in silence for God alone, his rock and salvation. Do not trust in oppression or riches; power and mercy belong to God.",
+"Written in the wilderness of Judah. David thirsts for God in a dry land, says His lovingkindness is better than life, and remembers Him in the night.",
+"A prayer for protection from enemies who sharpen their tongues like swords and shoot from hiding. God will shoot at them, and the righteous will be glad.",
+"Praise to the God who hears prayer and forgives. He stills the seas, visits the earth with rain, and crowns the year with goodness.",
+"All the earth is called to shout to God for His awesome works. He tested His people and brought them out to abundance. The psalmist tells how God heard his prayer.",
+"A prayer that God would be merciful and bless His people so that His way and salvation may be known among all nations.",
+"Let God arise and His enemies be scattered. A triumphant song of God marching from Sinai to His sanctuary, a father of the fatherless who daily bears His people's burdens.",
+"A cry from deep waters. David is hated without cause, zeal for God's house has consumed him, and he is given vinegar to drink. He ends in praise.",
+"A short, urgent prayer for God to hurry to help, to turn back those who seek David's hurt, and to let all who seek God rejoice.",
+"A prayer in old age. The psalmist has trusted God from his youth and asks not to be cast off when his strength fails, so that he can declare God's power to the next generation.",
+"A prayer for the king, connected with Solomon. May he judge with righteousness, defend the poor, and rule from sea to sea, with all nations blessed through him.",
+"Asaph nearly stumbled when he envied the prosperity of the wicked. In the sanctuary he understood their end and concluded that God is his portion forever.",
+"A lament over the sanctuary, destroyed and burned by enemies. Asaph asks God how long, remembers His power in creation, and pleads with Him to defend His cause.",
+"Thanksgiving that God is near. He is the judge who puts down one and lifts up another, and the wicked will drink the cup in His hand.",
+"God is known in Judah and His dwelling is in Zion. He broke the weapons of war, and even human wrath will end up praising Him.",
+"In the day of trouble Asaph cannot be comforted and asks whether God has forgotten to be gracious. Then he remembers God's wonders, and how He led His people through the sea.",
+"A long history lesson for the next generation: God's wonders in Egypt and the wilderness, Israel's repeated rebellion, His judgments and compassion, and His choice of Judah and David.",
+"A lament over Jerusalem laid in ruins and the temple defiled. The people ask God to forgive their sins and help them for the glory of His name.",
+"A prayer to the Shepherd of Israel. Israel is a vine God brought out of Egypt, now broken down and burned. The refrain asks God to restore them and cause His face to shine.",
+"A call to celebrate at the feast. God reminds Israel that He delivered them from Egypt and laments that they would not listen; if they would, He would feed them with the finest wheat.",
+"God stands in judgment over unjust judges. They are told to defend the poor and fatherless, and warned that they will die like men.",
+"A prayer against nations plotting together to wipe out Israel. Asaph asks God to deal with them as with Sisera and Midian, so they know He alone is the Most High.",
+"How lovely are God's dwelling places. The psalmist longs for the courts of the Lord; a day there is better than a thousand elsewhere, and God withholds no good thing from the upright.",
+"God has restored His people before, and they ask Him to revive them again. Mercy and truth meet together; righteousness and peace kiss.",
+"A prayer of David, poor and needy. God is good, ready to forgive and abundant in mercy. David asks to be taught God's way and given an undivided heart.",
+"The Lord loves the gates of Zion. Glorious things are spoken of the city of God, and people of many nations will be counted as born there.",
+"The darkest of the psalms. The writer cries day and night, feels cut off and near the grave, friends removed far from him, and it ends without relief.",
+"A song of God's mercies and His covenant with David, sworn to last forever. Then a lament: the king is cast off and his crown dishonored. How long, Lord?",
+"A prayer of Moses. God is eternal and man is like grass; a thousand years are like yesterday. Teach us to number our days so that we gain a heart of wisdom.",
+"Whoever dwells in the secret place of the Most High is under His shadow. God delivers from plague and terror, gives His angels charge over him, and answers when he calls.",
+"A song for the Sabbath. It is good to give thanks to the Lord. The wicked spring up like grass and are destroyed, but the righteous flourish like a palm tree.",
+"The Lord reigns, clothed with majesty. His throne is from of old, and He is mightier than the noise of many waters.",
+"A plea to the God of vengeance to judge the proud who crush His people. Blessed is the one God disciplines; the Lord will not forsake His people.",
+"Come, let us sing to the Lord and kneel before our Maker, for we are the sheep of His hand. A warning follows not to harden the heart as Israel did in the wilderness.",
+"Sing to the Lord a new song and declare His glory among the nations. Worship Him in the beauty of holiness, for He is coming to judge the earth.",
+"The Lord reigns; let the earth rejoice. Clouds and fire go before Him and the mountains melt. Those who love the Lord are told to hate evil.",
+"Sing a new song, for the Lord has done marvelous things and made His salvation known. Let the sea, the rivers and the hills rejoice before Him.",
+"The Lord reigns and is holy. Moses, Aaron and Samuel called on Him and He answered them. Exalt the Lord and worship at His holy hill.",
+"Make a joyful noise to the Lord, all lands. Serve Him with gladness, enter His gates with thanksgiving, for He is good and His mercy is everlasting.",
+"David's resolve as king to walk with a blameless heart in his own house, to put no wicked thing before his eyes, and to keep faithful people near him.",
+"A prayer of an afflicted man whose days vanish like smoke. Yet the Lord endures forever and will rebuild Zion; the heavens will wear out, but God remains the same.",
+"Bless the Lord, O my soul, and forget not all His benefits. He forgives, heals and redeems, and removes our sins as far as the east is from the west.",
+"A hymn to God as Creator and Sustainer. He covers Himself with light, waters the hills, feeds every creature in its season, and renews the face of the earth.",
+"Give thanks and remember God's works: His covenant with Abraham, Joseph in Egypt, the plagues, and the exodus, all to bring His people into the land.",
+"A confession of Israel's history of sin: unbelief at the Red Sea, the golden calf, refusing the land, idolatry in Canaan. Yet God remembered His covenant and showed mercy.",
+"Let the redeemed of the Lord say so. Four groups cry to the Lord in trouble, wanderers, prisoners, the sick, and sailors in a storm, and He delivers each.",
+"David's heart is fixed on praising God among the nations. He asks for help against the enemy, since the help of man is useless.",
+"David, repaid with hatred for his love, asks God to judge his accusers. He himself is poor and needy and asks God to save him for His mercy's sake.",
+"The Lord says to David's Lord, sit at My right hand until your enemies are your footstool. He is a priest forever after the order of Melchizedek.",
+"Praise for the works of the Lord, which are great and studied by all who delight in them. The fear of the Lord is the beginning of wisdom.",
+"Blessed is the man who fears the Lord and delights in His commandments. He is generous, unafraid of bad news, and his righteousness endures.",
+"Praise the Lord from the rising of the sun to its setting. He is high above the nations, yet He lifts the poor from the dust and gives the barren woman a home.",
+"When Israel came out of Egypt, the sea fled, the Jordan turned back, and the mountains skipped. Tremble, earth, at the presence of the Lord.",
+"Not to us, but to God's name be the glory. Idols have mouths, eyes and ears but cannot speak, see or hear. Israel is told to trust in the Lord.",
+"I love the Lord because He heard my voice. Delivered from death, the psalmist asks what he can give back and vows to take the cup of salvation and call on the Lord.",
+"The shortest psalm. All nations are called to praise the Lord, for His merciful kindness is great and His truth endures forever.",
+"Give thanks to the Lord, for His mercy endures forever. It is better to trust in the Lord than in man. The stone the builders rejected has become the chief cornerstone.",
+"The longest psalm, with twenty-two sections following the Hebrew alphabet. Nearly every verse praises God's word: it is hidden in the heart, a lamp to the feet, and sweeter than honey.",
+"The first Song of Ascents. In distress the psalmist cries to the Lord about lying lips, weary of living among those who hate peace.",
+"I lift my eyes to the hills; my help comes from the Lord who made heaven and earth. He does not slumber, and He keeps His people now and forever.",
+"David is glad to go up to the house of the Lord. He prays for the peace of Jerusalem and the good of those who love it.",
+"As servants look to the hand of their master, so God's people lift their eyes to Him and wait for mercy.",
+"If the Lord had not been on Israel's side, they would have been swallowed up. Their soul has escaped like a bird from the snare.",
+"Those who trust in the Lord are like Mount Zion, which cannot be moved. As mountains surround Jerusalem, the Lord surrounds His people.",
+"When the Lord brought back the captives of Zion it was like a dream. Those who sow in tears will reap in joy.",
+"Unless the Lord builds the house, the builders labor in vain. Children are a heritage from the Lord, like arrows in a warrior's hand.",
+"Blessed is everyone who fears the Lord. He will enjoy the fruit of his work, his wife like a fruitful vine and his children like olive plants around his table.",
+"Israel has been afflicted from its youth, yet its enemies have not prevailed. May those who hate Zion wither like grass on the housetops.",
+"Out of the depths the psalmist cries to the Lord. With God there is forgiveness, and he waits for the Lord more than watchmen wait for the morning.",
+"David's heart is not proud. He has calmed his soul like a weaned child with its mother, and he calls Israel to hope in the Lord.",
+"A prayer remembering David's vow to find a dwelling place for the Lord, and God's oath to set David's descendants on his throne and to dwell in Zion.",
+"How good and pleasant it is when brothers dwell together in unity. It is like the anointing oil on Aaron's head and the dew of Hermon.",
+"The last Song of Ascents. The servants who stand by night in the house of the Lord are called to bless Him.",
+"Praise the Lord, for He is good. He does whatever He pleases, struck Egypt and gave Israel the land. Idols are lifeless, and so are those who trust in them.",
+"Every line answers that His mercy endures forever. It gives thanks for creation, the exodus, the wilderness, the conquest, and God's daily provision.",
+"By the rivers of Babylon the exiles sat and wept, unable to sing the Lord's song in a foreign land. They vow never to forget Jerusalem.",
+"David praises God with his whole heart for answering him. Though the Lord is high, He regards the lowly and will complete what concerns David.",
+"The Lord has searched David and knows everything about him. There is nowhere to flee from His presence, and He formed him in the womb. David asks God to search his heart.",
+"A prayer for rescue from violent men whose tongues are like serpents. The Lord will maintain the cause of the afflicted.",
+"David asks that his prayer rise like incense, that God would set a guard over his mouth, and that he would welcome correction from the righteous.",
+"Written when David was in the cave. He pours out his complaint; no one cares for his soul, but the Lord is his refuge and his portion.",
+"A prayer of repentance. No one living is righteous before God. David's spirit is overwhelmed, and he asks God to teach him to do His will.",
+"Blessed be the Lord who trains David's hands for war. Man is like a breath. David asks for rescue and pictures the happiness of a people whose God is the Lord.",
+"David's psalm of praise. The Lord is great, gracious and full of compassion, good to all, near to all who call on Him. His kingdom is everlasting.",
+"Do not put your trust in princes. Happy is the one whose help is the God of Jacob, who made heaven and earth, feeds the hungry, and cares for the stranger, orphan and widow.",
+"Praise the Lord, who rebuilds Jerusalem, heals the brokenhearted, and calls the stars by name. He takes pleasure in those who fear Him.",
+"All creation is called to praise the Lord: angels, sun, moon and stars, sea creatures, weather, mountains, animals, kings and all people.",
+"Sing to the Lord a new song. Let Israel rejoice in its Maker with dance and music, for the Lord takes pleasure in His people.",
+"The final call to praise. Praise God in His sanctuary with trumpet, harp, strings and cymbals. Let everything that has breath praise the Lord."
+],
+Proverbs:[
+"The purpose of the proverbs is to give wisdom and instruction. The fear of the Lord is the beginning of knowledge. A father warns his son against joining sinners, and Wisdom calls aloud in the streets.",
+"Seek wisdom like silver and hidden treasure. The Lord gives it, and it guards you from evil men and from the immoral woman.",
+"Trust in the Lord with all your heart, honor Him with your possessions, and do not despise His correction. Wisdom is more precious than rubies. Do good to your neighbor.",
+"A father urges his sons to get wisdom above all. The path of the just is like the shining light, and the heart must be guarded because life flows from it.",
+"A warning against the adulteress, whose way ends in death, and a call to rejoice in the wife of your youth.",
+"Warnings against guaranteeing another's debt, against laziness with the lesson of the ant, and against the troublemaker. Seven things the Lord hates are listed, and adultery is like fire in the lap.",
+"The father tells of a simple young man lured at night by an adulteress and led away like an ox to the slaughter.",
+"Wisdom calls out at the gates. She is better than rubies, was with God before creation, and whoever finds her finds life.",
+"Wisdom and Folly each invite the simple to their house. The fear of the Lord is the beginning of wisdom; Folly's guests end in the grave.",
+"The proverbs of Solomon begin, contrasting the wise and foolish son, the diligent and the lazy, the righteous and the wicked. Love covers all sins.",
+"Sayings on honest scales, humility, integrity and generosity. The one who waters will be watered, and he who wins souls is wise.",
+"Sayings on loving correction, hard work and truthful lips. Anxiety weighs the heart down, but a good word makes it glad.",
+"Sayings on guarding the mouth and gathering wealth slowly. Hope deferred makes the heart sick; walk with the wise; the one who spares the rod hates his son.",
+"The wise woman builds her house. There is a way that seems right but ends in death. The fear of the Lord is a fountain of life, and righteousness exalts a nation.",
+"A soft answer turns away wrath. The eyes of the Lord are in every place. Better a little with the fear of the Lord, and a merry heart makes a cheerful face.",
+"A man plans his way but the Lord directs his steps. Commit your works to the Lord. Pride goes before destruction, and ruling your spirit is better than taking a city.",
+"Better a dry morsel with quiet than a feast with strife. A friend loves at all times, a merry heart does good like medicine, and even a fool seems wise when silent.",
+"The name of the Lord is a strong tower. Death and life are in the power of the tongue, a wife is a good thing from the Lord, and there is a friend who sticks closer than a brother.",
+"Better to be poor with integrity than a fool with perverse lips. Whoever pities the poor lends to the Lord. Man has many plans, but the Lord's counsel stands.",
+"Wine is a mocker. Sayings on the sluggard, honest weights and waiting on the Lord. The spirit of a man is the lamp of the Lord.",
+"The king's heart is in the Lord's hand. Doing justice is better than sacrifice. The horse is prepared for battle, but deliverance is from the Lord.",
+"A good name is better than riches. Train up a child in the way he should go. The borrower is servant to the lender. The sayings of the wise begin.",
+"Do not crave a ruler's delicacies or wear yourself out to be rich. Discipline your child, listen to your father, and beware of wine that bites like a serpent.",
+"Do not envy evil men. Rescue those being led to death. A righteous man may fall seven times and rise again. The sluggard's field is overgrown with thorns.",
+"More proverbs of Solomon copied by Hezekiah's men. A word fitly spoken is like apples of gold. Feed your enemy, and a man without self-control is like a city without walls.",
+"Sayings about fools, sluggards and gossips. As a dog returns to his vomit, a fool repeats his folly. Where there is no wood the fire goes out.",
+"Do not boast about tomorrow. Faithful are the wounds of a friend, and iron sharpens iron. Know the state of your flocks.",
+"The wicked flee when no one pursues, but the righteous are bold as a lion. Whoever covers his sins will not prosper, but whoever confesses and forsakes them finds mercy.",
+"One who hardens his neck after many rebukes is suddenly destroyed. When the righteous rule the people rejoice. Where there is no vision the people perish, and the fear of man is a snare.",
+"The words of Agur. Every word of God is pure. He asks for neither poverty nor riches, and gives numbered lists drawn from nature, such as four small creatures that are very wise.",
+"The words King Lemuel learned from his mother: warnings for kings, and a portrait of the virtuous wife, worth far more than rubies, who fears the Lord."
+],
+Ecclesiastes:[
+"The Preacher declares that all is vanity. Generations come and go, the sun rises and sets, and there is nothing new under the sun. Even pursuing wisdom is grasping for the wind.",
+"He tests pleasure, great projects and wealth and finds them empty. The wise and the fool both die. The best is to enjoy one's labor as a gift from God.",
+"There is a time for every purpose under heaven. God has made everything beautiful in its time and put eternity in men's hearts. Injustice is seen, and man and beast alike return to dust.",
+"The Preacher observes oppression, toil driven by envy, and the loneliness of working for no one. Two are better than one, and a threefold cord is not quickly broken.",
+"Be careful in God's house, use few words, and pay what you vow. Whoever loves money is never satisfied. It is good to enjoy the fruit of one's labor as God's gift.",
+"It is a grievous thing when God gives a man wealth but not the ability to enjoy it. Desire is never filled.",
+"A good name is better than precious ointment. Sorrow teaches more than laughter. There is no one on earth who never sins; God made man upright, but they have sought out many schemes.",
+"Wisdom makes the face shine. Obey the king. Because judgment is delayed people grow bold in evil, yet it will be well with those who fear God. No one can find out all His work.",
+"One event comes to all. So enjoy life with the wife you love, and whatever your hand finds to do, do it with your might. The race is not to the swift, and time and chance come to all.",
+"A little folly spoils wisdom, as dead flies spoil ointment. The chapter contrasts the words and ways of the wise and the fool and warns against laziness.",
+"Cast your bread on the waters and sow your seed morning and evening, since you do not know what will prosper. Rejoice in your youth, but know that God will bring you to judgment.",
+"Remember your Creator in the days of your youth, before old age comes and the dust returns to the earth. The conclusion: fear God and keep His commandments."
+],
+"Song of Solomon":[
+"The Shulamite longs for her beloved. She is dark from the sun but lovely, and the two exchange words of admiration.",
+"She calls herself the rose of Sharon, and his banner over her is love. Her beloved comes leaping over the hills and invites her out, for the winter is past.",
+"At night she searches the city for the one she loves and finds him. Solomon's wedding procession arrives in splendor.",
+"The beloved praises his bride's beauty from head to toe and calls her a garden enclosed, a spring shut up.",
+"He knocks at night, and she is slow to open; when she does, he is gone. She searches for him and describes him to the daughters of Jerusalem as altogether lovely.",
+"She knows her beloved has gone to his garden and says she is his and he is hers. He praises her beauty again.",
+"He praises her further, and she invites him to go out with her to the fields and vineyards.",
+"Love is as strong as death, and many waters cannot quench it. The song closes with words about her young sister and her own vineyard."
+],
+Isaiah:[
+"Isaiah's vision opens with Judah as a sinful nation whose worship God rejects. God invites them to reason together: sins like scarlet can be white as snow. Zion will be redeemed with justice.",
+"In the latter days the nations will stream to the mountain of the Lord's house and beat their swords into plowshares. The day of the Lord will bring down everything proud.",
+"God will take away Judah's leaders and supplies. The proud daughters of Zion will lose their finery.",
+"The Branch of the Lord will be beautiful, the survivors in Zion will be called holy, and God will cover the city with a cloud by day and fire by night.",
+"The song of the vineyard that yielded wild grapes, followed by six woes on greed, drunkenness and calling evil good. God whistles for a distant nation.",
+"Isaiah sees the Lord high and lifted up, with seraphim crying holy, holy, holy. His lips are cleansed with a coal, and he answers the call to go to a people who will not understand.",
+"King Ahaz is threatened by Syria and Israel. Isaiah gives the sign that a virgin will conceive and bear a son called Immanuel, and warns that Assyria will come.",
+"Isaiah's son is given a name meaning swift plunder. Assyria will flood Judah. The people are told to fear the Lord, not conspiracies, and to turn to the law and the testimony.",
+"The people walking in darkness see a great light. A child is born who is called Wonderful, Counselor, Mighty God, Everlasting Father, Prince of Peace. Judgment still hangs over Israel.",
+"Woe to those who make unjust laws. Assyria is the rod of God's anger but will be punished for its pride, and a remnant of Israel will return.",
+"A Rod will come from the stem of Jesse with the Spirit of the Lord resting on Him. The wolf will dwell with the lamb, and the earth will be full of the knowledge of the Lord.",
+"A short song of praise for that day: God is my salvation, and with joy you will draw water from the wells of salvation.",
+"A prophecy against Babylon. The day of the Lord comes, God stirs up the Medes, and Babylon will be as desolate as Sodom.",
+"Israel will be restored and will taunt the fallen king of Babylon, who said he would ascend above the stars. Words against Assyria and Philistia follow.",
+"A prophecy against Moab. Its cities are laid waste in a night and the land is filled with wailing.",
+"Moab's refugees seek shelter, but Moab's pride brings mourning. Within three years its glory will be despised.",
+"Damascus will become a heap of ruins and Israel's glory will fade because they forgot the God of their salvation.",
+"A message to a land beyond the rivers of Ethiopia. God watches quietly, then prunes the nations, and a gift will be brought to Mount Zion.",
+"A prophecy against Egypt: civil strife and the Nile drying up. Yet one day there will be an altar to the Lord in Egypt, and Egypt, Assyria and Israel will be blessed together.",
+"Isaiah walks naked and barefoot for three years as a sign that Assyria will lead Egypt and Ethiopia away captive.",
+"Visions of the fall of Babylon, a watchman's word for Dumah, and a burden against Arabia.",
+"Jerusalem, the Valley of Vision, feasts when it should mourn. The steward Shebna is to be replaced by Eliakim, who is given the key of the house of David.",
+"A prophecy against Tyre. The ships of Tarshish wail, and Tyre will be forgotten seventy years.",
+"The Lord will lay the whole earth waste because its people have broken the everlasting covenant. Then He will reign on Mount Zion.",
+"A song of praise. On this mountain the Lord will make a feast for all peoples, swallow up death forever, and wipe away tears from all faces.",
+"A song for Judah. God keeps in perfect peace the one whose mind is stayed on Him. The dead will live and their bodies rise.",
+"The Lord will punish Leviathan. He keeps Israel as His vineyard, and in that day His people will be gathered one by one.",
+"Woe to the drunkards of Ephraim and to the scoffers ruling Jerusalem. God lays in Zion a precious cornerstone, a sure foundation.",
+"Woe to Ariel, the city of David, which will be besieged and then delivered. The people honor God with their lips while their hearts are far away. One day the deaf will hear and the blind see.",
+"Woe to those who look to Egypt for help. Their strength is in returning, rest, quietness and confidence. The Lord waits to be gracious and will guide them in the way.",
+"Woe to those who rely on Egypt's horses and chariots; the Egyptians are men, not God. The Lord Himself will defend Jerusalem.",
+"A king will reign in righteousness. Complacent women are warned, until the Spirit is poured out from on high and the work of righteousness is peace.",
+"Woe to the destroyer. The Lord is exalted, and the righteous will see the King in His beauty. The Lord is judge, lawgiver and king, and He will save.",
+"God's judgment on all nations, with Edom as the example. Its land becomes a wasteland for wild creatures.",
+"The desert will blossom like the rose. The eyes of the blind will be opened and the lame will leap. The ransomed of the Lord return to Zion on the Highway of Holiness.",
+"In Hezekiah's fourteenth year Sennacherib of Assyria invades Judah. His spokesman mocks Jerusalem's trust in the Lord.",
+"Hezekiah takes the threat to the Lord in prayer. Isaiah promises deliverance, and the angel of the Lord strikes down 185,000 Assyrians.",
+"Hezekiah is sick and near death. God adds fifteen years to his life with the sign of the shadow going back, and Hezekiah writes a psalm of thanksgiving.",
+"Hezekiah shows envoys from Babylon all his treasures. Isaiah foretells that everything will be carried off to Babylon.",
+"Comfort for God's people. A voice cries in the wilderness to prepare the way of the Lord. The grass withers but God's word stands forever, and those who wait on the Lord renew their strength.",
+"God raises up one from the east and tells Israel His servant not to fear, for He is with them. The idols are challenged and found to be nothing.",
+"God's Servant, in whom He delights, will bring justice gently and be a light to the Gentiles. A new song is sung, though Israel is blind and deaf.",
+"Fear not, for God has redeemed Israel and called them by name. He will be with them through water and fire. They are His witnesses, and He blots out their transgressions.",
+"God will pour His Spirit on Israel's descendants. There is no God besides Him. The folly of carving an idol from firewood is exposed, and Cyrus is named as the one who will rebuild.",
+"God calls Cyrus His anointed to subdue nations. He is the Lord and there is no other. All the ends of the earth are told to look to Him and be saved; every knee will bow.",
+"Babylon's idols are loaded on weary animals, but God has carried His people from birth. He declares the end from the beginning.",
+"Babylon, the proud lady of kingdoms, will sit in the dust. Her sorceries and astrologers cannot save her.",
+"God rebukes stubborn Israel but refines them in the furnace of affliction for His own sake. They are told to go out from Babylon. There is no peace for the wicked.",
+"The Servant, called from the womb, will be a light to the Gentiles. Zion says the Lord has forgotten her, but He cannot forget; she is inscribed on the palms of His hands.",
+"Israel's separation is due to its own sins. The obedient Servant gives His back to those who strike Him and sets His face like flint.",
+"Look to Abraham, the rock from which you were cut. God's salvation will last forever. The cup of His fury is taken from Jerusalem and given to her tormentors.",
+"Zion is told to awake. How beautiful are the feet of the one who brings good news. The Servant will be exalted, though His appearance was marred.",
+"The suffering Servant is despised and rejected. He bore our griefs, was wounded for our transgressions, was led like a lamb to the slaughter, and bore the sin of many.",
+"The barren woman is told to sing and enlarge her tent. Her Maker is her husband, His covenant of peace will not be removed, and no weapon formed against her will prosper.",
+"Everyone who thirsts is invited to come and buy without money. Seek the Lord while He may be found. His thoughts are higher than ours, and His word will not return void.",
+"Salvation is open to foreigners and eunuchs who keep the covenant. God's house will be a house of prayer for all nations. Israel's watchmen are blind.",
+"The righteous perish and no one takes it to heart. Idolatry is rebuked. The High and Lofty One dwells with the contrite and humble. There is no peace for the wicked.",
+"The people fast but quarrel. The fast God chooses is to loose the bonds of wickedness and share bread with the hungry. Then light will break forth, and the Sabbath will be a delight.",
+"God's hand is not too short to save; sin has separated the people from Him. He puts on righteousness as a breastplate, and the Redeemer will come to Zion.",
+"Arise, shine, for your light has come. Nations and kings will come to Zion's brightness, and the Lord will be her everlasting light.",
+"The Spirit of the Lord is on the Anointed One to preach good tidings, heal the brokenhearted and proclaim liberty, giving beauty for ashes.",
+"For Zion's sake God will not keep silent. She will receive a new name, no longer Forsaken, and watchmen on her walls will give Him no rest.",
+"One comes from Edom with stained garments, having trodden the winepress alone. The prophet recalls God's lovingkindness to Israel and begins a prayer.",
+"The prayer continues: oh, that God would tear the heavens and come down. All our righteousnesses are like filthy rags. We are the clay and He is the potter.",
+"God was found by those who did not seek Him, while His own people rebelled. His servants will be blessed, and He will create new heavens and a new earth.",
+"Heaven is God's throne and earth His footstool; He looks to the one who is humble and trembles at His word. Zion will be comforted, and all flesh will come to worship."
+],
+Jeremiah:[
+"God calls Jeremiah, known before he was formed in the womb, as a prophet to the nations. He is shown an almond branch and a boiling pot and promised protection.",
+"God charges Israel with forsaking Him, the fountain of living waters, for broken cisterns that hold no water.",
+"Israel and Judah are pictured as unfaithful wives. God calls them to return and promises shepherds after His own heart.",
+"A call to break up fallow ground and return to the Lord. Disaster is coming from the north, and Jeremiah is in anguish.",
+"Jeremiah is told to search Jerusalem for one person who does justice. The prophets speak falsely, the priests rule by their own power, and the people love it.",
+"A siege is coming. The people refuse the old paths, and the leaders say peace when there is no peace.",
+"Jeremiah preaches at the temple gate: do not trust in the temple while living in sin. God will do to it what He did to Shiloh.",
+"No one repents. Even the stork knows her seasons, but God's people do not know His judgment. Jeremiah asks whether there is no balm in Gilead.",
+"Jeremiah wishes his eyes were a fountain of tears for his people. Let no one glory in wisdom, might or riches, but in knowing the Lord.",
+"Idols are like scarecrows that must be carried. The Lord is the true and living God. Jeremiah confesses that a man cannot direct his own steps.",
+"Judah has broken the covenant. Jeremiah learns that men of his own town, Anathoth, are plotting to kill him.",
+"Jeremiah asks why the wicked prosper. God answers that harder things are ahead and that He has forsaken His house, yet promises compassion later.",
+"A ruined linen sash pictures Judah's pride. The people will be filled with drunkenness, and they can no more change than a leopard its spots.",
+"During a drought Jeremiah pleads for the people. God tells him not to pray for them and condemns the prophets who promise peace.",
+"God says even Moses and Samuel could not turn Him. Jeremiah complains of his pain, having found God's words and eaten them, and God promises to make him a bronze wall.",
+"Jeremiah is forbidden to marry, mourn or feast, as a sign of coming disaster. Exile is certain, but God will bring Israel back.",
+"Judah's sin is engraved with an iron pen. Cursed is the one who trusts in man; blessed is the one who trusts in the Lord. The heart is deceitful. A call to keep the Sabbath.",
+"At the potter's house Jeremiah sees clay reshaped: God can do the same with a nation. The people refuse, and they plot against Jeremiah.",
+"Jeremiah breaks a clay flask in the Valley of Hinnom as a sign that God will break the city beyond repair.",
+"The priest Pashhur beats Jeremiah and puts him in stocks. Jeremiah says God's word is like a fire in his bones, and he curses the day he was born.",
+"King Zedekiah asks for help against Babylon. God answers that He Himself will fight against the city, and that those who surrender will live.",
+"Messages against the kings of Judah: Shallum will not return, Jehoiakim will have a donkey's burial, and Coniah will be cast out.",
+"Woe to the shepherds who scatter the flock. God will raise up a righteous Branch of David. The false prophets are condemned; God's word is like fire and a hammer.",
+"Two baskets of figs: the good are the exiles in Babylon whom God will bring back, and the bad are those left with Zedekiah.",
+"After twenty-three years of warning, Jeremiah announces seventy years of service to Babylon. All nations must drink the cup of God's wrath.",
+"Jeremiah is put on trial for preaching against the temple. The elders recall Micah, and he is spared. The prophet Urijah is killed.",
+"Jeremiah wears a yoke and tells Judah and the neighboring kings to submit to Nebuchadnezzar.",
+"The prophet Hananiah breaks Jeremiah's yoke and predicts freedom in two years. Jeremiah says he speaks a lie, and Hananiah dies that year.",
+"Jeremiah writes to the exiles to build houses and seek the peace of the city. After seventy years God will bring them back, for His thoughts toward them are of peace.",
+"A time of trouble is coming for Jacob, but he will be saved out of it. God will restore His people and heal their wounds.",
+"God has loved Israel with an everlasting love. Rachel weeps for her children, but there is hope. God will make a new covenant and write His law on their hearts.",
+"While Jerusalem is under siege, Jeremiah buys a field in Anathoth as a sign that land will be bought again. Nothing is too hard for the Lord.",
+"God invites Jeremiah to call to Him. He promises healing and restoration, a Branch of righteousness from David, and a covenant as sure as day and night.",
+"Zedekiah is warned he will go to Babylon. The people free their Hebrew slaves, then take them back, and God condemns it.",
+"The Rechabites refuse wine in obedience to their ancestor's command, a contrast to Judah's refusal to obey God.",
+"Baruch writes Jeremiah's words on a scroll and reads it in the temple. King Jehoiakim cuts it up and burns it, and Jeremiah dictates it again.",
+"The siege is briefly lifted. Jeremiah is arrested as a deserter and jailed. Zedekiah secretly asks him for a word from the Lord.",
+"Jeremiah is lowered into a muddy cistern. Ebed-Melech the Ethiopian rescues him. Jeremiah again urges Zedekiah to surrender.",
+"Jerusalem falls. Zedekiah is captured and blinded. Jeremiah is released, and Ebed-Melech is promised safety because he trusted the Lord.",
+"Jeremiah chooses to stay in the land with Gedaliah, the governor at Mizpah. Gedaliah is warned of a plot but does not believe it.",
+"Ishmael murders Gedaliah and others and carries off captives. Johanan rescues them, and they prepare to flee to Egypt.",
+"The remnant asks Jeremiah to seek God's direction. After ten days the answer comes: stay in the land and do not go to Egypt.",
+"The leaders call Jeremiah a liar and take everyone to Egypt, Jeremiah included. He foretells that Nebuchadnezzar will come there too.",
+"The Jews in Egypt insist on burning incense to the queen of heaven. Jeremiah announces that judgment will follow them.",
+"A message for Baruch, who is weary: do not seek great things for yourself, but your life will be spared.",
+"A prophecy against Egypt: defeat at Carchemish and invasion by Nebuchadnezzar. Jacob is told not to fear.",
+"A prophecy against the Philistines, overrun by waters rising from the north.",
+"A prophecy against Moab for its pride and trust in Chemosh. It ends with a promise of restoration in the latter days.",
+"Prophecies against Ammon, Edom, Damascus, Kedar and Hazor, and Elam.",
+"A prophecy against Babylon. A nation from the north will lay it waste, and Israel and Judah will return weeping to seek the Lord.",
+"Babylon's fall continues. God stirs up the Medes, and Seraiah is told to read the scroll in Babylon and sink it in the Euphrates.",
+"A historical appendix on the fall of Jerusalem, the plunder of the temple, the numbers taken into exile, and the release of Jehoiachin."
+],
+Lamentations:[
+"Jerusalem, once full of people, sits alone like a widow. Her sin has brought her down, and there is no one to comfort her.",
+"The Lord in His anger has destroyed Zion's walls, temple and leaders. Her prophets saw false visions. The people are told to cry out to the Lord in the night.",
+"A man who has seen affliction speaks. Yet he has hope: the Lord's mercies are new every morning and His faithfulness is great. Let us examine our ways and turn back.",
+"The gold has grown dim. The horrors of the siege are described, brought on by the sins of prophets and priests. Edom's punishment will come.",
+"A prayer asking the Lord to remember what has happened to His people and to restore them. He remains forever."
+],
+Ezekiel:[
+"Among the exiles by the river Chebar, Ezekiel sees a storm cloud with four living creatures, wheels within wheels full of eyes, and above them a throne with the glory of the Lord.",
+"God sends Ezekiel to the rebellious house of Israel, telling him not to fear them, and shows him a scroll written with lamentations and woe.",
+"Ezekiel eats the scroll and it tastes like honey. He is made a watchman responsible to warn the wicked, and is made mute except when God speaks through him.",
+"Ezekiel acts out the siege of Jerusalem with a clay tablet, lies on his left side 390 days and his right side 40, and eats rationed bread.",
+"He shaves his head and beard and divides the hair in thirds, burned, struck with a sword and scattered, picturing Jerusalem's fate.",
+"A prophecy against the mountains of Israel: the high places and idols will be destroyed, though a remnant will escape. Then they will know that He is the Lord.",
+"The end has come on the land. Silver and gold cannot deliver in the day of the Lord's wrath.",
+"In a vision Ezekiel is taken to the Jerusalem temple and shown its abominations: an idol at the gate, elders worshiping images, women weeping for Tammuz, and men bowing to the sun.",
+"A man with a writer's inkhorn marks those who grieve over the city's sins. Six executioners strike down everyone without the mark, beginning at the sanctuary.",
+"Coals from among the cherubim are scattered over the city, and the glory of the Lord moves from the temple to the east gate.",
+"Wicked leaders are judged. God promises the exiles a new heart and a new spirit. The glory of the Lord leaves the city and rests on the mountain to the east.",
+"Ezekiel packs an exile's bag and digs through a wall as a sign that the prince and people will go into captivity. The vision will not be delayed any longer.",
+"A word against false prophets who say peace and whitewash a flimsy wall, and against women who use magic charms to hunt souls.",
+"Elders come with idols in their hearts. God says that even Noah, Daniel and Job could deliver only themselves by their righteousness.",
+"Jerusalem is like the wood of a vine, useless for anything but fuel for the fire.",
+"Jerusalem is pictured as an abandoned infant whom God raised and married, who then became a harlot worse than Samaria and Sodom. Yet God will remember His covenant.",
+"A parable of two eagles and a vine: King Zedekiah broke his oath to Babylon by turning to Egypt. God will plant a tender twig that becomes a great cedar.",
+"Each person answers for his own sin: the soul who sins shall die. God takes no pleasure in the death of the wicked and calls Israel to turn and live.",
+"A lament for the princes of Israel, pictured as a lioness whose cubs are captured and a vine that is uprooted.",
+"God reviews Israel's rebellion in Egypt, in the wilderness and in the land, and how He acted for His name's sake. He will purge the rebels and bring His people back.",
+"The Lord's sword is drawn against Jerusalem. The king of Babylon stands at the fork in the road, and the crown is removed until He comes whose right it is.",
+"The sins of the bloody city are listed. Israel has become dross in a furnace. God looked for a man to stand in the gap and found none.",
+"Two sisters, Oholah and Oholibah, stand for Samaria and Jerusalem, who were unfaithful with Assyria, Egypt and Babylon and are judged for it.",
+"On the day the siege begins, Jerusalem is compared to a boiling pot. Ezekiel's wife dies and he is told not to mourn, as a sign to the exiles.",
+"Prophecies against Ammon, Moab, Edom and Philistia for gloating over Judah's fall.",
+"A prophecy against Tyre. Nebuchadnezzar will come against it, and it will be scraped bare like the top of a rock.",
+"A lament for Tyre, pictured as a magnificent merchant ship that sinks with all its cargo and crew.",
+"The prince of Tyre says he is a god and will be brought down. A lament describes the king of Tyre as once in Eden, perfect until iniquity was found in him. Israel will be regathered.",
+"A prophecy against Pharaoh, the great monster in the Nile. Egypt will be desolate forty years and given to Nebuchadnezzar as wages.",
+"The day of the Lord comes for Egypt and its allies. God will break Pharaoh's arms and strengthen the king of Babylon.",
+"Assyria was like a towering cedar that was cut down for its pride, a warning to Pharaoh.",
+"A lament for Pharaoh. Egypt will go down to the Pit and lie with the slain nations.",
+"Ezekiel is again appointed watchman. Word arrives that Jerusalem has fallen. The people enjoy hearing him but do not do what he says.",
+"The shepherds of Israel have fed themselves and not the flock. God Himself will search for His sheep, set one shepherd over them, and make a covenant of peace.",
+"A prophecy against Mount Seir, Edom, for its ancient hatred and for rejoicing over Israel's ruin.",
+"The mountains of Israel will be fruitful again. For His holy name's sake God will gather His people, cleanse them, give them a new heart, and put His Spirit within them.",
+"In the valley of dry bones, the bones come together and live when Ezekiel prophesies. Two sticks are joined as one: Israel and Judah will be one nation under one king.",
+"Gog of the land of Magog will lead many nations against restored Israel, and God will show His fury against him.",
+"Gog's army falls on the mountains of Israel and it takes seven months to bury the dead. God restores Israel and pours out His Spirit.",
+"In the twenty-fifth year of exile Ezekiel is shown a new temple. A man with a measuring rod measures its gates and courts.",
+"The measurements of the sanctuary, the Most Holy Place, and the carvings of cherubim and palm trees.",
+"The priests' chambers and the outer measurements of the temple area.",
+"The glory of the Lord returns through the east gate and fills the temple. The altar and its consecration are described.",
+"The east gate stays shut because the Lord entered by it. Rules are given for the Levites and for the priests of Zadok's line.",
+"A holy district is set apart in the land, with a portion for the prince. Honest measures are commanded, and offerings and feasts are set out.",
+"Rules for the prince's worship and offerings on Sabbaths and new moons, and the kitchens for the sacrifices.",
+"A river flows from under the temple, growing deeper, bringing life wherever it goes and healing the Dead Sea. The borders of the land are given.",
+"The land is divided among the twelve tribes. The city has twelve gates named for the tribes, and its name is The Lord Is There."
+],
+Daniel:[
+"Daniel and his three friends are taken to Babylon and trained for the king's service. They refuse the king's food, and after a ten-day test they look healthier and prove wiser than all the others.",
+"Nebuchadnezzar dreams of a statue of gold, silver, bronze, iron and clay, struck by a stone cut without hands. God reveals the dream and its meaning to Daniel: kingdoms will rise, and God's kingdom will stand forever.",
+"Shadrach, Meshach and Abed-Nego refuse to bow to the king's gold image and are thrown into the fiery furnace. A fourth figure walks with them and they come out unharmed.",
+"Nebuchadnezzar dreams of a great tree cut down. As Daniel warned, he is driven out to live like a beast until he acknowledges that the Most High rules, and then he is restored.",
+"At Belshazzar's feast a hand writes on the wall. Daniel reads it: the kingdom is numbered, weighed and divided. That night Belshazzar is killed and Darius the Mede takes the kingdom.",
+"Officials trick Darius into banning prayer. Daniel keeps praying three times a day and is thrown to the lions, but God shuts their mouths.",
+"Daniel dreams of four beasts rising from the sea. The Ancient of Days sits in judgment, and one like the Son of Man receives an everlasting kingdom.",
+"A vision of a ram and a goat, explained by Gabriel as Medo-Persia and Greece, and a little horn that attacks the sanctuary.",
+"Reading Jeremiah's seventy years, Daniel confesses Israel's sin. Gabriel brings the prophecy of seventy weeks, including Messiah being cut off.",
+"After three weeks of fasting Daniel sees a glorious man. A messenger says he was delayed by the prince of Persia until Michael came to help.",
+"A detailed prophecy of wars between the kings of the North and the South, a vile ruler who defiles the sanctuary, and a king who exalts himself.",
+"A time of great trouble will come, and Michael will stand up. Many who sleep in the dust will awake, some to everlasting life. Daniel is told to seal the book and rest."
+],
+Hosea:[
+"God tells Hosea to marry Gomer, an unfaithful woman, as a picture of Israel. Their children are named Jezreel, Lo-Ruhamah and Lo-Ammi.",
+"Israel, like an unfaithful wife, will be stripped of her gifts. Then God will draw her into the wilderness, speak comfort to her, and betroth her to Himself forever.",
+"Hosea buys back his wife. In the same way Israel will be many days without a king and afterward return to seek the Lord.",
+"God brings a charge against Israel: there is no truth, mercy or knowledge of God. His people are destroyed for lack of knowledge.",
+"Judgment on the priests, Israel and Judah. God will be like a lion to them and withdraw until they acknowledge their offense.",
+"A call to return to the Lord, who will heal. But Israel's faithfulness is like a morning cloud. God desires mercy and not sacrifice.",
+"Ephraim is like a cake not turned and a silly dove, calling to Egypt and going to Assyria.",
+"They sow the wind and reap the whirlwind. They set up kings without God and made the calf of Samaria.",
+"The days of punishment have come. Israel will not stay in the Lord's land but will be wanderers among the nations.",
+"Israel is a vine whose fruit went to its altars. The calf will be carried to Assyria. Break up your fallow ground, for it is time to seek the Lord.",
+"When Israel was a child God loved him and called His son out of Egypt. Though they turned away, He asks how He can give them up.",
+"Ephraim feeds on wind. The story of Jacob is recalled, and Israel is told to return to God and wait on Him.",
+"Ephraim sinned through Baal. There is no savior besides the Lord, who will ransom them from the power of the grave.",
+"Israel is called to return with words of repentance. God will heal their backsliding, love them freely, and be like dew to them."
+],
+Joel:[
+"A plague of locusts has stripped the land. The priests are told to call a fast, for the day of the Lord is near.",
+"An army like locusts advances. God calls His people to tear their hearts, not their garments. He will restore the years the locusts ate and pour out His Spirit on all flesh.",
+"God will judge the nations in the Valley of Jehoshaphat for what they did to His people. The Lord will dwell in Zion."
+],
+Amos:[
+"Amos, a shepherd from Tekoa, announces judgment on Israel's neighbors: Damascus, Gaza, Tyre, Edom and Ammon.",
+"Judgment on Moab and Judah, and then on Israel itself, for selling the righteous for silver and trampling the poor.",
+"Israel alone has God known, so He will punish them. Can two walk together unless they are agreed? The lion has roared.",
+"The wealthy women of Samaria oppress the poor. God sent famine, drought and plague, yet they did not return to Him. Prepare to meet your God.",
+"Seek the Lord and live. God rejects their feasts and songs and asks that justice run down like water and righteousness like a mighty stream.",
+"Woe to those at ease in Zion, lying on beds of ivory, who do not grieve for the nation's ruin.",
+"Visions of locusts, fire and a plumb line. The priest Amaziah tells Amos to leave, and Amos answers that God took him from following the flock.",
+"A basket of summer fruit shows that the end has come. A famine is coming, not of bread, but of hearing the words of the Lord.",
+"The Lord stands by the altar and none will escape. Yet He will sift Israel without losing a grain, raise up the fallen tabernacle of David, and plant His people in their land."
+],
+Obadiah:[
+"A vision against Edom. Its pride in its high rock dwellings will be brought down for its violence against its brother Jacob in the day of his calamity. Deliverance will be on Mount Zion."
+],
+Jonah:[
+"God sends Jonah to Nineveh, but he boards a ship for Tarshish. A great storm rises, the sailors throw him overboard at his word, and a great fish swallows him.",
+"From the belly of the fish Jonah prays and declares that salvation is of the Lord. The fish vomits him onto dry land.",
+"Jonah preaches in Nineveh that it will be overthrown in forty days. The whole city repents in sackcloth, and God relents.",
+"Jonah is angry at God's mercy. God uses a plant, a worm and a hot wind to teach him about His pity for a city of more than 120,000 people."
+],
+Micah:[
+"The Lord comes down in judgment on Samaria and Jerusalem. Micah laments as disaster reaches the gate of his people.",
+"Woe to those who plan evil on their beds and seize fields. False prophets are rebuked, and God promises to gather a remnant.",
+"Rulers who hate good, prophets who preach for pay, and priests who teach for hire are condemned. Zion will be plowed like a field.",
+"In the latter days nations will come to the mountain of the Lord and beat swords into plowshares. Zion will go to Babylon and be rescued there.",
+"Out of Bethlehem Ephrathah will come a ruler in Israel whose goings forth are from of old. The remnant of Jacob will be like dew among the peoples.",
+"The Lord brings His case against Israel. What He requires is to do justly, love mercy and walk humbly with God. Dishonest wealth is condemned.",
+"Micah finds no upright person left, yet he will look to the Lord. Who is a God like Him, pardoning iniquity and casting sins into the depths of the sea?"
+],
+Nahum:[
+"The Lord is slow to anger and great in power, a stronghold in the day of trouble, and He will make an end of Nineveh.",
+"A vivid picture of Nineveh under attack: chariots rage in the streets and the city is plundered and emptied.",
+"Woe to the bloody city. Nineveh will fall as Thebes did, and its wound cannot be healed."
+],
+Habakkuk:[
+"Habakkuk asks how long God will ignore violence. God answers that He is raising up the Chaldeans, and the prophet asks why He would use a nation more wicked.",
+"God tells him to write the vision and wait for it: the just shall live by his faith. Five woes are pronounced. The Lord is in His holy temple.",
+"Habakkuk prays for God to revive His work and recalls His power. Though the fig tree does not blossom and the fields yield no food, he will rejoice in the Lord."
+],
+Zephaniah:[
+"The great day of the Lord is near, a day of wrath on Judah and Jerusalem for idolatry and complacency.",
+"The humble are called to seek the Lord. Judgment is announced on Philistia, Moab, Ammon, Ethiopia and Assyria.",
+"Woe to rebellious Jerusalem. God will purify the peoples and leave a humble remnant, and He will rejoice over them with singing."
+],
+Haggai:[
+"The people live in paneled houses while God's house lies in ruins. They are told to consider their ways, and Zerubbabel and Joshua lead them back to work on the temple.",
+"God promises that the glory of this latter temple will be greater than the former. From this day He will bless them, and Zerubbabel is chosen like a signet ring."
+],
+Zechariah:[
+"A call to return to the Lord. Zechariah sees a horseman among the myrtle trees, and four horns and four craftsmen.",
+"A man with a measuring line. Jerusalem will overflow its walls, and the Lord will be a wall of fire around her. Whoever touches His people touches the apple of His eye.",
+"Joshua the high priest stands in filthy garments while Satan accuses him. The Lord rebukes Satan, clothes Joshua in clean robes, and promises His Servant the Branch.",
+"A gold lampstand with two olive trees. The word to Zerubbabel: not by might nor by power, but by God's Spirit. He will finish the temple.",
+"A flying scroll carries a curse on thieves and perjurers, and a woman called Wickedness is carried in a basket to Shinar.",
+"Four chariots go out over the earth. A crown is placed on Joshua as a picture of the Branch, who will build the temple and rule as priest on his throne.",
+"The people ask whether to keep fasting. God answers that He wanted justice, mercy and compassion, which their fathers refused.",
+"God will return to Zion. Old people and children will fill Jerusalem's streets, fasts will become feasts, and people of many nations will seek the Lord.",
+"Judgment on Israel's neighbors. Zion's King comes to her, just and lowly, riding on a donkey. He will speak peace to the nations.",
+"The Lord gives rain. He is angry with the shepherds and will strengthen Judah and Joseph and bring them back.",
+"Zechariah acts as shepherd with two staffs, Beauty and Bonds. His wages are thirty pieces of silver, thrown to the potter. A worthless shepherd is foretold.",
+"Jerusalem will be a heavy stone for all nations. God will pour out a spirit of grace, and they will look on the One they pierced and mourn.",
+"A fountain will be opened for sin and uncleanness. The Shepherd is struck and the sheep scattered, and a third is refined like silver.",
+"The day of the Lord. Nations gather against Jerusalem, and the Lord's feet stand on the Mount of Olives. Living waters flow, and the Lord is King over all the earth."
+],
+Malachi:[
+"God says He has loved Israel. The priests are rebuked for offering blind and lame animals. His name will be great among the nations.",
+"The priests have corrupted the covenant of Levi. The people deal treacherously, marrying pagans and divorcing their wives, and weary the Lord with their words.",
+"God will send His messenger to prepare the way, and He will come like a refiner's fire. The people rob God in tithes and offerings. A book of remembrance is written for those who fear Him.",
+"The day is coming that will burn like an oven, but for those who fear God's name the Sun of Righteousness will rise with healing. Elijah will come before that great day."
 ]
 /*MORE_BOOKS*/
 },
@@ -387,7 +1210,38 @@ people:[
 {n:"Luke",t:"A physician and Paul's companion on his travels. He carefully investigated the accounts and wrote the Gospel of Luke and the book of Acts."},
 {n:"Silas",t:"A leader in the Jerusalem church who joined Paul on the second missionary journey. He sang hymns with Paul in the Philippian jail the night the jailer believed."},
 {n:"Priscilla and Aquila",t:"A married couple and tentmakers who worked with Paul in Corinth and Ephesus. They hosted a church in their home and explained the way of God more accurately to Apollos."},
-{n:"Lydia",t:"A seller of purple cloth in Philippi. The Lord opened her heart to Paul's message, she and her household were baptized, and her home became a base for the church there."}
+{n:"Lydia",t:"A seller of purple cloth in Philippi. The Lord opened her heart to Paul's message, she and her household were baptized, and her home became a base for the church there."},
+{n:"Naomi",t:"A widow from Bethlehem who lost her husband and both sons in Moab and came home bitter. Through her daughter-in-law Ruth and the kinsman Boaz, God restored her family and gave her a grandson in David's line."},
+{n:"Boaz",t:"A wealthy and godly landowner of Bethlehem. He showed kindness to Ruth, redeemed Elimelech's land as kinsman redeemer, and married her, becoming the great-grandfather of David."},
+{n:"Jephthah",t:"A warrior from Gilead rejected by his brothers. The Spirit of the Lord came on him and he delivered Israel from the Ammonites, though he is also remembered for a rash vow."},
+{n:"Eli",t:"The priest at Shiloh who judged Israel forty years and raised the boy Samuel. He failed to restrain his wicked sons, and God judged his house."},
+{n:"Abigail",t:"The wise wife of the foolish Nabal. Her quick action and humble words kept David from shedding blood in anger, and after Nabal's death she became David's wife."},
+{n:"Bathsheba",t:"The wife of Uriah, taken by King David. She later became his wife, the mother of Solomon, and helped secure Solomon's place on the throne."},
+{n:"Absalom",t:"David's handsome son who killed his brother Amnon and later stole the hearts of Israel to seize the throne. His revolt ended with his death in the woods of Ephraim."},
+{n:"Joab",t:"David's nephew and commander of his army. A skilled but ruthless general, he won David's wars and captured Jerusalem's stronghold, yet murdered Abner and Amasa and killed Absalom against orders."},
+{n:"Mephibosheth",t:"Jonathan's son, lame in both feet from childhood. David sought him out for Jonathan's sake, restored Saul's land to him, and gave him a seat at the king's table."},
+{n:"Rehoboam",t:"Solomon's son and successor. His harsh answer to the people split the kingdom, leaving him only Judah and Benjamin."},
+{n:"Jeroboam",t:"An official of Solomon to whom God gave ten tribes. As first king of the northern kingdom he set up golden calves at Bethel and Dan, leading Israel into lasting sin."},
+{n:"Ahab and Jezebel",t:"Ahab was a king of Israel who did more evil than all before him, and Jezebel his wife promoted Baal worship and killed the Lord's prophets. God sent Elijah to confront them, and both died as he foretold."},
+{n:"Naaman",t:"Commander of the Syrian army and a leper. At the word of a captive Israelite girl he went to Elisha, washed seven times in the Jordan, was healed, and confessed the God of Israel."},
+{n:"Jehu",t:"An army commander anointed king of Israel at Elisha's direction. God used him to end the house of Ahab and wipe out Baal worship, though he kept the golden calves."},
+{n:"Jehoshaphat",t:"A king of Judah who sought the Lord and sent teachers of the law through the land. When a great army came against him he prayed, and God gave victory as the singers praised."},
+{n:"Manasseh",t:"Hezekiah's son and Judah's longest-reigning king, who filled the land with idolatry and bloodshed. Taken captive, he humbled himself, and God restored him to Jerusalem."},
+{n:"Asa",t:"A king of Judah who removed idols and called the nation to seek the Lord. God gave him victory over a vast Ethiopian army when he prayed, though late in life he relied on Syria and on physicians alone."},
+{n:"Joash",t:"Hidden in the temple as an infant and crowned at seven. Guided by the priest Jehoiada he repaired the house of the Lord, but after Jehoiada died he turned to idols."},
+{n:"Uzziah",t:"Became king of Judah at sixteen and reigned fifty-two years. God made him prosper while he sought the Lord, but in pride he entered the temple to burn incense and was struck with leprosy."},
+{n:"Zerubbabel",t:"A descendant of David and governor of Judah. God used him to lead the first exiles home from Babylon and to rebuild the temple, encouraged by the prophets Haggai and Zechariah."},
+{n:"Haman",t:"A high official of Persia who plotted to destroy all the Jews because Mordecai would not bow to him. God overturned his plan through Esther, and he was hanged on his own gallows."},
+{n:"Baruch",t:"Jeremiah's faithful scribe. He wrote down the prophet's words, read them publicly in the temple at great risk, and rewrote the scroll after King Jehoiakim burned it."},
+{n:"Zedekiah",t:"The last king of Judah, placed on the throne by Nebuchadnezzar. He asked Jeremiah for God's word but would not obey it, and saw Jerusalem fall before being blinded and taken to Babylon."},
+{n:"Nebuchadnezzar",t:"King of Babylon, whom God used to judge Judah, destroy Jerusalem and carry the people into exile. Humbled by God for his pride, he came to praise the King of heaven."},
+{n:"Belshazzar",t:"A ruler of Babylon who drank from the temple vessels at a great feast. God wrote his judgment on the wall, Daniel read it, and that night the kingdom fell to the Medes and Persians."},
+{n:"Hosea",t:"A prophet to the northern kingdom in its last decades. God told him to marry an unfaithful wife and take her back, making his own marriage a picture of God's faithful love for Israel."},
+{n:"Amos",t:"A shepherd and tender of sycamore fruit from Tekoa in Judah. God sent him north to Israel to denounce injustice toward the poor and empty worship."},
+{n:"Micah",t:"A prophet from the small town of Moresheth in Judah. He condemned corrupt leaders, foretold that a ruler would come from Bethlehem, and summed up what the Lord requires."},
+{n:"Habakkuk",t:"A prophet who questioned God about evil and about using Babylon to judge Judah. God answered that the just shall live by faith, and Habakkuk ended in a song of trust."},
+{n:"Haggai and Zechariah",t:"Two prophets to the Jews who returned from exile. Their preaching stirred Zerubbabel and the people to finish rebuilding the temple, and Zechariah foretold the coming King."},
+{n:"Malachi",t:"The last of the Old Testament prophets. He rebuked half-hearted priests and people after the exile and foretold a messenger who would prepare the way of the Lord."}
 /*MORE_PEOPLE*/
 ],
 verses:[
@@ -589,22 +1443,54 @@ var artifact=null, tts=null;
 var view=lsGet(VIEW_KEY,{cat:"all",book:"all",shuffled:true});
 var state={cat:view.cat||"all",book:view.book||"all",shuffled:view.shuffled!==false,deck:[],pos:0,flipped:false,note:""};
 
-function vkey(r){
-  var m=/^(.*) (\d+):(\d+)/.exec(r);if(!m)return 9e9;
-  return BOOKS.indexOf(m[1]==="Psalm"?"Psalms":m[1])*1e6+(+m[2])*1e3+(+m[3]);
+/* reading verse references so duplicates can be spotted */
+function nrm(s){return String(s).toLowerCase().replace(/[^a-z0-9]/g,"")}
+var BOOKN=BOOKS.map(function(b){return b==="Psalms"?"psalm":nrm(b)});
+var ALIAS={psalms:"psalm",ps:"psalm",psa:"psalm",jn:"john",jhn:"john",mt:"matthew",matt:"matthew",mk:"mark",mrk:"mark",lk:"luke",ex:"exodus",exod:"exodus",dt:"deuteronomy",deut:"deuteronomy",pr:"proverbs",prov:"proverbs",is:"isaiah",isa:"isaiah",php:"philippians",phil:"philippians",jas:"james",revelations:"revelation",songofsongs:"songofsolomon","1kgs":"1kings","2kgs":"2kings","1jn":"1john","2jn":"2john","3jn":"3john"};
+function bookKey(s){
+  var n=nrm(s);if(ALIAS[n])n=ALIAS[n];
+  if(BOOKN.indexOf(n)>=0)return n;
+  if(n.length>=3){var hits=BOOKN.filter(function(b){return b.indexOf(n)===0});if(hits.length===1)return hits[0]}
+  return n;
 }
+function parseRef(r){
+  var m=/^\s*(.+?)\s*(\d+)\s*[:.]\s*(\d+)(?:\s*[-–]\s*(\d+))?\s*$/.exec(String(r));
+  if(!m)return {b:nrm(r),c:0,v1:0,v2:0,loose:true};
+  var v1=+m[3],v2=m[4]?+m[4]:v1;
+  return {b:bookKey(m[1]),c:+m[2],v1:v1,v2:Math.max(v1,v2)};
+}
+function vkey(r){
+  var p=parseRef(r),i=BOOKN.indexOf(p.b);
+  return (i<0?99:i)*1e6+p.c*1e3+p.v1;
+}
+function allVerses(){
+  var out=(window.CARDS.verses||[]).map(function(v){return {r:v.r,t:v.t,ver:"KJV",mine:false}});
+  user.verses.concat(pending).forEach(function(v){out.push({r:v.ref,t:v.text,ver:v.ver||"",id:v.id,mine:true})});
+  out.forEach(function(v,i){v.k=vkey(v.r);v.i=i});
+  out.sort(function(a,b){return a.k-b.k||a.i-b.i});
+  return out;
+}
+/* same = identical reference; near = same chapter with overlapping verses */
+function findMatches(ref,skipId){
+  var p=parseRef(ref),same=[],near=[];
+  allVerses().forEach(function(v){
+    if(skipId&&v.id===skipId)return;
+    var q=parseRef(v.r);
+    if(p.b!==q.b||p.c!==q.c)return;
+    if(p.loose||q.loose){if(p.loose&&q.loose)same.push(v);return}
+    if(p.v1===q.v1&&p.v2===q.v2)same.push(v);
+    else if(p.v1<=q.v2&&q.v1<=p.v2)near.push(v);
+  });
+  return {same:same,near:near};
+}
+
 function allCards(){
   var out=[];
   var ch=window.CARDS.chapters;
   BOOKS.forEach(function(b){
     (ch[b]||[]).forEach(function(s,i){out.push({type:"chapter",book:b,front:b+" "+(i+1),sub:"What happens in this chapter?",back:s})});
   });
-  (window.CARDS.verses||[]).slice().sort(function(a,b){return vkey(a.r)-vkey(b.r)}).forEach(function(v){
-    out.push({type:"verse",front:v.r,sub:"KJV",back:v.t});
-  });
-  user.verses.concat(pending).forEach(function(v){
-    out.push({type:"verse",id:v.id,front:v.ref,sub:v.ver||"",back:v.text});
-  });
+  allVerses().forEach(function(v){out.push({type:"verse",id:v.id,front:v.r,sub:v.ver,back:v.t})});
   window.CARDS.people.forEach(function(p){out.push({type:"person",front:p.n,sub:"How did God use this person?",back:p.t})});
   return out;
 }
@@ -637,15 +1523,23 @@ app.innerHTML=
 '<button class="btn" id="next" type="button">Next</button></div>'+
 '<div class="tools"><button class="btn" id="speak" type="button" hidden>Read aloud</button>'+
 '<button class="btn" id="del" type="button" hidden>Remove this verse</button>'+
+'<button class="btn" id="list" type="button">Verse list</button>'+
 '<button class="btn" id="add" type="button">Add a memory verse</button></div>'+
 '<p class="note" id="note" role="status"></p>'+
 '<div class="overlay" id="overlay" hidden><form class="sheet" id="vform">'+
 '<h2>Add a memory verse</h2>'+
 '<label for="vref">Reference<input id="vref" required placeholder="John 3:16" autocomplete="off"></label>'+
+'<p class="dup" id="vdup" role="alert" hidden></p>'+
 '<label for="vver">Version<input id="vver" value="KJV" autocomplete="off"></label>'+
 '<label for="vtext">Verse text<textarea id="vtext" required placeholder="Type or paste the verse here"></textarea></label>'+
 '<div class="row"><button class="btn" id="vcancel" type="button">Cancel</button>'+
-'<button class="btn primary" type="submit">Save verse</button></div></form></div>';
+'<button class="btn primary" id="vsave" type="submit">Save verse</button></div></form></div>'+
+'<div class="overlay" id="lov" hidden><div class="sheet tall">'+
+'<h2>Verse list</h2>'+
+'<input id="lq" type="search" placeholder="Search by reference or words" aria-label="Search verses" autocomplete="off">'+
+'<p class="note" id="lcount"></p>'+
+'<div class="vlist" id="vlist"></div>'+
+'<div class="row"><button class="btn primary" id="ldone" type="button">Done</button></div></div></div>';
 
 function $(id){return document.getElementById(id)}
 
@@ -677,7 +1571,7 @@ function renderCard(){
   $("speak").hidden=!has||!canSpeak();
   $("note").textContent=state.note;
   if(!has){
-    stage.innerHTML='<div class="empty"><div>'+(state.cat==="verses"?"No memory verses yet. Add the first one and it will show up here.":"No cards here yet.")+'</div></div>';
+    stage.innerHTML='<div class="empty"><div>No cards here yet.</div></div>';
     return;
   }
   stage.innerHTML='<button class="card'+(state.flipped?" flipped":"")+'" id="card" type="button" style="--cat:'+CATVAR[c.type]+'" aria-label="Flash card. Tap to flip.">'+
@@ -707,28 +1601,29 @@ function speak(){
 }
 
 /* saving the user's verses into the page itself */
-function buildDoc(){
+function buildDoc(data){
   var css=$("css").textContent, cards=$("cards").textContent, js=$("appjs").textContent;
-  var data=JSON.stringify(user).replace(/</g,"\\u003c");
+  var json=JSON.stringify(data).replace(/</g,"\\u003c");
   return '<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<title>Bible Flash Cards</title>\n'+
     '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">\n'+
     '<style id="css">'+css+'</style>\n</head>\n<body>\n<div id="app"></div>\n'+
     '<script id="cards">'+cards+'<\/script>\n'+
-    '<script id="userdata" type="application/json">'+data+'<\/script>\n'+
+    '<script id="userdata" type="application/json">'+json+'<\/script>\n'+
     '<script id="appjs">'+js+'<\/script>\n</body>\n</html>\n';
 }
 function persist(okMsg){
-  if(!artifact){lsSet(PEND_KEY,pending);state.note=okMsg+" Saved on this phone.";deal();jumpToCat();return}
-  user.verses=user.verses.concat(pending);pending=[];
-  state.note="Saving…";deal();render();
-  artifact.publish(buildDoc()).then(function(){lsSet(PEND_KEY,[])},function(){
-    var keep=user.verses.filter(function(v){return !savedIds[v.id]});
-    user.verses=user.verses.filter(function(v){return savedIds[v.id]});
-    pending=keep;lsSet(PEND_KEY,pending);
-    state.note=okMsg+" Could not save to the page, so it is kept on this device only.";render();
+  lsSet(PEND_KEY,pending);
+  deal();
+  if(!artifact){state.note=okMsg+" Saved on this phone.";render();return}
+  state.note="Saving…";render();
+  artifact.publish(buildDoc({verses:user.verses.concat(pending)})).then(function(){lsSet(PEND_KEY,[])},function(){
+    state.note=okMsg+" Could not save to the page, so the change is kept on this device only.";render();
   });
 }
-function jumpToCat(){render()}
+function removeVerse(id){
+  pending=pending.filter(function(v){return v.id!==id});
+  user.verses=user.verses.filter(function(v){return v.id!==id});
+}
 
 $("chips").addEventListener("click",function(e){
   var b=e.target.closest(".chip");if(!b)return;
@@ -752,37 +1647,83 @@ $("stage").addEventListener("touchend",function(e){
 },{passive:true});
 document.addEventListener("keydown",function(e){
   if(!$("overlay").hidden){if(e.key==="Escape")closeForm();return}
+  if(!$("lov").hidden){if(e.key==="Escape")closeList();return}
   if(e.target.closest("select,input,textarea"))return;
   if(e.key==="ArrowRight")go(1);
   else if(e.key==="ArrowLeft")go(-1);
   else if(e.key===" "&&!e.target.closest("button")){e.preventDefault();flip()}
 });
 
+/* add form, with a duplicate check */
+function label(v){return v.r+(v.mine?" (added by you)":" (built in)")}
+function checkDup(){
+  var ref=$("vref").value.trim(), box=$("vdup");
+  if(!ref){box.hidden=true;box.textContent="";return false}
+  var m=findMatches(ref);
+  if(m.same.length){
+    box.className="dup stop";box.hidden=false;
+    box.textContent="That verse is already in your deck: "+label(m.same[0])+". It was not added.";
+    return true;
+  }
+  if(m.near.length){
+    box.className="dup";box.hidden=false;
+    box.textContent="Heads up, your deck already has: "+m.near.map(label).join(", ")+". You can still save this one.";
+    return false;
+  }
+  box.hidden=true;box.textContent="";return false;
+}
 function closeForm(){$("overlay").hidden=true}
-$("add").addEventListener("click",function(){$("overlay").hidden=false;$("vref").focus()});
+$("add").addEventListener("click",function(){$("overlay").hidden=false;checkDup();$("vref").focus()});
+$("vref").addEventListener("input",checkDup);
 $("vcancel").addEventListener("click",closeForm);
 $("overlay").addEventListener("click",function(e){if(e.target===this)closeForm()});
 $("vform").addEventListener("submit",function(e){
   e.preventDefault();
   var ref=$("vref").value.trim(), text=$("vtext").value.trim(), ver=$("vver").value.trim();
   if(!ref||!text)return;
+  if(checkDup()){$("vref").focus();return}
   pending.push({id:"v"+Date.now().toString(36)+Math.floor(Math.random()*1e4).toString(36),ref:ref,ver:ver,text:text});
-  $("vref").value="";$("vtext").value="";closeForm();
+  $("vref").value="";$("vtext").value="";$("vdup").hidden=true;closeForm();
   state.cat="verses";
-  lsSet(VIEW_KEY,{cat:state.cat,book:state.book,shuffled:state.shuffled});
   persist("Added "+ref+".");
 });
+
 var delArmed=null;
 $("del").addEventListener("click",function(){
   var c=state.deck[state.pos];if(!c||c.type!=="verse"||!c.id)return;
   if(delArmed!==c.id){delArmed=c.id;state.note="Tap Remove again to delete "+c.front+".";$("note").textContent=state.note;return}
-  delArmed=null;
-  var inPending=pending.some(function(v){return v.id===c.id});
-  if(inPending){pending=pending.filter(function(v){return v.id!==c.id});lsSet(PEND_KEY,pending);state.note="Removed "+c.front+".";deal();render();return}
-  if(!artifact){state.note="This verse can't be removed in this view. Open the page in a browser on your computer to remove it.";$("note").textContent=state.note;return}
-  user.verses=user.verses.filter(function(v){return v.id!==c.id});
-  delete savedIds[c.id];
-  deal();render();persist("Removed "+c.front+".");
+  delArmed=null;removeVerse(c.id);persist("Removed "+c.front+".");
+});
+
+/* verse list: everything in Bible order, with search and delete */
+var listDirty=false, listArmed=null;
+function renderList(){
+  var q=$("lq").value.trim().toLowerCase(), all=allVerses(), counts={};
+  all.forEach(function(v){var p=parseRef(v.r),k=p.b+"|"+p.c+"|"+p.v1+"|"+p.v2;v.dk=k;counts[k]=(counts[k]||0)+1});
+  var rows=all.filter(function(v){return !q||(v.r+" "+v.t).toLowerCase().indexOf(q)>=0||nrm(v.r).indexOf(nrm(q))>=0&&nrm(q)});
+  var mine=all.filter(function(v){return v.mine}).length;
+  var dups=all.filter(function(v){return v.mine&&counts[v.dk]>1}).length;
+  $("lcount").textContent=all.length+" verse cards, "+mine+" added by you"+(dups?", "+dups+" marked Duplicate":"")+(q?". Showing "+rows.length+".":".");
+  $("vlist").innerHTML=rows.length?rows.map(function(v){
+    var dup=v.mine&&counts[v.dk]>1;
+    return '<div class="vrow'+(dup?" isdup":"")+'"><div class="vmain"><div class="vref">'+esc(v.r)+' <span class="tag">'+esc(v.ver||"")+(v.mine?" · yours":"")+'</span>'+(dup?' <span class="tag warn">Duplicate</span>':'')+'</div>'+
+      '<div class="vtxt">'+esc(v.t)+'</div></div>'+
+      (v.mine?'<button class="btn sm" type="button" data-del="'+esc(v.id)+'">'+(listArmed===v.id?"Confirm":"Delete")+'</button>':'')+'</div>';
+  }).join(""):'<p class="note">No verses match that search.</p>';
+}
+function closeList(){
+  $("lov").hidden=true;listArmed=null;
+  if(listDirty){listDirty=false;persist("Verse list updated.")}
+}
+$("list").addEventListener("click",function(){$("lq").value="";listArmed=null;$("lov").hidden=false;renderList()});
+$("lq").addEventListener("input",renderList);
+$("ldone").addEventListener("click",closeList);
+$("lov").addEventListener("click",function(e){if(e.target===this)closeList()});
+$("vlist").addEventListener("click",function(e){
+  var b=e.target.closest("[data-del]");if(!b)return;
+  var id=b.getAttribute("data-del");
+  if(listArmed!==id){listArmed=id;renderList();return}
+  listArmed=null;removeVerse(id);listDirty=true;renderList();
 });
 
 deal();render();
