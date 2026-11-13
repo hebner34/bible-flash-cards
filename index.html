@@ -16,7 +16,7 @@
 :root{
   --paper:#eef1f4; --surface:#ffffff; --ink:#1b2a41; --muted:#5d6b7e; --line:#cfd6de;
   --accent:#8a1c35; --on-accent:#ffffff;
-  --c-chapter:#274c77; --c-verse:#8a1c35; --c-person:#4f6b2f; --c-place:#9a5a12;
+  --c-chapter:#274c77; --c-verse:#8a1c35; --c-person:#4f6b2f; --c-place:#9a5a12; --c-water:#0f6f7a;
   --shadow:0 10px 30px rgba(27,42,65,.12);
   --f-card:"Spectral", Georgia, "Times New Roman", serif;
   --f-ui:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -26,7 +26,7 @@
     color-scheme:dark;
     --paper:#111822; --surface:#1b2532; --ink:#e8edf3; --muted:#9aa8b8; --line:#2f3c4d;
     --accent:#e08a9b; --on-accent:#1b1014;
-    --c-chapter:#8fb4e0; --c-verse:#e08a9b; --c-person:#a9c784; --c-place:#e3b06a;
+    --c-chapter:#8fb4e0; --c-verse:#e08a9b; --c-person:#a9c784; --c-place:#e3b06a; --c-water:#7cc9d1;
     --shadow:0 10px 30px rgba(0,0,0,.4);
   }
 }
@@ -34,7 +34,7 @@
   color-scheme:dark;
   --paper:#111822; --surface:#1b2532; --ink:#e8edf3; --muted:#9aa8b8; --line:#2f3c4d;
   --accent:#e08a9b; --on-accent:#1b1014;
-  --c-chapter:#8fb4e0; --c-verse:#e08a9b; --c-person:#a9c784; --c-place:#e3b06a;
+  --c-chapter:#8fb4e0; --c-verse:#e08a9b; --c-person:#a9c784; --c-place:#e3b06a; --c-water:#7cc9d1;
   --shadow:0 10px 30px rgba(0,0,0,.4);
 }
 *{box-sizing:border-box}
@@ -55,6 +55,7 @@ button,select,input,textarea{font:inherit;color:inherit}
 .chip[data-cat="verses"] .dot{background:var(--c-verse)}
 .chip[data-cat="people"] .dot{background:var(--c-person)}
 .chip[data-cat="places"] .dot{background:var(--c-place)}
+.chip[data-cat="waters"] .dot{background:var(--c-water)}
 .chip small{color:var(--muted);font-weight:500;font-variant-numeric:tabular-nums}
 .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .chip[aria-pressed="true"] small{color:inherit;opacity:.75}
@@ -1681,10 +1682,8 @@ places:[
 {n:"Mount Moriah",w:"About 2000 BC, and Solomon's temple about 966 BC",t:"The mountain where Abraham was told to offer Isaac and God provided a ram. Solomon later built the temple on Mount Moriah in Jerusalem."},
 {n:"Midian",w:"About 1486 to 1446 BC for Moses; about 1170 BC for Gideon",t:"The desert land where Moses fled from Pharaoh, married Zipporah, and kept sheep for forty years. The Midianites later oppressed Israel until God defeated them through Gideon."},
 {n:"Mount Sinai (Horeb)",w:"About 1446 BC",t:"The mountain of God where Moses saw the burning bush and where God gave Israel the Ten Commandments and the law. Elijah later fled there and heard the still small voice."},
-{n:"Red Sea",w:"About 1446 BC",t:"The sea God parted so Israel could cross on dry ground when Pharaoh's army pursued them. The waters returned and drowned the Egyptians, completing the deliverance from Egypt."},
 {n:"Kadesh Barnea",w:"About 1445 BC",t:"An oasis on the edge of the promised land. From here the twelve spies were sent, and here Israel refused to enter, bringing forty years of wandering. Moses later struck the rock nearby."},
 {n:"Mount Nebo",w:"About 1406 BC",t:"A mountain in Moab across from Jericho. From its top Moses viewed the promised land he was not allowed to enter, and he died there."},
-{n:"Jordan River",w:"About 1406 BC for the crossing; about AD 27 for Jesus' baptism",t:"The river on Israel's eastern side. God stopped its waters so Israel could cross into Canaan, Naaman was healed in it, and John baptized Jesus there."},
 {n:"Jericho",w:"About 1406 BC, and Jesus' ministry about AD 30",t:"The first city Israel took in Canaan, when its walls fell after seven days of marching. Rahab was spared there. Jesus later healed blind Bartimaeus and met Zacchaeus in Jericho."},
 {n:"Gilgal",w:"About 1406 BC, through Saul's day about 1050 BC",t:"Israel's first camp after crossing the Jordan, where twelve memorial stones were set up and the people were circumcised. Saul was later confirmed as king there and also rejected there."},
 {n:"Shiloh",w:"About 1400 to 1050 BC",t:"The town where the tabernacle stood through the time of the judges. Hannah prayed there and Samuel grew up there. It was abandoned after the ark was captured."},
@@ -1706,7 +1705,6 @@ places:[
 {n:"Persia and Shushan",w:"About 539 to 331 BC",t:"The empire that conquered Babylon. Its king Cyrus let the Jews return home. Shushan was a royal city where Esther became queen and Nehemiah served as cupbearer."},
 {n:"Nazareth",w:"About 4 BC to AD 27",t:"A small, little-regarded town in Galilee where Mary and Joseph lived and where Jesus grew up. He was later rejected in its synagogue."},
 {n:"Galilee",w:"About AD 27 to 30",t:"The northern region of Israel where Jesus spent most of His ministry, teaching, healing, and calling His disciples, many of them fishermen."},
-{n:"Sea of Galilee",w:"About AD 27 to 30",t:"A freshwater lake in the north, also called the Sea of Tiberias or Lake of Gennesaret. Jesus called fishermen from its shore, calmed its storm, and walked on its water."},
 {n:"Capernaum",w:"About AD 27 to 30",t:"A fishing town on the Sea of Galilee that became Jesus' home base. He taught in its synagogue and did many miracles there, yet He rebuked it for its unbelief."},
 {n:"Bethany",w:"About AD 30",t:"A village near Jerusalem on the Mount of Olives, home of Mary, Martha and Lazarus. Jesus raised Lazarus there and was anointed there before His death."},
 {n:"Mount of Olives",w:"About AD 30; also in Zechariah's prophecy",t:"The ridge east of Jerusalem. Jesus taught about the end times there, prayed in the garden at its foot, and ascended to heaven from it."},
@@ -1725,6 +1723,45 @@ places:[
 {n:"Malta",w:"About AD 60",t:"The island where Paul and all aboard came ashore after their shipwreck. He survived a viper's bite and healed many during the three months they stayed."},
 {n:"Patmos",w:"About AD 95",t:"A small island in the Aegean Sea where the apostle John was exiled for the word of God. There he received the visions recorded in Revelation."}
 /*MORE_PLACES*/
+],
+waters:[
+{n:"Rivers of Eden",w:"The beginning, in Genesis 2",t:"A river flowed out of Eden to water the garden and divided into four: the Pishon, the Gihon, the Hiddekel (Tigris) and the Euphrates."},
+{n:"Euphrates River",w:"From Genesis to Revelation; Abraham about 2000 BC, Babylon about 600 BC",t:"The great river of Mesopotamia, often just called the River. God named it as the far boundary of the land promised to Abraham. Babylon stood on it, and in Revelation it is dried up to prepare the way for the kings of the east."},
+{n:"Tigris River (Hiddekel)",w:"About 536 BC for Daniel's vision",t:"One of the four rivers of Eden. Daniel was standing on its bank when he saw the vision of a glorious man that begins his final prophecy. Nineveh stood beside it."},
+{n:"Nile River",w:"About 1526 BC for Moses' birth; 1446 BC for the plagues",t:"The river of Egypt. The baby Moses was hidden among its reeds and found by Pharaoh's daughter. In the first plague God turned its water to blood."},
+{n:"Red Sea",w:"About 1446 BC",t:"The sea God parted so Israel could cross on dry ground when Pharaoh's army pursued them. The waters returned and drowned the Egyptians, completing the deliverance from Egypt."},
+{n:"Waters of Marah",w:"About 1446 BC",t:"Three days after the Red Sea, Israel found water too bitter to drink. God showed Moses a tree to throw in, and the water became sweet. There He called Himself the Lord who heals."},
+{n:"Springs of Elim",w:"About 1446 BC",t:"An oasis with twelve wells of water and seventy palm trees where Israel camped after Marah."},
+{n:"Waters of Meribah",w:"About 1446 BC at Rephidim; about 1407 BC at Kadesh",t:"Twice Israel quarreled with Moses for lack of water, and God brought water from a rock. The second time Moses struck the rock in anger when told to speak to it, and was barred from the promised land."},
+{n:"Jabbok River",w:"About 1900 BC",t:"A stream east of the Jordan. At its ford Jacob wrestled all night with a Man, was blessed, and was renamed Israel before meeting Esau."},
+{n:"Arnon River",w:"About 1406 BC",t:"A deep gorge flowing into the Dead Sea that marked the border of Moab. Israel crossed it to defeat Sihon king of the Amorites, and it became the southern edge of Israel's land east of the Jordan."},
+{n:"Jordan River",w:"About 1406 BC for the crossing; about 850 BC for Elijah, Elisha and Naaman; about AD 27 for Jesus' baptism",t:"The river on Israel's eastern side. God stopped its waters so Israel could cross into Canaan. Elijah and Elisha parted it, Naaman was healed of leprosy in it, and John baptized Jesus there."},
+{n:"Dead Sea (Salt Sea)",w:"About 2000 BC for Sodom; Ezekiel's vision about 573 BC",t:"The salty lake at the lowest point of the land, where the Jordan ends. Sodom and Gomorrah stood near it. Ezekiel saw a river from the temple flowing into it and making its waters fresh."},
+{n:"Waters of Merom",w:"About 1400 BC",t:"The place in the north where the kings led by Jabin of Hazor gathered against Israel. Joshua attacked suddenly and defeated them, completing the conquest of the north."},
+{n:"Kishon River",w:"About 1200 BC for Deborah; about 860 BC for Elijah",t:"A stream through the Jezreel Valley. It swept away Sisera's army when Deborah and Barak defeated him, and Elijah had the prophets of Baal executed there after Mount Carmel."},
+{n:"Spring of Harod",w:"About 1170 BC",t:"The spring where Gideon's army camped. God cut the army down to three hundred there, choosing the men who lapped water from their hands."},
+{n:"Brook in the Valley of Elah",w:"About 1025 BC",t:"The brook between the armies of Israel and the Philistines. David chose five smooth stones from it before he went out to face Goliath."},
+{n:"Springs of En Gedi",w:"About 1015 BC",t:"An oasis with springs and caves on the western shore of the Dead Sea. David hid from Saul there and spared his life in a cave."},
+{n:"Well of Bethlehem",w:"About 1000 BC",t:"The well by the gate of Bethlehem. When David longed for its water, three of his mighty men broke through the Philistine lines to get it, and he poured it out to the Lord."},
+{n:"Pool of Gibeon",w:"About 1010 BC",t:"The pool where the men of Abner and Joab met after Saul's death. A contest between twelve from each side turned into a fierce battle between Israel and Judah."},
+{n:"Brook Besor",w:"About 1010 BC",t:"The stream where two hundred of David's exhausted men stayed behind while he pursued the Amalekites. David ruled that those who stayed with the supplies share the spoil equally."},
+{n:"Brook Kidron",w:"About 975 BC for David; about AD 30 for Jesus",t:"The valley stream between Jerusalem and the Mount of Olives. David crossed it weeping as he fled from Absalom, reforming kings burned idols there, and Jesus crossed it on the way to Gethsemane."},
+{n:"Gihon Spring",w:"About 970 BC for Solomon; about 701 BC for Hezekiah",t:"Jerusalem's main water source. Solomon was anointed king there. Hezekiah cut a tunnel to bring its water inside the city before the Assyrians came."},
+{n:"Brook Cherith",w:"About 870 BC",t:"A stream east of the Jordan where God hid Elijah during the drought. Ravens brought him bread and meat, and he drank from the brook until it dried up."},
+{n:"Abana and Pharpar",w:"About 850 BC",t:"The rivers of Damascus. Naaman angrily called them better than all the waters of Israel when Elisha told him to wash in the Jordan, before he humbled himself and was healed."},
+{n:"Rivers of Babylon",w:"About 586 to 539 BC",t:"The waterways of Babylon where the exiles from Judah sat and wept when they remembered Zion and hung their harps on the willows."},
+{n:"River Chebar",w:"About 593 BC",t:"A canal in Babylon where Jewish exiles lived. There Ezekiel saw the heavens opened and received his visions of the glory of God."},
+{n:"Ulai River",w:"About 551 BC",t:"A river by Shushan in Persia. In a vision Daniel stood beside it and saw the ram and the goat, which stood for Medo-Persia and Greece."},
+{n:"Great Sea (Mediterranean)",w:"Throughout the Bible; about 760 BC for Jonah; about AD 60 for Paul",t:"The sea on Israel's western border. Jonah sailed on it to flee from God and was thrown into it, and Paul crossed it on his journeys and was shipwrecked on the way to Rome."},
+{n:"Sea of Galilee",w:"About AD 27 to 30",t:"A freshwater lake in the north, also called the Sea of Tiberias or Lake of Gennesaret. Jesus called fishermen from its shore, calmed its storm, walked on its water, and met His disciples there after He rose."},
+{n:"Aenon near Salim",w:"About AD 27",t:"A place with much water where John the Baptist was baptizing when he said of Jesus that He must increase and John must decrease."},
+{n:"Jacob's Well",w:"About AD 27",t:"A well near Sychar in Samaria. Jesus, tired from His journey, asked a Samaritan woman for a drink there and offered her living water."},
+{n:"Pool of Bethesda",w:"About AD 28",t:"A pool in Jerusalem with five porches where the sick lay waiting. Jesus healed a man there who had been ill thirty-eight years, on the Sabbath."},
+{n:"Pool of Siloam",w:"About AD 29",t:"A pool in Jerusalem fed by Hezekiah's tunnel. Jesus put clay on the eyes of a man born blind and sent him to wash there, and he came back seeing."},
+{n:"Riverside at Philippi",w:"About AD 50",t:"A place of prayer by the river outside Philippi. Paul spoke to the women gathered there, and Lydia became the first recorded believer in Europe."},
+{n:"Adriatic Sea",w:"About AD 60",t:"The stretch of sea where the ship carrying Paul to Rome was driven by a storm for fourteen days before it wrecked on Malta. All 276 aboard survived, as God had promised Paul."},
+{n:"River of Life",w:"Still to come, in Revelation 22",t:"A pure river, clear as crystal, flowing from the throne of God and of the Lamb in the New Jerusalem, with the tree of life on either side."}
+/*MORE_WATERS*/
 ]
 };
 </script>
@@ -1733,8 +1770,8 @@ places:[
 (function(){
 "use strict";
 var BOOKS=["Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1 Samuel","2 Samuel","1 Kings","2 Kings","1 Chronicles","2 Chronicles","Ezra","Nehemiah","Esther","Job","Psalms","Proverbs","Ecclesiastes","Song of Solomon","Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel","Hosea","Joel","Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk","Zephaniah","Haggai","Zechariah","Malachi","Matthew","Mark","Luke","John","Acts","Romans","1 Corinthians","2 Corinthians","Galatians","Ephesians","Philippians","Colossians","1 Thessalonians","2 Thessalonians","1 Timothy","2 Timothy","Titus","Philemon","Hebrews","James","1 Peter","2 Peter","1 John","2 John","3 John","Jude","Revelation"];
-var LABEL={chapter:"Chapter summary",verse:"Memory verse",person:"Bible character",place:"Bible place"};
-var CATVAR={chapter:"var(--c-chapter)",verse:"var(--c-verse)",person:"var(--c-person)",place:"var(--c-place)"};
+var LABEL={chapter:"Chapter summary",verse:"Memory verse",person:"Bible character",place:"Bible place",water:"Bible waters"};
+var CATVAR={chapter:"var(--c-chapter)",verse:"var(--c-verse)",person:"var(--c-person)",place:"var(--c-place)",water:"var(--c-water)"};
 var PEND_KEY="bfc-pending", VIEW_KEY="bfc-view";
 
 function lsGet(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
@@ -1801,9 +1838,10 @@ function allCards(){
   allVerses().forEach(function(v){out.push({type:"verse",id:v.id,front:v.r,sub:v.ver,back:v.t})});
   window.CARDS.people.forEach(function(p){out.push({type:"person",front:p.n,sub:"How did God use this person?",back:p.t})});
   (window.CARDS.places||[]).forEach(function(p){out.push({type:"place",front:p.n,sub:"Why does this place matter?",back:p.t+(p.w?"\n\nWhen: "+p.w:"")})});
+  (window.CARDS.waters||[]).forEach(function(p){out.push({type:"water",front:p.n,sub:"What happened here?",back:p.t+(p.w?"\n\nWhen: "+p.w:"")})});
   return out;
 }
-var TYPE_OF={chapters:"chapter",verses:"verse",people:"person",places:"place"};
+var TYPE_OF={chapters:"chapter",verses:"verse",people:"person",places:"place",waters:"water"};
 function filtered(){
   return allCards().filter(function(c){
     if(state.cat!=="all"&&c.type!==TYPE_OF[state.cat])return false;
@@ -1853,9 +1891,9 @@ app.innerHTML=
 function $(id){return document.getElementById(id)}
 
 function renderChips(){
-  var all=allCards(), n={all:all.length,chapters:0,verses:0,people:0,places:0};
-  all.forEach(function(c){if(c.type==="chapter")n.chapters++;else if(c.type==="verse")n.verses++;else if(c.type==="place")n.places++;else n.people++});
-  var defs=[["all","All"],["chapters","Chapters"],["verses","Verses"],["people","Characters"],["places","Places"]];
+  var all=allCards(), n={all:all.length,chapters:0,verses:0,people:0,places:0,waters:0};
+  all.forEach(function(c){if(c.type==="chapter")n.chapters++;else if(c.type==="verse")n.verses++;else if(c.type==="place")n.places++;else if(c.type==="water")n.waters++;else n.people++});
+  var defs=[["all","All"],["chapters","Chapters"],["verses","Verses"],["people","Characters"],["places","Places"],["waters","Waters"]];
   $("chips").innerHTML=defs.map(function(d){
     return '<button class="chip" type="button" data-cat="'+d[0]+'" aria-pressed="'+(state.cat===d[0])+'"><span class="dot"></span>'+d[1]+' <small>'+n[d[0]]+'</small></button>';
   }).join("");
