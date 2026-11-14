@@ -1785,8 +1785,11 @@ var pending=lsGet(PEND_KEY,[]).filter(function(v){return v&&v.id&&!savedIds[v.id
 lsSet(PEND_KEY,pending);
 
 var artifact=null, tts=null;
-var view=lsGet(VIEW_KEY,{cat:"all",book:"all",shuffled:true});
-var state={cat:view.cat||"all",book:view.book||"all",shuffled:view.shuffled!==false,deck:[],pos:0,flipped:false,note:""};
+var view=lsGet(VIEW_KEY,{cats:[],book:"all",shuffled:true});
+var CATS=["chapters","verses","people","places","waters"];
+/* cats: the selected categories; an empty list means all of them */
+var startCats=(Array.isArray(view.cats)?view.cats:(view.cat&&view.cat!=="all"?[view.cat]:[])).filter(function(c){return CATS.indexOf(c)>=0});
+var state={cats:startCats,book:view.book||"all",shuffled:view.shuffled!==false,deck:[],pos:0,flipped:false,note:""};
 
 /* reading verse references so duplicates can be spotted */
 function nrm(s){return String(s).toLowerCase().replace(/[^a-z0-9]/g,"")}
@@ -1844,8 +1847,8 @@ function allCards(){
 var TYPE_OF={chapters:"chapter",verses:"verse",people:"person",places:"place",waters:"water"};
 function filtered(){
   return allCards().filter(function(c){
-    if(state.cat!=="all"&&c.type!==TYPE_OF[state.cat])return false;
-    if(state.cat==="chapters"&&state.book!=="all"&&c.book!==state.book)return false;
+    if(state.cats.length&&!state.cats.some(function(k){return TYPE_OF[k]===c.type}))return false;
+    if(c.type==="chapter"&&state.cats.indexOf("chapters")>=0&&state.book!=="all"&&c.book!==state.book)return false;
     return true;
   });
 }
@@ -1854,7 +1857,7 @@ function deal(){
   var d=filtered();
   state.deck=state.shuffled?shuffle(d):d;
   state.pos=0;state.flipped=false;
-  lsSet(VIEW_KEY,{cat:state.cat,book:state.book,shuffled:state.shuffled});
+  lsSet(VIEW_KEY,{cats:state.cats,book:state.book,shuffled:state.shuffled});
 }
 
 var app=document.getElementById("app");
@@ -1895,14 +1898,14 @@ function renderChips(){
   all.forEach(function(c){if(c.type==="chapter")n.chapters++;else if(c.type==="verse")n.verses++;else if(c.type==="place")n.places++;else if(c.type==="water")n.waters++;else n.people++});
   var defs=[["all","All"],["chapters","Chapters"],["verses","Verses"],["people","Characters"],["places","Places"],["waters","Waters"]];
   $("chips").innerHTML=defs.map(function(d){
-    return '<button class="chip" type="button" data-cat="'+d[0]+'" aria-pressed="'+(state.cat===d[0])+'"><span class="dot"></span>'+d[1]+' <small>'+n[d[0]]+'</small></button>';
+    return '<button class="chip" type="button" data-cat="'+d[0]+'" aria-pressed="'+(d[0]==="all"?!state.cats.length:state.cats.indexOf(d[0])>=0)+'"><span class="dot"></span>'+d[1]+' <small>'+n[d[0]]+'</small></button>';
   }).join("");
   var sel=$("book");
   var have=BOOKS.filter(function(b){return (window.CARDS.chapters[b]||[]).length});
   sel.innerHTML='<option value="all">All books</option>'+have.map(function(b){return '<option value="'+esc(b)+'">'+esc(b)+'</option>'}).join("");
   if(have.indexOf(state.book)<0)state.book="all";
   sel.value=state.book;
-  sel.hidden=state.cat!=="chapters";
+  sel.hidden=state.cats.indexOf("chapters")<0;
   $("shuf").setAttribute("aria-pressed",String(state.shuffled));
   $("order").setAttribute("aria-pressed",String(!state.shuffled));
 }
@@ -1974,7 +1977,13 @@ function removeVerse(id){
 
 $("chips").addEventListener("click",function(e){
   var b=e.target.closest(".chip");if(!b)return;
-  state.cat=b.getAttribute("data-cat");state.note="";deal();render();
+  var k=b.getAttribute("data-cat"), i=state.cats.indexOf(k);
+  if(k==="all")state.cats=[];
+  else if(i>=0)state.cats.splice(i,1);
+  else state.cats.push(k);
+  if(state.cats.length===CATS.length)state.cats=[];
+  state.note=state.cats.length>1?"Studying "+state.cats.length+" categories together.":"";
+  deal();render();
 });
 $("book").addEventListener("change",function(){state.book=this.value;state.note="";deal();render()});
 $("shuf").addEventListener("click",function(){state.shuffled=true;state.note="Shuffled.";deal();render()});
@@ -2031,7 +2040,7 @@ $("vform").addEventListener("submit",function(e){
   if(checkDup()){$("vref").focus();return}
   pending.push({id:"v"+Date.now().toString(36)+Math.floor(Math.random()*1e4).toString(36),ref:ref,ver:ver,text:text});
   $("vref").value="";$("vtext").value="";$("vdup").hidden=true;closeForm();
-  state.cat="verses";
+  if(state.cats.length&&state.cats.indexOf("verses")<0)state.cats=["verses"];
   persist("Added "+ref+".");
 });
 
