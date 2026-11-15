@@ -16,7 +16,7 @@
 :root{
   --paper:#eef1f4; --surface:#ffffff; --ink:#1b2a41; --muted:#5d6b7e; --line:#cfd6de;
   --accent:#8a1c35; --on-accent:#ffffff;
-  --c-chapter:#274c77; --c-verse:#8a1c35; --c-person:#4f6b2f; --c-place:#9a5a12; --c-water:#0f6f7a;
+  --c-chapter:#274c77; --c-verse:#8a1c35; --c-person:#4f6b2f; --c-place:#9a5a12; --c-water:#0f6f7a; --c-term:#5b4a8a;
   --shadow:0 10px 30px rgba(27,42,65,.12);
   --f-card:"Spectral", Georgia, "Times New Roman", serif;
   --f-ui:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -26,7 +26,7 @@
     color-scheme:dark;
     --paper:#111822; --surface:#1b2532; --ink:#e8edf3; --muted:#9aa8b8; --line:#2f3c4d;
     --accent:#e08a9b; --on-accent:#1b1014;
-    --c-chapter:#8fb4e0; --c-verse:#e08a9b; --c-person:#a9c784; --c-place:#e3b06a; --c-water:#7cc9d1;
+    --c-chapter:#8fb4e0; --c-verse:#e08a9b; --c-person:#a9c784; --c-place:#e3b06a; --c-water:#7cc9d1; --c-term:#b9a8e6;
     --shadow:0 10px 30px rgba(0,0,0,.4);
   }
 }
@@ -34,7 +34,7 @@
   color-scheme:dark;
   --paper:#111822; --surface:#1b2532; --ink:#e8edf3; --muted:#9aa8b8; --line:#2f3c4d;
   --accent:#e08a9b; --on-accent:#1b1014;
-  --c-chapter:#8fb4e0; --c-verse:#e08a9b; --c-person:#a9c784; --c-place:#e3b06a; --c-water:#7cc9d1;
+  --c-chapter:#8fb4e0; --c-verse:#e08a9b; --c-person:#a9c784; --c-place:#e3b06a; --c-water:#7cc9d1; --c-term:#b9a8e6;
   --shadow:0 10px 30px rgba(0,0,0,.4);
 }
 *{box-sizing:border-box}
@@ -56,6 +56,7 @@ button,select,input,textarea{font:inherit;color:inherit}
 .chip[data-cat="people"] .dot{background:var(--c-person)}
 .chip[data-cat="places"] .dot{background:var(--c-place)}
 .chip[data-cat="waters"] .dot{background:var(--c-water)}
+.chip[data-cat="terms"] .dot{background:var(--c-term)}
 .chip small{color:var(--muted);font-weight:500;font-variant-numeric:tabular-nums}
 .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .chip[aria-pressed="true"] small{color:inherit;opacity:.75}
@@ -1762,6 +1763,95 @@ waters:[
 {n:"Adriatic Sea",w:"About AD 60",t:"The stretch of sea where the ship carrying Paul to Rome was driven by a storm for fourteen days before it wrecked on Malta. All 276 aboard survived, as God had promised Paul."},
 {n:"River of Life",w:"Still to come, in Revelation 22",t:"A pure river, clear as crystal, flowing from the throne of God and of the Lamb in the New Jerusalem, with the tree of life on either side."}
 /*MORE_WATERS*/
+],
+terms:[
+{n:"Theophany",s:"About God",t:"A theophany is a visible or audible appearance of God to people. The word comes from Greek words meaning God and to appear.\n\nIn a theophany God makes His presence known in a form people can see or hear, such as fire, cloud, a voice, or a human form. It is temporary, and it is different from the incarnation, when the Son of God became man."},
+{n:"Theophany examples",s:"About God: name some from Scripture",t:"Genesis 18:1-2: the Lord appears to Abraham at Mamre.\nGenesis 28:12-13: the Lord stands above the ladder in Jacob's dream.\nExodus 3:1-6: God speaks to Moses from the burning bush.\nExodus 13:21-22: the pillar of cloud and fire.\nExodus 19:16-20: the Lord descends on Mount Sinai in fire and smoke.\nExodus 33:18-23: the Lord's glory passes by Moses.\nIsaiah 6:1-5: Isaiah sees the Lord on His throne.\nEzekiel 1:26-28: Ezekiel sees the glory of the Lord.\nMatthew 3:16-17: the Father's voice at Jesus' baptism."},
+{n:"Christophany",s:"About Christ",t:"A christophany is an appearance of Christ outside His earthly life. The word comes from Greek words meaning Christ and to appear.\n\nIt most often refers to appearances of the Son of God in the Old Testament, before He was born in Bethlehem. Many understand the Angel of the Lord, who speaks as God and receives worship, to be the pre-incarnate Christ. Some also use the word for appearances of the risen Christ after He ascended. A christophany is one kind of theophany."},
+{n:"Christophany examples",s:"About Christ: name some from Scripture",t:"These are commonly understood as appearances of Christ:\n\nGenesis 16:7-13: the Angel of the Lord finds Hagar.\nGenesis 22:11-18: the Angel of the Lord calls to Abraham on Moriah.\nGenesis 32:24-30: Jacob wrestles with a Man and says he has seen God.\nJoshua 5:13-15: the Commander of the Lord's army meets Joshua.\nJudges 6:11-24: the Angel of the Lord calls Gideon.\nJudges 13:3-22: the Angel of the Lord appears to Samson's parents.\nDaniel 3:24-25: the fourth man in the fiery furnace.\n\nAfter the ascension:\nActs 9:3-6: Jesus appears to Saul on the Damascus road.\nRevelation 1:12-18: John sees the glorified Christ."},
+{n:"Trinity",s:"About God",t:"There is one God who eternally exists in three persons: the Father, the Son and the Holy Spirit. Each is fully God, yet there are not three gods but one. The word Trinity is not in the Bible, but the teaching is.\n\nKey verses: Deuteronomy 6:4; Matthew 3:16-17; Matthew 28:19; 2 Corinthians 13:14"},
+{n:"Incarnation",s:"About God",t:"The eternal Son of God took on human flesh and was born of the virgin Mary. Jesus is fully God and fully man in one person, without ceasing to be God.\n\nKey verses: Isaiah 7:14; John 1:1, 14; Philippians 2:6-8; Colossians 2:9"},
+{n:"Omnipotence",s:"About God",t:"God is all-powerful. He can do anything He wills that is consistent with His nature, and nothing is too hard for Him.\n\nKey verses: Genesis 18:14; Jeremiah 32:17; Matthew 19:26"},
+{n:"Omniscience",s:"About God",t:"God knows all things: past, present and future, every thought and every motive. Nothing is hidden from Him.\n\nKey verses: Psalm 139:1-4; Psalm 147:5; Hebrews 4:13"},
+{n:"Omnipresence",s:"About God",t:"God is present everywhere at the same time. There is no place anyone can go to escape His presence.\n\nKey verses: Psalm 139:7-10; Jeremiah 23:23-24"},
+{n:"Sovereignty",s:"About God",t:"God is the supreme ruler over all things. Nothing happens outside His control, and He works all things according to His purpose, while people remain responsible for their choices.\n\nKey verses: Psalm 103:19; Isaiah 46:9-10; Romans 8:28; Ephesians 1:11"},
+{n:"Holiness",s:"About God",t:"God is set apart, perfectly pure, and completely separate from sin. He calls His people to be holy as He is holy.\n\nKey verses: Leviticus 19:2; Isaiah 6:3; 1 Peter 1:15-16"},
+{n:"Elohim",s:"Names of God",t:"The common Hebrew word for God, used in the very first verse of the Bible. It points to His power and majesty as Creator. Its form is plural, which many see as a hint of the Trinity.\n\nKey verses: Genesis 1:1; Genesis 1:26"},
+{n:"Yahweh (LORD, Jehovah)",s:"Names of God",t:"God's personal, covenant name, revealed to Moses at the burning bush and connected with I AM. The KJV usually prints it as LORD in capital letters, and a few times as JEHOVAH.\n\nKey verses: Exodus 3:14-15; Exodus 6:3; Psalm 83:18"},
+{n:"Adonai",s:"Names of God",t:"A Hebrew word meaning Lord or Master, showing God's authority and our place as His servants. The KJV shows it as Lord, with only the first letter capitalized.\n\nKey verses: Psalm 8:1 (O LORD our Lord); Isaiah 6:1"},
+{n:"El Shaddai",s:"Names of God",t:"Means God Almighty. God revealed Himself by this name to Abraham when He confirmed His covenant, showing He is able to do what He promises.\n\nKey verses: Genesis 17:1; Genesis 35:11; Exodus 6:3"},
+{n:"Grace",s:"About salvation",t:"God's undeserved favor and kindness. Salvation is a free gift of God's grace that cannot be earned by good works.\n\nA common way to remember it: grace is getting what we do not deserve.\n\nKey verses: Romans 3:24; Ephesians 2:8-9; Titus 2:11"},
+{n:"Mercy",s:"About salvation",t:"God's compassion in holding back the punishment we deserve. Mercy and grace go together.\n\nA common way to remember it: mercy is not getting what we do deserve.\n\nKey verses: Lamentations 3:22-23; Ephesians 2:4-5; Titus 3:5"},
+{n:"Faith",s:"About salvation",t:"Trusting God and believing His word. Saving faith is placing your trust in Jesus Christ alone for salvation. Faith comes by hearing the word of God, and without it, it is impossible to please Him.\n\nKey verses: Romans 10:17; Ephesians 2:8; Hebrews 11:1, 6"},
+{n:"Repentance",s:"About salvation",t:"A change of mind and heart that turns away from sin and toward God. Repentance and faith go together as two sides of turning to Christ.\n\nKey verses: Luke 13:3; Acts 3:19; Acts 20:21; 2 Corinthians 7:10"},
+{n:"Redemption",s:"About salvation",t:"Buying back or setting free by paying a price. Sinners are slaves to sin, and Christ redeemed us by paying the price with His own blood. Boaz as kinsman redeemer in Ruth is a picture of it.\n\nKey verses: Galatians 3:13; Ephesians 1:7; 1 Peter 1:18-19"},
+{n:"Atonement",s:"About salvation",t:"The covering and removal of sin so a sinner can be made right with God. In the Old Testament it came through animal sacrifices, which pointed to Christ, who died in our place and paid for our sins once for all.\n\nKey verses: Leviticus 17:11; Isaiah 53:5-6; Romans 5:11; Hebrews 9:22"},
+{n:"Propitiation",s:"About salvation",t:"A sacrifice that fully satisfies God's righteous anger against sin. Jesus' death on the cross is the propitiation for our sins, so God can be both just and the One who justifies believers.\n\nKey verses: Romans 3:25-26; 1 John 2:2; 1 John 4:10"},
+{n:"Justification",s:"About salvation",t:"God declaring a sinner not guilty and righteous in His sight. It happens the moment a person believes, by faith and not by works, because Christ's righteousness is credited to them.\n\nKey verses: Romans 3:28; Romans 5:1; 2 Corinthians 5:21; Galatians 2:16"},
+{n:"Sanctification",s:"About salvation",t:"Being set apart for God and made holy. Believers are set apart the moment they are saved, and then grow in holiness throughout life as the Holy Spirit makes them more like Christ.\n\nKey verses: 2 Corinthians 3:18; Philippians 1:6; 1 Thessalonians 4:3; 1 Thessalonians 5:23"},
+{n:"Glorification",s:"About salvation",t:"The final stage of salvation, when believers receive resurrection bodies, are completely free from sin, and share in Christ's glory forever.\n\nKey verses: Romans 8:30; 1 Corinthians 15:51-53; Philippians 3:21; 1 John 3:2"},
+{n:"Regeneration (born again)",s:"About salvation",t:"The new birth. The Holy Spirit gives new spiritual life to a person who was dead in sin, making them a new creation.\n\nKey verses: John 3:3-7; 2 Corinthians 5:17; Titus 3:5"},
+{n:"Reconciliation",s:"About salvation",t:"Restoring a broken relationship. Through Christ's death, sinners who were enemies of God are brought into peace with Him, and believers are given the message of reconciliation to share.\n\nKey verses: Romans 5:10; 2 Corinthians 5:18-20; Colossians 1:20-21"},
+{n:"Adoption",s:"About salvation",t:"God makes believers His own children and heirs, with full rights in His family. By the Spirit they can call Him Abba, Father.\n\nKey verses: John 1:12; Romans 8:15-17; Galatians 4:4-7; Ephesians 1:5"},
+{n:"Election",s:"About salvation",t:"God's gracious choice, before the foundation of the world, to save those who are in Christ. Salvation is entirely by God's grace, and it is consistent with each person's responsibility to repent and believe.\n\nBaptists differ on exactly how God's choice and human choice fit together, but agree that salvation is God's work and the gospel is for everyone.\n\nKey verses: Ephesians 1:4-5; 2 Thessalonians 2:13; 1 Peter 1:2"},
+{n:"Sin",s:"About sin",t:"Anything that falls short of God's perfect standard. It includes breaking God's law in thought, word or deed, and failing to do the good we know we should. One meaning of the word is to miss the mark.\n\nKey verses: Romans 3:23; James 4:17; 1 John 3:4"},
+{n:"Transgression",s:"About sin",t:"Crossing a line God has drawn: deliberately breaking a known command. Psalm 32 uses transgression, sin and iniquity side by side.\n\nKey verses: Psalm 32:1, 5; Isaiah 53:5; 1 John 3:4"},
+{n:"Iniquity",s:"About sin",t:"Wickedness or moral crookedness, the twisting of what is right. It often includes the guilt that comes with sin.\n\nKey verses: Psalm 51:2, 5; Isaiah 53:6; Micah 7:18"},
+{n:"The Fall",s:"About sin",t:"Adam and Eve's first sin in the garden of Eden, when they disobeyed God and ate the forbidden fruit. It brought sin, death and the curse into the world and affected all of creation.\n\nKey verses: Genesis 3; Romans 5:12; Romans 8:20-22"},
+{n:"Original sin",s:"About sin",t:"Because of Adam's sin, every person is born with a sinful nature that leans toward sin. People become sinners in action as soon as they are able to make moral choices.\n\nKey verses: Psalm 51:5; Romans 5:12, 19; Ephesians 2:3"},
+{n:"Conviction",s:"About sin",t:"The Holy Spirit's work of making a person aware of their sin, of God's righteousness, and of coming judgment, leading them to repent and turn to Christ.\n\nKey verses: John 16:8; Acts 2:37; 2 Corinthians 7:10"},
+{n:"Covenant",s:"Covenants",t:"A solemn, binding agreement. God's covenants are promises He makes with His people and always keeps. Much of the Bible's story follows God's covenants.\n\nKey verses: Genesis 17:7; Deuteronomy 7:9; Hebrews 8:6"},
+{n:"Noahic covenant",s:"Covenants",t:"God's promise after the flood never again to destroy the earth by water. The rainbow is its sign, and it covers every living creature.\n\nKey verses: Genesis 9:8-17"},
+{n:"Abrahamic covenant",s:"Covenants",t:"God's promise to Abraham of land, many descendants, and blessing for all nations through his Seed, who is Christ. God bound Himself to it, and circumcision was its sign.\n\nKey verses: Genesis 12:1-3; Genesis 15:5-18; Genesis 17:1-8; Galatians 3:8, 16"},
+{n:"Mosaic covenant",s:"Covenants",t:"The covenant God made with Israel at Mount Sinai through Moses. It gave the law, with blessings for obedience and curses for disobedience. It pointed to Christ, who fulfilled it, and believers today are not under it but under grace.\n\nKey verses: Exodus 19:5-6; Deuteronomy 28; Romans 10:4; Galatians 3:24"},
+{n:"Davidic covenant",s:"Covenants",t:"God's promise to David that his house, kingdom and throne would be established forever. It is fulfilled in Jesus, the Son of David, who will reign forever.\n\nKey verses: 2 Samuel 7:12-16; Psalm 89:3-4; Luke 1:32-33"},
+{n:"New covenant",s:"Covenants",t:"The covenant promised through Jeremiah, in which God writes His law on hearts, fully forgives sin, and gives His Spirit. Jesus established it with His blood, as He said at the Last Supper.\n\nKey verses: Jeremiah 31:31-34; Luke 22:20; Hebrews 8:6-13"},
+{n:"Tabernacle",s:"Worship and the temple",t:"The portable tent where God dwelt among Israel from Mount Sinai until Solomon built the temple. It had an outer court, the Holy Place, and the Most Holy Place. John says the Word became flesh and dwelt, or tabernacled, among us.\n\nKey verses: Exodus 25:8-9; Exodus 40:34; John 1:14"},
+{n:"Ark of the covenant",s:"Worship and the temple",t:"A wooden chest covered in gold that sat in the Most Holy Place. It held the stone tablets of the law, a pot of manna, and Aaron's rod that budded, and it stood for God's presence and throne among His people.\n\nKey verses: Exodus 25:10-22; Joshua 3:14-17; Hebrews 9:4"},
+{n:"Mercy seat",s:"Worship and the temple",t:"The solid gold lid of the ark, with two cherubim over it. On the Day of Atonement the high priest sprinkled blood on it, and God said He would meet with His people there. It pictures Christ, whose blood covers our sin.\n\nKey verses: Exodus 25:17-22; Leviticus 16:14-15; Hebrews 9:5"},
+{n:"Holy of Holies",s:"Worship and the temple",t:"The innermost room of the tabernacle and temple, also called the Most Holy Place, where the ark was kept. A thick veil separated it, and only the high priest entered, once a year. When Jesus died, the veil was torn from top to bottom, opening the way to God.\n\nKey verses: Exodus 26:33; Hebrews 9:7; Matthew 27:51; Hebrews 10:19-20"},
+{n:"High priest",s:"Worship and the temple",t:"The chief priest, from Aaron's family, who represented the people before God, offered sacrifices, and entered the Most Holy Place on the Day of Atonement. Jesus is our great High Priest, who offered Himself and always lives to intercede for us.\n\nKey verses: Leviticus 16; Hebrews 4:14-16; Hebrews 7:25-27"},
+{n:"Sacrifice",s:"Worship and the temple",t:"An offering given to God, often an animal, for worship, thanksgiving or atonement for sin. The sacrifices pointed ahead to Christ's once-for-all sacrifice. Believers now offer themselves to God and the sacrifice of praise.\n\nKey verses: Leviticus 1:4; Hebrews 10:10-12; Romans 12:1; Hebrews 13:15"},
+{n:"Passover",s:"Worship and the temple",t:"The feast remembering the night the Lord passed over the houses marked with lamb's blood during the last plague on Egypt. The Last Supper was a Passover meal, and Christ is called our Passover lamb.\n\nKey verses: Exodus 12:1-14; Luke 22:15; 1 Corinthians 5:7"},
+{n:"Day of Atonement",s:"Worship and the temple",t:"Israel's most solemn holy day, on the tenth day of the seventh month, also known as Yom Kippur. The high priest made atonement for the whole nation, and a scapegoat carried their sins into the wilderness. Christ fulfilled it by entering heaven with His own blood.\n\nKey verses: Leviticus 16; Leviticus 23:27; Hebrews 9:7, 11-12"},
+{n:"Sabbath",s:"Worship and the temple",t:"The seventh day, set apart for rest, following the pattern of God resting after creation and commanded in the law. Jesus is Lord of the Sabbath, and believers find their true rest in Him. Most Christians gather on Sunday, the Lord's Day, to remember His resurrection.\n\nKey verses: Genesis 2:2-3; Exodus 20:8-11; Mark 2:27-28; Hebrews 4:9-10; Acts 20:7"},
+{n:"Jubilee",s:"Worship and the temple",t:"Every fiftieth year in Israel, when liberty was proclaimed: land returned to its original families and Israelites in servitude went free. Jesus read about this kind of liberty when He began His ministry.\n\nKey verses: Leviticus 25:8-13; Isaiah 61:1-2; Luke 4:18-19"},
+{n:"Messiah (Christ)",s:"About Christ",t:"Messiah is Hebrew and Christ is Greek, and both mean Anointed One. The Messiah is the promised deliverer from David's line, foretold by the prophets. Jesus is the Christ.\n\nKey verses: Daniel 9:25-26; John 1:41; John 4:25-26; Matthew 16:16"},
+{n:"Son of Man",s:"About Christ",t:"Jesus' most common title for Himself. It comes from Daniel's vision of one like the Son of Man who receives an everlasting kingdom, and it points to both His true humanity and His divine authority and coming glory.\n\nKey verses: Daniel 7:13-14; Mark 10:45; Matthew 26:64"},
+{n:"Lamb of God",s:"About Christ",t:"John the Baptist's title for Jesus. He is the perfect sacrifice who takes away the sin of the world, fulfilling the Passover lamb and all the sacrifices. In Revelation the Lamb is worshiped on the throne.\n\nKey verses: Isaiah 53:7; John 1:29; 1 Peter 1:19; Revelation 5:6-12"},
+{n:"Immanuel",s:"About Christ",t:"Means God with us. Isaiah foretold that a virgin would bear a son with this name, and Matthew says it was fulfilled in the birth of Jesus.\n\nKey verses: Isaiah 7:14; Matthew 1:23"},
+{n:"Resurrection",s:"About Christ",t:"Jesus rose bodily from the dead on the third day, proving He is the Son of God and that His sacrifice for sin was accepted. Because He lives, all believers will be raised too.\n\nKey verses: John 11:25; Romans 1:4; 1 Corinthians 15:3-4, 20-22"},
+{n:"Ascension",s:"About Christ",t:"Forty days after His resurrection, Jesus was taken up bodily into heaven from the Mount of Olives. He sits at the Father's right hand, and angels said He will come back the same way.\n\nKey verses: Luke 24:50-51; Acts 1:9-12; Hebrews 1:3"},
+{n:"Intercession",s:"About Christ",t:"Praying or pleading to God on behalf of someone else. Jesus intercedes for believers at the Father's right hand, the Holy Spirit intercedes for us, and believers are called to pray for others.\n\nKey verses: Romans 8:26, 34; 1 Timothy 2:1; Hebrews 7:25"},
+{n:"Pentecost",s:"The Holy Spirit and the church",t:"The Jewish Feast of Weeks, fifty days after Passover. On that day after Jesus' ascension, the Holy Spirit came on the believers in Jerusalem, Peter preached, and about three thousand were saved, marking the birth of the church.\n\nKey verses: Leviticus 23:15-16; Acts 2:1-4, 41"},
+{n:"Spiritual gifts",s:"The Holy Spirit and the church",t:"Abilities the Holy Spirit gives to every believer to serve others and build up the church, such as teaching, serving, giving, encouraging and leading.\n\nKey verses: Romans 12:6-8; 1 Corinthians 12:4-11; Ephesians 4:11-12; 1 Peter 4:10"},
+{n:"Fruit of the Spirit",s:"The Holy Spirit and the church",t:"The character the Holy Spirit produces in a believer's life: love, joy, peace, longsuffering, gentleness, goodness, faith, meekness and temperance. It grows as we abide in Christ.\n\nKey verses: Galatians 5:22-23; John 15:5"},
+{n:"Baptism",s:"The Holy Spirit and the church",t:"The immersion of a believer in water in the name of the Father, Son and Holy Spirit. It is an act of obedience that pictures the believer's death to sin, burial, and new life with Christ. It does not save; it follows salvation as a public testimony.\n\nKey verses: Matthew 28:19; Acts 8:36-38; Romans 6:3-4"},
+{n:"Lord's Supper (Communion)",s:"The Holy Spirit and the church",t:"An ordinance in which believers eat the bread and drink the cup in memory of Christ's body and blood given for them. It is a memorial that proclaims His death until He comes, and believers are told to examine themselves first.\n\nKey verses: Luke 22:19-20; 1 Corinthians 11:23-28"},
+{n:"Apostle",s:"The Holy Spirit and the church",t:"Means one who is sent. The apostles were the twelve, and later Paul, chosen by Jesus as eyewitnesses of His resurrection and sent out to lay the foundation of the church.\n\nKey verses: Mark 3:14; Acts 1:21-22; 1 Corinthians 15:8-9; Ephesians 2:20"},
+{n:"Elder (pastor)",s:"The Holy Spirit and the church",t:"A spiritual leader who shepherds and oversees a local church. The Bible uses elder, bishop (overseer) and pastor (shepherd) for the same office, and it lists the qualifications.\n\nKey verses: Acts 20:17, 28; 1 Timothy 3:1-7; Titus 1:5-9; 1 Peter 5:1-4"},
+{n:"Deacon",s:"The Holy Spirit and the church",t:"Means servant. Deacons serve the practical needs of the church so the pastors can focus on prayer and the word, following the pattern of the seven chosen in Acts 6.\n\nKey verses: Acts 6:1-6; Philippians 1:1; 1 Timothy 3:8-13"},
+{n:"Gospel",s:"The Holy Spirit and the church",t:"Means good news: Christ died for our sins, was buried, and rose again the third day, and whoever believes in Him has eternal life. The books of Matthew, Mark, Luke and John are also called the Gospels.\n\nKey verses: Mark 1:1; Romans 1:16; 1 Corinthians 15:1-4"},
+{n:"Disciple",s:"The Holy Spirit and the church",t:"A learner and follower. A disciple of Jesus follows Him, learns from Him, obeys His teaching, and helps make other disciples.\n\nKey verses: Matthew 28:19-20; Luke 9:23; John 8:31"},
+{n:"Prophecy",s:"Bible study words",t:"A message from God spoken through a prophet. It includes forthtelling, calling people to obey God, and foretelling, announcing what will happen. A true prophet's predictions always come true.\n\nKey verses: Deuteronomy 18:21-22; Amos 3:7; 2 Peter 1:20-21"},
+{n:"Parable",s:"Bible study words",t:"A short story from everyday life used to teach a spiritual truth. Jesus taught often in parables, such as the sower, the Good Samaritan and the prodigal son.\n\nKey verses: Matthew 13:3, 10-13, 34; Luke 15"},
+{n:"Type (foreshadowing)",s:"Bible study words",t:"A person, event or object in the Old Testament that foreshadows something about Christ or the New Testament. Examples include the Passover lamb, the bronze serpent, Jonah in the fish, and Melchizedek.\n\nKey verses: John 3:14; Matthew 12:40; Romans 5:14; 1 Corinthians 10:11"},
+{n:"Inspiration",s:"Bible study words",t:"All Scripture is breathed out by God. Holy men wrote as they were moved by the Holy Spirit, so the Bible is God's word, true and without error, and the final authority for faith and life.\n\nKey verses: 2 Timothy 3:16-17; 2 Peter 1:21"},
+{n:"Canon",s:"Bible study words",t:"The collection of books recognized as Scripture. The word means a measuring rod. The Bible has 66 books: 39 in the Old Testament and 27 in the New.\n\nKey verse: Luke 24:44, where Jesus speaks of the law of Moses, the prophets and the psalms."},
+{n:"Septuagint",s:"Bible study words",t:"The Greek translation of the Old Testament, begun around 250 BC in Alexandria, Egypt. Its name means seventy, from the tradition of about seventy translators, and it is often written LXX. The New Testament writers frequently quoted from it."},
+{n:"Gentile",s:"Bible study words",t:"Anyone who is not Jewish; the word also means the nations. The gospel is for Gentiles as well as Jews, and in Christ both are one. Paul was the apostle to the Gentiles.\n\nKey verses: Acts 10:45; Romans 11:13; Galatians 3:28; Ephesians 2:11-13"},
+{n:"Pharisee",s:"Bible study words",t:"A member of a strict Jewish religious party known for careful law-keeping and the traditions of the elders. They believed in the resurrection and angels, and many opposed Jesus, who rebuked their hypocrisy. Nicodemus and Paul were Pharisees.\n\nKey verses: Matthew 23; John 3:1; Acts 23:6-8; Philippians 3:5"},
+{n:"Sadducee",s:"Bible study words",t:"A member of a Jewish party made up largely of wealthy priestly families who controlled the temple. They denied the resurrection, angels and spirits, and opposed Jesus and the apostles.\n\nKey verses: Matthew 22:23; Acts 5:17; Acts 23:8"},
+{n:"Scribe",s:"Bible study words",t:"An expert who copied, studied and taught the law of Moses. In the Gospels they are also called lawyers. Ezra was a godly scribe, but many scribes in Jesus' day opposed Him.\n\nKey verses: Ezra 7:6, 10; Matthew 7:29; Mark 12:28"},
+{n:"Sanhedrin",s:"Bible study words",t:"The Jewish ruling council in Jerusalem, about seventy members led by the high priest. The KJV calls it the council. It condemned Jesus and later put Peter, John, Stephen and Paul on trial.\n\nKey verses: Mark 14:55; Acts 5:27; Acts 6:12; Acts 23:1"},
+{n:"Eschatology",s:"End times",t:"The study of last things: the return of Christ, the resurrection, the judgment, and the eternal state. The word comes from the Greek for last.\n\nThe end-times cards follow the view common in many Baptist and non-denominational churches: Christ returns for His church before the tribulation and then reigns on earth for a thousand years."},
+{n:"Rapture",s:"End times",t:"Christ coming in the air to catch up His church. The dead in Christ rise first, then living believers are changed in a moment and caught up to meet the Lord. The word comes from the Latin for caught up. Many teach it happens before the tribulation.\n\nKey verses: John 14:2-3; 1 Corinthians 15:51-52; 1 Thessalonians 4:16-17"},
+{n:"Tribulation",s:"End times",t:"A coming period of seven years of unequaled trouble and God's judgment on the earth, with the rise of the Antichrist, ending when Christ returns. It is linked to Daniel's seventieth week. The word can also mean the ordinary troubles believers face.\n\nKey verses: Daniel 9:27; Matthew 24:21; John 16:33; Revelation 6-19"},
+{n:"Millennium",s:"End times",t:"The thousand-year reign of Christ on earth after His return, while Satan is bound. It will be a time of peace and righteousness, followed by Satan's final defeat.\n\nKey verses: Isaiah 11:6-9; Revelation 20:1-6"},
+{n:"Second coming",s:"End times",t:"Christ's personal, visible, bodily return to earth in power and glory to defeat His enemies, judge, and set up His kingdom. The angels at His ascension said He would come back the same way He left.\n\nKey verses: Zechariah 14:4; Matthew 24:30; Acts 1:11; Revelation 19:11-16"},
+{n:"Judgment",s:"End times",t:"Every person will give account to God. Believers will stand before the judgment seat of Christ for rewards, not condemnation, because their sins are paid for. Unbelievers will be judged at the great white throne and cast into the lake of fire.\n\nKey verses: John 5:24; 2 Corinthians 5:10; Hebrews 9:27; Revelation 20:11-15"},
+{n:"New heaven and new earth",s:"End times",t:"God's final renewal of all creation. The New Jerusalem comes down, God dwells with His people, and there is no more death, sorrow, crying or pain.\n\nKey verses: Isaiah 65:17; 2 Peter 3:13; Revelation 21:1-5"}
+/*MORE_TERMS*/
 ]
 };
 </script>
@@ -1770,8 +1860,8 @@ waters:[
 (function(){
 "use strict";
 var BOOKS=["Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1 Samuel","2 Samuel","1 Kings","2 Kings","1 Chronicles","2 Chronicles","Ezra","Nehemiah","Esther","Job","Psalms","Proverbs","Ecclesiastes","Song of Solomon","Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel","Hosea","Joel","Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk","Zephaniah","Haggai","Zechariah","Malachi","Matthew","Mark","Luke","John","Acts","Romans","1 Corinthians","2 Corinthians","Galatians","Ephesians","Philippians","Colossians","1 Thessalonians","2 Thessalonians","1 Timothy","2 Timothy","Titus","Philemon","Hebrews","James","1 Peter","2 Peter","1 John","2 John","3 John","Jude","Revelation"];
-var LABEL={chapter:"Chapter summary",verse:"Memory verse",person:"Bible character",place:"Bible place",water:"Bible waters"};
-var CATVAR={chapter:"var(--c-chapter)",verse:"var(--c-verse)",person:"var(--c-person)",place:"var(--c-place)",water:"var(--c-water)"};
+var LABEL={chapter:"Chapter summary",verse:"Memory verse",person:"Bible character",place:"Bible place",water:"Bible waters",term:"Bible term"};
+var CATVAR={chapter:"var(--c-chapter)",verse:"var(--c-verse)",person:"var(--c-person)",place:"var(--c-place)",water:"var(--c-water)",term:"var(--c-term)"};
 var PEND_KEY="bfc-pending", VIEW_KEY="bfc-view";
 
 function lsGet(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
@@ -1786,7 +1876,7 @@ lsSet(PEND_KEY,pending);
 
 var artifact=null, tts=null;
 var view=lsGet(VIEW_KEY,{cats:[],book:"all",shuffled:true});
-var CATS=["chapters","verses","people","places","waters"];
+var CATS=["chapters","verses","people","places","waters","terms"];
 /* cats: the selected categories; an empty list means all of them */
 var startCats=(Array.isArray(view.cats)?view.cats:(view.cat&&view.cat!=="all"?[view.cat]:[])).filter(function(c){return CATS.indexOf(c)>=0});
 var state={cats:startCats,book:view.book||"all",shuffled:view.shuffled!==false,deck:[],pos:0,flipped:false,note:""};
@@ -1842,9 +1932,10 @@ function allCards(){
   window.CARDS.people.forEach(function(p){out.push({type:"person",front:p.n,sub:"How did God use this person?",back:p.t})});
   (window.CARDS.places||[]).forEach(function(p){out.push({type:"place",front:p.n,sub:"Why does this place matter?",back:p.t+(p.w?"\n\nWhen: "+p.w:"")})});
   (window.CARDS.waters||[]).forEach(function(p){out.push({type:"water",front:p.n,sub:"What happened here?",back:p.t+(p.w?"\n\nWhen: "+p.w:"")})});
+  (window.CARDS.terms||[]).forEach(function(p){out.push({type:"term",front:p.n,sub:p.s||"What does this mean?",back:p.t})});
   return out;
 }
-var TYPE_OF={chapters:"chapter",verses:"verse",people:"person",places:"place",waters:"water"};
+var TYPE_OF={chapters:"chapter",verses:"verse",people:"person",places:"place",waters:"water",terms:"term"};
 function filtered(){
   return allCards().filter(function(c){
     if(state.cats.length&&!state.cats.some(function(k){return TYPE_OF[k]===c.type}))return false;
@@ -1894,9 +1985,9 @@ app.innerHTML=
 function $(id){return document.getElementById(id)}
 
 function renderChips(){
-  var all=allCards(), n={all:all.length,chapters:0,verses:0,people:0,places:0,waters:0};
-  all.forEach(function(c){if(c.type==="chapter")n.chapters++;else if(c.type==="verse")n.verses++;else if(c.type==="place")n.places++;else if(c.type==="water")n.waters++;else n.people++});
-  var defs=[["all","All"],["chapters","Chapters"],["verses","Verses"],["people","Characters"],["places","Places"],["waters","Waters"]];
+  var all=allCards(), n={all:all.length,chapters:0,verses:0,people:0,places:0,waters:0,terms:0};
+  all.forEach(function(c){if(c.type==="chapter")n.chapters++;else if(c.type==="verse")n.verses++;else if(c.type==="place")n.places++;else if(c.type==="water")n.waters++;else if(c.type==="term")n.terms++;else n.people++});
+  var defs=[["all","All"],["chapters","Chapters"],["verses","Verses"],["people","Characters"],["places","Places"],["waters","Waters"],["terms","Terms"]];
   $("chips").innerHTML=defs.map(function(d){
     return '<button class="chip" type="button" data-cat="'+d[0]+'" aria-pressed="'+(d[0]==="all"?!state.cats.length:state.cats.indexOf(d[0])>=0)+'"><span class="dot"></span>'+d[1]+' <small>'+n[d[0]]+'</small></button>';
   }).join("");
