@@ -1,4 +1,4 @@
-var C="bfc-v1";
+var C="bfc-v2";
 self.addEventListener("install",function(e){self.skipWaiting();e.waitUntil(caches.open(C).then(function(c){return c.addAll(["./","index.html","icon.png"])}))});
 self.addEventListener("activate",function(e){e.waitUntil(self.clients.claim())});
 self.addEventListener("fetch",function(e){
